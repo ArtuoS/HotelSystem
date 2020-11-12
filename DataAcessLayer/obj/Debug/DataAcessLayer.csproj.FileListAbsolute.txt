@@ -71,3 +71,14 @@ C:\Users\arthu\source\repos\HotelManagementSystem\DataAcessLayer\obj\Debug\DataA
 C:\Users\arthu\source\repos\HotelManagementSystem\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelManagementSystem\DataAcessLayer\obj\Debug\DataAcessLayer.dll
 C:\Users\arthu\source\repos\HotelManagementSystem\DataAcessLayer\obj\Debug\DataAcessLayer.pdb
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\Common.dll
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\Entities.dll
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\Common.pdb
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\bin\Debug\Entities.pdb
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\obj\Debug\DataAcessLayer.csprojAssemblyReference.cache
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\obj\Debug\DataAcessLayer.dll
+C:\Users\arthu\source\repos\HotelSystem\DataAcessLayer\obj\Debug\DataAcessLayer.pdb

@@ -25,6 +25,7 @@ namespace HotelManagementSystem
         FornecedorBLL fornecedorBLL = new FornecedorBLL();
         ProdutoBLL produtoBLL = new ProdutoBLL();
 
+
         private void FormRegistroProdutos_Load(object sender, EventArgs e)
         {
 
@@ -40,10 +41,9 @@ namespace HotelManagementSystem
         }
 
 
-
+        List<Itens_Produto> itens_Produtos = new List<Itens_Produto>();
         EntradaProduto entradaProduto = new EntradaProduto();
         ItensEntrada itensEntrada = new ItensEntrada();
-        //int entradaID;
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
@@ -51,7 +51,7 @@ namespace HotelManagementSystem
             {
                 entradaProduto.DataEntrada = DateTime.Now;
                 entradaProduto.FornecedorID = int.Parse(txtIDFornecedor.Text);
-                entradaProduto.FuncionarioID = 1;
+                entradaProduto.FuncionarioID = 45;
             }
             finally
             {
@@ -69,6 +69,8 @@ namespace HotelManagementSystem
                 if (response.Success)
                 {
                     FerramentasTextBox.LimpaTextBoxes(this);
+                    itens_Produtos.Clear();
+                    UpdateGridView();
                 }
             }
         }
@@ -87,7 +89,7 @@ namespace HotelManagementSystem
             {
                 entradaProduto.Valor += (itensEntrada.Valor * itensEntrada.Quantidade);
                 txtValor.Text = Convert.ToString(entradaProduto.Valor);
-                ConversaoClasses(cbProduto.GetItemText(cbProduto.SelectedItem), itensEntrada1);
+                itens_Produtos.Add(ConversaoClasses(cbProduto.GetItemText(cbProduto.SelectedItem), itensEntrada1));
                 entradaProduto.Itens.Add(itensEntrada1);
                 UpdateGridView();
             }
@@ -118,20 +120,20 @@ namespace HotelManagementSystem
             ie1.Quantidade = ie2.Quantidade;
         }
 
-        public void ConversaoClasses(string produto, ItensEntrada itemEntrada)
+        public Itens_Produto ConversaoClasses(string produto, ItensEntrada itemEntrada)
         {
             Itens_Produto item = new Itens_Produto();
             item.Produto = produto;
             item.Quantidade = itemEntrada.Quantidade;
             item.Valor = itemEntrada.Valor;
+            return item;
         }
-        //ok
+
         private void UpdateGridView()
         {
-            var bindingList = new BindingList<Itens_Produto>();
+            var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
             var source = new BindingSource(bindingList, null);
             dgvItens.DataSource = source;
         }
-
     }
 }

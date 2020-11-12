@@ -85,3 +85,16 @@ C:\Users\arthu\source\repos\HotelManagementSystem\BusinessLogicalLayer\obj\Debug
 C:\Users\arthu\source\repos\HotelManagementSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelManagementSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.dll
 C:\Users\arthu\source\repos\HotelManagementSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.pdb
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\BusinessLogicalLayer.dll
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\BusinessLogicalLayer.pdb
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\Common.dll
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\Entities.dll
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\Common.pdb
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\bin\Debug\Entities.pdb
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.csprojAssemblyReference.cache
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.csproj.CoreCompileInputs.cache
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.csproj.CopyComplete
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.dll
+C:\Users\arthu\source\repos\HotelSystem\BusinessLogicalLayer\obj\Debug\BusinessLogicalLayer.pdb

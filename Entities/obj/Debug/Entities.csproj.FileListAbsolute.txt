@@ -46,3 +46,11 @@ C:\Users\arthu\source\repos\HotelManagementSystem\Entities\obj\Debug\Entities.cs
 C:\Users\arthu\source\repos\HotelManagementSystem\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelManagementSystem\Entities\obj\Debug\Entities.dll
 C:\Users\arthu\source\repos\HotelManagementSystem\Entities\obj\Debug\Entities.pdb
+C:\Users\arthu\source\repos\HotelSystem\Entities\bin\Debug\Entities.dll
+C:\Users\arthu\source\repos\HotelSystem\Entities\bin\Debug\Entities.pdb
+C:\Users\arthu\source\repos\HotelSystem\Entities\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\arthu\source\repos\HotelSystem\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
+C:\Users\arthu\source\repos\HotelSystem\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\arthu\source\repos\HotelSystem\Entities\obj\Debug\Entities.csproj.CopyComplete
+C:\Users\arthu\source\repos\HotelSystem\Entities\obj\Debug\Entities.dll
+C:\Users\arthu\source\repos\HotelSystem\Entities\obj\Debug\Entities.pdb
