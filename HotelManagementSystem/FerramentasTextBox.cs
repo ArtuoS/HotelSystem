@@ -19,29 +19,27 @@ namespace HotelManagementSystem
                     (TextBox).Clear();
                 if (MaskedTextBox != null)
                     (MaskedTextBox).Clear();
-                if(c.HasChildren)
+                if (c.HasChildren)
                     LimpaTextBoxes(c);
             }
         }
-
-        /*
-        public static void VerificaTextBoxVazia(Control control)
+        public static bool TextBoxEstaVazia(Control control)
         {
             foreach (Control c in control.Controls)
             {
-                if(c is TextBox)
+                if (c is TextBox)
                 {
-                    if(string.IsNullOrEmpty(c.Text.Trim()))
+                    TextBox textBox = c as TextBox;
+                    if (textBox.Text == string.Empty)
                     {
-                        MessageBox.Show("Preencha todos os campos!");
-                        return;
+                        return true;
                     }
                 }
             }
+            return false;
         }
-        */
 
     }
 
-    
+
 }

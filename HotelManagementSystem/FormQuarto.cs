@@ -39,10 +39,9 @@ namespace HotelManagementSystem
                 quarto.PessoasMaximas = int.Parse(txtPessoasMax.Text);
                 quarto.Ocupado = false;
             }
-            catch
+            catch (FormatException)
             {
-                quarto.ValorNoite = 0;
-                quarto.PessoasMaximas = 0;
+                MessageBox.Show("Existem valores inválidos!");
             }
             finally
             {
@@ -71,8 +70,7 @@ namespace HotelManagementSystem
             }
             catch
             {
-                quarto.ValorNoite = 0;
-                quarto.PessoasMaximas = 0;
+                MessageBox.Show("Existem valores inválidos!");
             }
             finally
             {
@@ -152,20 +150,19 @@ namespace HotelManagementSystem
                 return 2;
             }
         }
-
         private void cbTipoQuarto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbTipoQuarto.SelectedIndex == 0)
             {
-                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelManagementSystemA\HotelManagementSystem\Imagens\economico.jpg";
+                pbImgQuarto.ImageLocation = @"C: \Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\economico.jpg";
             }
             else if (cbTipoQuarto.SelectedIndex == 1)
             {
-                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelManagementSystemA\HotelManagementSystem\Imagens\executivo.jpg";
+                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\executivo.jpg";
             }
             else
             {
-                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelManagementSystemA\HotelManagementSystem\Imagens\suite.jpg";
+                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\suite.jpg";
 
             }
         }

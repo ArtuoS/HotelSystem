@@ -94,7 +94,7 @@ namespace HotelManagementSystem
 
             Response response = checkOutBLL.Insert(checkOut);
             MessageBox.Show(response.Message);
-            if(response.Success)
+            if (response.Success)
             {
                 FerramentasTextBox.LimpaTextBoxes(this);
                 UpdateGridView();

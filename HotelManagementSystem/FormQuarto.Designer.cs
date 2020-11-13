@@ -94,7 +94,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(822, 405);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 25);
+            this.label4.Size = new System.Drawing.Size(24, 21);
             this.label4.TabIndex = 56;
             this.label4.Text = "ID";
             // 
@@ -103,7 +103,7 @@
             this.txtID.Location = new System.Drawing.Point(815, 428);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(37, 30);
+            this.txtID.Size = new System.Drawing.Size(37, 26);
             this.txtID.TabIndex = 55;
             // 
             // btnFechar
@@ -169,7 +169,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 153);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 25);
+            this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Pessoas Máximas";
             // 
@@ -179,7 +179,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(10, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 25);
+            this.label2.Size = new System.Drawing.Size(45, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Valor";
             // 
@@ -189,16 +189,17 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(9, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 25);
+            this.label1.Size = new System.Drawing.Size(39, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tipo";
             // 
             // txtPessoasMax
             // 
+            this.txtPessoasMax.ForeColor = System.Drawing.Color.Black;
             this.txtPessoasMax.Location = new System.Drawing.Point(14, 179);
             this.txtPessoasMax.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPessoasMax.Name = "txtPessoasMax";
-            this.txtPessoasMax.Size = new System.Drawing.Size(232, 30);
+            this.txtPessoasMax.Size = new System.Drawing.Size(232, 26);
             this.txtPessoasMax.TabIndex = 3;
             this.txtPessoasMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPessoasMax_KeyPress);
             // 
@@ -209,16 +210,17 @@
             this.cbTipoQuarto.Location = new System.Drawing.Point(14, 62);
             this.cbTipoQuarto.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.cbTipoQuarto.Name = "cbTipoQuarto";
-            this.cbTipoQuarto.Size = new System.Drawing.Size(232, 33);
+            this.cbTipoQuarto.Size = new System.Drawing.Size(232, 29);
             this.cbTipoQuarto.TabIndex = 2;
             this.cbTipoQuarto.SelectedIndexChanged += new System.EventHandler(this.cbTipoQuarto_SelectedIndexChanged);
             // 
             // txtValor
             // 
+            this.txtValor.BackColor = System.Drawing.Color.White;
             this.txtValor.Location = new System.Drawing.Point(15, 122);
             this.txtValor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(232, 30);
+            this.txtValor.Size = new System.Drawing.Size(232, 26);
             this.txtValor.TabIndex = 1;
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
@@ -244,7 +246,7 @@
             // 
             // FormQuarto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 463);
             this.Controls.Add(this.panel1);

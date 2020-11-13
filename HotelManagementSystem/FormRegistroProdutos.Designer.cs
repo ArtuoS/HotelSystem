@@ -30,6 +30,8 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnAdicionarProduto = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvItens = new System.Windows.Forms.DataGridView();
@@ -43,8 +45,6 @@
             this.cbProduto = new System.Windows.Forms.ComboBox();
             this.txtValorUnitario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,16 +52,21 @@
             this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDFornecedor = new System.Windows.Forms.TextBox();
-            this.txtDataAtual = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.btnEntrada = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -69,32 +74,59 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.txtValor);
-            this.panel2.Controls.Add(this.label);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.txtDataAtual);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.btnEntrada);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Location = new System.Drawing.Point(12, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1160, 657);
+            this.panel2.Size = new System.Drawing.Size(1160, 505);
             this.panel2.TabIndex = 89;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Controls.Add(this.btnDeletar);
+            this.panel5.Controls.Add(this.btnAtualizar);
             this.panel5.Controls.Add(this.btnAdicionarProduto);
-            this.panel5.Location = new System.Drawing.Point(899, 332);
+            this.panel5.Location = new System.Drawing.Point(471, 332);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(240, 76);
+            this.panel5.Size = new System.Drawing.Size(668, 76);
             this.panel5.TabIndex = 100;
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.ForeColor = System.Drawing.Color.White;
+            this.btnDeletar.Location = new System.Drawing.Point(16, 8);
+            this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(207, 58);
+            this.btnDeletar.TabIndex = 103;
+            this.btnDeletar.Text = "Deletar Produto";
+            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizar.Location = new System.Drawing.Point(231, 8);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(207, 58);
+            this.btnAtualizar.TabIndex = 102;
+            this.btnAtualizar.Text = "Atualizar Produto";
+            this.btnAtualizar.UseVisualStyleBackColor = false;
             // 
             // btnAdicionarProduto
             // 
             this.btnAdicionarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
             this.btnAdicionarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProduto.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(18, 2);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(446, 8);
             this.btnAdicionarProduto.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
             this.btnAdicionarProduto.Size = new System.Drawing.Size(207, 58);
@@ -124,11 +156,21 @@
             // 
             // dgvItens
             // 
+            this.dgvItens.AllowUserToAddRows = false;
+            this.dgvItens.AllowUserToDeleteRows = false;
+            this.dgvItens.AllowUserToOrderColumns = true;
+            this.dgvItens.AllowUserToResizeColumns = false;
+            this.dgvItens.AllowUserToResizeRows = false;
+            this.dgvItens.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItens.Location = new System.Drawing.Point(294, 35);
             this.dgvItens.Name = "dgvItens";
+            this.dgvItens.ReadOnly = true;
+            this.dgvItens.RowHeadersWidth = 51;
             this.dgvItens.Size = new System.Drawing.Size(565, 249);
             this.dgvItens.TabIndex = 105;
+            this.dgvItens.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItens_CellClick);
+            this.dgvItens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItens_CellContentClick);
             // 
             // label9
             // 
@@ -235,26 +277,6 @@
             this.label5.TabIndex = 93;
             this.label5.Text = "Produto";
             // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(949, 622);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(206, 26);
-            this.txtValor.TabIndex = 89;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
-            this.label.ForeColor = System.Drawing.Color.White;
-            this.label.Location = new System.Drawing.Point(949, 593);
-            this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(118, 21);
-            this.label.TabIndex = 90;
-            this.label.Text = "Valor do Pedido";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
@@ -333,15 +355,6 @@
             this.txtIDFornecedor.Size = new System.Drawing.Size(49, 26);
             this.txtIDFornecedor.TabIndex = 94;
             // 
-            // txtDataAtual
-            // 
-            this.txtDataAtual.Location = new System.Drawing.Point(735, 622);
-            this.txtDataAtual.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDataAtual.Name = "txtDataAtual";
-            this.txtDataAtual.ReadOnly = true;
-            this.txtDataAtual.Size = new System.Drawing.Size(206, 26);
-            this.txtDataAtual.TabIndex = 88;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
@@ -361,7 +374,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(1160, 26);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Entrada de Pedido";
+            this.label6.Text = "Entrada de Produtos";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnEntrada
@@ -369,29 +382,91 @@
             this.btnEntrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
             this.btnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrada.ForeColor = System.Drawing.Color.White;
-            this.btnEntrada.Location = new System.Drawing.Point(734, 556);
+            this.btnEntrada.Location = new System.Drawing.Point(12, 427);
             this.btnEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntrada.Name = "btnEntrada";
-            this.btnEntrada.Size = new System.Drawing.Size(207, 58);
+            this.btnEntrada.Size = new System.Drawing.Size(207, 65);
             this.btnEntrada.TabIndex = 70;
-            this.btnEntrada.Text = "Realizar Entrada do Pedido";
+            this.btnEntrada.Text = "Realizar Entrada do Produtos";
             this.btnEntrada.UseVisualStyleBackColor = false;
             this.btnEntrada.Click += new System.EventHandler(this.btnEntrada_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Black;
+            this.panel6.Controls.Add(this.txtValor);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.label);
+            this.panel6.Location = new System.Drawing.Point(899, 399);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(240, 93);
+            this.panel6.TabIndex = 102;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(50, 46);
+            this.txtValor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(175, 26);
+            this.txtValor.TabIndex = 89;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Black;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(16, 50);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 21);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "R$";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Black;
+            this.label.ForeColor = System.Drawing.Color.White;
+            this.label.Location = new System.Drawing.Point(45, 17);
+            this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(118, 21);
+            this.label.TabIndex = 90;
+            this.label.Text = "Valor do Pedido";
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Location = new System.Drawing.Point(1139, -1);
+            this.btnFechar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(42, 39);
+            this.btnFechar.TabIndex = 90;
+            this.btnFechar.Text = "X";
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FormRegistroProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
-            this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1184, 556);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormRegistroProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegistroProdutos";
             this.Load += new System.EventHandler(this.FormRegistroProdutos_Load);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -399,6 +474,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -409,7 +486,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnEntrada;
-        private System.Windows.Forms.TextBox txtDataAtual;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label1;
@@ -433,5 +509,10 @@
         private System.Windows.Forms.DataGridView dgvItens;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnAdicionarProduto;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }

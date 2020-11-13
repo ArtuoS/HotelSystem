@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using BusinessLogicalLayer.Extensions;
+using Common;
 using DataAcessLayer;
 using Entities;
 using System;
@@ -29,6 +30,8 @@ namespace BusinessLogicalLayer
 
         public override Response Validate(EntradaProduto entrada)
         {
+            AddError(entrada.Itens.ListaEstaVazia());
+
             return base.Validate(entrada);
         }
     }

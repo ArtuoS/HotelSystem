@@ -52,6 +52,10 @@ namespace HotelManagementSystem
                 fornecedor.TelefoneCelular = txtTelefoneC.Text;
                 fornecedor.Email = txtEmail.Text;
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
             finally
             {
                 Response response = fornecedorBLL.Insert(fornecedor);
@@ -71,7 +75,7 @@ namespace HotelManagementSystem
 
             Response response = fornecedorBLL.Delete(fornecedor);
             MessageBox.Show(response.Message);
-            if(response.Success)
+            if (response.Success)
             {
                 UpdateGridView();
                 FerramentasTextBox.LimpaTextBoxes(this);

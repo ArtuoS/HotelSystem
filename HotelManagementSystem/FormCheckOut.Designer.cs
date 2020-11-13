@@ -77,6 +77,7 @@
             this.dgvCheckOut.Location = new System.Drawing.Point(24, 41);
             this.dgvCheckOut.Name = "dgvCheckOut";
             this.dgvCheckOut.ReadOnly = true;
+            this.dgvCheckOut.RowHeadersWidth = 51;
             this.dgvCheckOut.Size = new System.Drawing.Size(730, 164);
             this.dgvCheckOut.TabIndex = 0;
             this.dgvCheckOut.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckOut_CellClick);
@@ -151,6 +152,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(24, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(730, 164);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -185,7 +187,7 @@
             this.label7.Location = new System.Drawing.Point(16, 411);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 21);
+            this.label7.Size = new System.Drawing.Size(121, 25);
             this.label7.TabIndex = 97;
             this.label7.Text = "ID do Cliente";
             // 
@@ -195,7 +197,7 @@
             this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.ReadOnly = true;
-            this.txtIDCliente.Size = new System.Drawing.Size(322, 26);
+            this.txtIDCliente.Size = new System.Drawing.Size(322, 30);
             this.txtIDCliente.TabIndex = 96;
             // 
             // txtTelefoneF
@@ -204,7 +206,7 @@
             this.txtTelefoneF.Mask = "(99) 0000-0000";
             this.txtTelefoneF.Name = "txtTelefoneF";
             this.txtTelefoneF.ReadOnly = true;
-            this.txtTelefoneF.Size = new System.Drawing.Size(322, 26);
+            this.txtTelefoneF.Size = new System.Drawing.Size(322, 30);
             this.txtTelefoneF.TabIndex = 95;
             // 
             // panel3
@@ -235,7 +237,7 @@
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
             this.txtTelefoneC.ReadOnly = true;
-            this.txtTelefoneC.Size = new System.Drawing.Size(322, 26);
+            this.txtTelefoneC.Size = new System.Drawing.Size(322, 30);
             this.txtTelefoneC.TabIndex = 94;
             // 
             // txtNome
@@ -244,7 +246,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(322, 26);
+            this.txtNome.Size = new System.Drawing.Size(322, 30);
             this.txtNome.TabIndex = 84;
             // 
             // Email
@@ -255,7 +257,7 @@
             this.Email.Location = new System.Drawing.Point(12, 357);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(50, 21);
+            this.Email.Size = new System.Drawing.Size(61, 25);
             this.Email.TabIndex = 91;
             this.Email.Text = "Email";
             // 
@@ -267,7 +269,7 @@
             this.label6.Location = new System.Drawing.Point(16, 52);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 21);
+            this.label6.Size = new System.Drawing.Size(63, 25);
             this.label6.TabIndex = 85;
             this.label6.Text = "Nome";
             // 
@@ -277,7 +279,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(322, 26);
+            this.txtEmail.Size = new System.Drawing.Size(322, 30);
             this.txtEmail.TabIndex = 90;
             // 
             // label2
@@ -288,7 +290,7 @@
             this.label2.Location = new System.Drawing.Point(16, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 21);
+            this.label2.Size = new System.Drawing.Size(46, 25);
             this.label2.TabIndex = 86;
             this.label2.Text = "CPF";
             // 
@@ -300,7 +302,7 @@
             this.label5.Location = new System.Drawing.Point(12, 295);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 21);
+            this.label5.Size = new System.Drawing.Size(150, 25);
             this.label5.TabIndex = 89;
             this.label5.Text = "Telefone Celular";
             // 
@@ -312,7 +314,7 @@
             this.label3.Location = new System.Drawing.Point(16, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 21);
+            this.label3.Size = new System.Drawing.Size(38, 25);
             this.label3.TabIndex = 87;
             this.label3.Text = "RG";
             // 
@@ -322,7 +324,7 @@
             this.txtRG.Mask = "00.000.000-9";
             this.txtRG.Name = "txtRG";
             this.txtRG.ReadOnly = true;
-            this.txtRG.Size = new System.Drawing.Size(322, 26);
+            this.txtRG.Size = new System.Drawing.Size(322, 30);
             this.txtRG.TabIndex = 93;
             // 
             // label4
@@ -333,7 +335,7 @@
             this.label4.Location = new System.Drawing.Point(12, 233);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 21);
+            this.label4.Size = new System.Drawing.Size(124, 25);
             this.label4.TabIndex = 88;
             this.label4.Text = "Telefone Fixo";
             // 
@@ -343,7 +345,7 @@
             this.txtCPF.Mask = "000.000.000-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(322, 26);
+            this.txtCPF.Size = new System.Drawing.Size(322, 30);
             this.txtCPF.TabIndex = 92;
             // 
             // label
@@ -352,7 +354,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(9, 18);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(108, 21);
+            this.label.Size = new System.Drawing.Size(136, 25);
             this.label.TabIndex = 82;
             this.label.Text = "ID do Check-in";
             // 
@@ -360,7 +362,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(12, 42);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(43, 26);
+            this.txtID.Size = new System.Drawing.Size(43, 30);
             this.txtID.TabIndex = 81;
             // 
             // btnCheckOut
@@ -383,7 +385,7 @@
             this.txtDataAtual.Margin = new System.Windows.Forms.Padding(4);
             this.txtDataAtual.Name = "txtDataAtual";
             this.txtDataAtual.ReadOnly = true;
-            this.txtDataAtual.Size = new System.Drawing.Size(199, 26);
+            this.txtDataAtual.Size = new System.Drawing.Size(199, 30);
             this.txtDataAtual.TabIndex = 10;
             // 
             // panel4
@@ -420,7 +422,7 @@
             // 
             // FormCheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 633);

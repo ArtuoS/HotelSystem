@@ -197,6 +197,15 @@ namespace BusinessLogicalLayer.Extensions
             return "Insira um número válido!";
         }
 
+        public static string ListaEstaVazia<T>(this List<T> lista)
+        {
+            if (!lista.Any())
+            {
+                return "A lista esta vazia!";
+            }
+            return "";
+        }
+
         /*
         public static string CalculaValorProdutos(double valor, int quantidade)
         {

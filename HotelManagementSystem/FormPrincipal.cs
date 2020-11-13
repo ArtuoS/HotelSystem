@@ -42,16 +42,18 @@ namespace HotelManagementSystem
         FormFuncionario formFuncionario = new FormFuncionario();
         FormProduto formProduto = new FormProduto();
         FormQuarto formQuarto = new FormQuarto();
+        FormRegistroProdutos formRegistroProdutos = new FormRegistroProdutos();
 
         public FormPrincipal()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            if(!Environments.FuncionarioLogado.IsADM)
+            if (!Environments.FuncionarioLogado.IsADM)
             {
                 btnFornecedores.Hide();
                 btnFuncionarios.Hide();
                 btnQuartos.Hide();
+                btnEntradaProdutos.Hide();
             }
         }
 
@@ -105,6 +107,16 @@ namespace HotelManagementSystem
             this.Show();
         }
 
+        private void btnEntradaProdutos_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnProdutos.Height;
+            pnlNav.Top = btnProdutos.Top;
+            btnProdutos.BackColor = Color.FromArgb(94, 96, 206);
+            this.Hide();
+            formRegistroProdutos.ShowDialog();
+            this.Show();
+        }
+
         private void btnClientes_Leave(object sender, EventArgs e)
         {
             btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
@@ -135,6 +147,6 @@ namespace HotelManagementSystem
             Application.Exit();
         }
 
-        
+
     }
 }
