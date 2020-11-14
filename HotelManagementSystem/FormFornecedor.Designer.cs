@@ -57,7 +57,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(8, 15);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(98, 21);
+            this.label.Size = new System.Drawing.Size(123, 25);
             this.label.TabIndex = 4;
             this.label.Text = "Razão Social";
             // 
@@ -65,7 +65,7 @@
             // 
             this.txtRazaoSocial.Location = new System.Drawing.Point(12, 39);
             this.txtRazaoSocial.Name = "txtRazaoSocial";
-            this.txtRazaoSocial.Size = new System.Drawing.Size(207, 26);
+            this.txtRazaoSocial.Size = new System.Drawing.Size(207, 30);
             this.txtRazaoSocial.TabIndex = 3;
             // 
             // panel1
@@ -101,7 +101,7 @@
             this.label3.Location = new System.Drawing.Point(1121, 286);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 21);
+            this.label3.Size = new System.Drawing.Size(30, 25);
             this.label3.TabIndex = 89;
             this.label3.Text = "ID";
             // 
@@ -111,7 +111,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(35, 26);
+            this.txtID.Size = new System.Drawing.Size(35, 30);
             this.txtID.TabIndex = 88;
             // 
             // btnFechar
@@ -191,7 +191,7 @@
             this.Email.Location = new System.Drawing.Point(8, 228);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(50, 21);
+            this.Email.Size = new System.Drawing.Size(61, 25);
             this.Email.TabIndex = 82;
             this.Email.Text = "Email";
             // 
@@ -200,7 +200,7 @@
             this.txtEmail.Location = new System.Drawing.Point(12, 253);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(206, 26);
+            this.txtEmail.Size = new System.Drawing.Size(206, 30);
             this.txtEmail.TabIndex = 81;
             // 
             // txtTelefoneC
@@ -208,7 +208,7 @@
             this.txtTelefoneC.Location = new System.Drawing.Point(12, 199);
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
-            this.txtTelefoneC.Size = new System.Drawing.Size(206, 26);
+            this.txtTelefoneC.Size = new System.Drawing.Size(206, 30);
             this.txtTelefoneC.TabIndex = 80;
             // 
             // label5
@@ -219,7 +219,7 @@
             this.label5.Location = new System.Drawing.Point(7, 175);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 21);
+            this.label5.Size = new System.Drawing.Size(150, 25);
             this.label5.TabIndex = 79;
             this.label5.Text = "Telefone Celular";
             // 
@@ -230,16 +230,16 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 21);
+            this.label2.Size = new System.Drawing.Size(56, 25);
             this.label2.TabIndex = 9;
             this.label2.Text = "CNPJ";
             // 
             // txtCNPJ
             // 
             this.txtCNPJ.Location = new System.Drawing.Point(12, 145);
-            this.txtCNPJ.Mask = "00.000.000/0000-99";
+            this.txtCNPJ.Mask = "00,000,000/0000-99";
             this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(207, 26);
+            this.txtCNPJ.Size = new System.Drawing.Size(207, 30);
             this.txtCNPJ.TabIndex = 8;
             // 
             // label1
@@ -249,7 +249,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(8, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 21);
+            this.label1.Size = new System.Drawing.Size(151, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nome Completo";
             // 
@@ -257,12 +257,12 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(12, 92);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 26);
+            this.txtNome.Size = new System.Drawing.Size(207, 30);
             this.txtNome.TabIndex = 6;
             // 
             // FormFornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 351);
             this.Controls.Add(this.txtRazaoSocial);

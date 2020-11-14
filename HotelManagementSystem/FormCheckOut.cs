@@ -85,20 +85,28 @@ namespace HotelManagementSystem
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            CheckOut checkOut = new CheckOut();
-            checkOut.ID = int.Parse(txtID.Text);
-            checkOut.QuartoID = int.Parse(QUARTOID);
-            checkOut.ClienteID = int.Parse(txtIDCliente.Text);
-            checkOut.DataSaida = DateTime.Parse(txtDataAtual.Text);
-            checkOut.Valor = 10; //ISSO É UM TESTE! MUDA ISSO DOIDO!
-
-            Response response = checkOutBLL.Insert(checkOut);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                FerramentasTextBox.LimpaTextBoxes(this);
-                UpdateGridView();
+                CheckOut checkOut = new CheckOut();
+                checkOut.ID = int.Parse(txtID.Text);
+                checkOut.QuartoID = int.Parse(QUARTOID);
+                checkOut.ClienteID = int.Parse(txtIDCliente.Text);
+                checkOut.DataSaida = DateTime.Parse(txtDataAtual.Text);
+                checkOut.Valor = 10; //ISSO É UM TESTE! MUDA ISSO DOIDO!
+
+                Response response = checkOutBLL.Insert(checkOut);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                    UpdateGridView();
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

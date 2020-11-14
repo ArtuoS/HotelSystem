@@ -65,7 +65,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(45, 26);
+            this.txtID.Size = new System.Drawing.Size(45, 30);
             this.txtID.TabIndex = 47;
             // 
             // btnAtualizar
@@ -88,7 +88,7 @@
             this.cbAdministrador.ForeColor = System.Drawing.Color.White;
             this.cbAdministrador.Location = new System.Drawing.Point(19, 492);
             this.cbAdministrador.Name = "cbAdministrador";
-            this.cbAdministrador.Size = new System.Drawing.Size(127, 25);
+            this.cbAdministrador.Size = new System.Drawing.Size(157, 29);
             this.cbAdministrador.TabIndex = 49;
             this.cbAdministrador.Text = "Administrador";
             this.cbAdministrador.UseVisualStyleBackColor = true;
@@ -188,7 +188,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(1135, 487);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 21);
+            this.label9.Size = new System.Drawing.Size(30, 25);
             this.label9.TabIndex = 67;
             this.label9.Text = "ID";
             // 
@@ -196,7 +196,7 @@
             // 
             this.txtBairro.Location = new System.Drawing.Point(19, 407);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(206, 26);
+            this.txtBairro.Size = new System.Drawing.Size(206, 30);
             this.txtBairro.TabIndex = 66;
             // 
             // label8
@@ -205,7 +205,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(15, 383);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 21);
+            this.label8.Size = new System.Drawing.Size(65, 25);
             this.label8.TabIndex = 65;
             this.label8.Text = "Bairro";
             // 
@@ -213,7 +213,7 @@
             // 
             this.txtNumeroCasa.Location = new System.Drawing.Point(19, 460);
             this.txtNumeroCasa.Name = "txtNumeroCasa";
-            this.txtNumeroCasa.Size = new System.Drawing.Size(206, 26);
+            this.txtNumeroCasa.Size = new System.Drawing.Size(206, 30);
             this.txtNumeroCasa.TabIndex = 64;
             // 
             // label7
@@ -222,7 +222,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(15, 436);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 21);
+            this.label7.Size = new System.Drawing.Size(156, 25);
             this.label7.TabIndex = 63;
             this.label7.Text = "Número da Casa";
             // 
@@ -230,7 +230,7 @@
             // 
             this.txtRua.Location = new System.Drawing.Point(16, 354);
             this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(206, 26);
+            this.txtRua.Size = new System.Drawing.Size(206, 30);
             this.txtRua.TabIndex = 62;
             // 
             // label6
@@ -239,7 +239,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 330);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 21);
+            this.label6.Size = new System.Drawing.Size(47, 25);
             this.label6.TabIndex = 61;
             this.label6.Text = "Rua";
             // 
@@ -249,7 +249,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(12, 274);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 21);
+            this.label5.Size = new System.Drawing.Size(63, 25);
             this.label5.TabIndex = 59;
             this.label5.Text = "Cargo";
             // 
@@ -259,7 +259,7 @@
             this.cbCargo.FormattingEnabled = true;
             this.cbCargo.Location = new System.Drawing.Point(16, 298);
             this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(206, 29);
+            this.cbCargo.Size = new System.Drawing.Size(206, 33);
             this.cbCargo.TabIndex = 58;
             // 
             // label4
@@ -268,7 +268,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(12, 222);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 21);
+            this.label4.Size = new System.Drawing.Size(66, 25);
             this.label4.TabIndex = 57;
             this.label4.Text = "Senha";
             // 
@@ -277,7 +277,7 @@
             this.txtSenha.Location = new System.Drawing.Point(16, 246);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(206, 26);
+            this.txtSenha.Size = new System.Drawing.Size(206, 30);
             this.txtSenha.TabIndex = 56;
             // 
             // label3
@@ -286,7 +286,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(11, 169);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 21);
+            this.label3.Size = new System.Drawing.Size(61, 25);
             this.label3.TabIndex = 55;
             this.label3.Text = "Email";
             // 
@@ -294,7 +294,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(16, 193);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(206, 26);
+            this.txtEmail.Size = new System.Drawing.Size(206, 30);
             this.txtEmail.TabIndex = 54;
             // 
             // label2
@@ -303,16 +303,16 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 21);
+            this.label2.Size = new System.Drawing.Size(38, 25);
             this.label2.TabIndex = 53;
             this.label2.Text = "RG";
             // 
             // txtRG
             // 
             this.txtRG.Location = new System.Drawing.Point(16, 140);
-            this.txtRG.Mask = "00.000.000-9";
+            this.txtRG.Mask = "00,000,000-9";
             this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(206, 26);
+            this.txtRG.Size = new System.Drawing.Size(206, 30);
             this.txtRG.TabIndex = 52;
             // 
             // label1
@@ -321,7 +321,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 21);
+            this.label1.Size = new System.Drawing.Size(46, 25);
             this.label1.TabIndex = 51;
             this.label1.Text = "CPF";
             // 
@@ -331,28 +331,28 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(11, 10);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(50, 21);
+            this.label.Size = new System.Drawing.Size(63, 25);
             this.label.TabIndex = 2;
             this.label.Text = "Nome";
             // 
             // txtCPF
             // 
             this.txtCPF.Location = new System.Drawing.Point(16, 87);
-            this.txtCPF.Mask = "000.000.000-99";
+            this.txtCPF.Mask = "000,000,000-99";
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(206, 26);
+            this.txtCPF.Size = new System.Drawing.Size(206, 30);
             this.txtCPF.TabIndex = 1;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(15, 34);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 26);
+            this.txtNome.Size = new System.Drawing.Size(207, 30);
             this.txtNome.TabIndex = 0;
             // 
             // FormFuncionario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 549);
             this.Controls.Add(this.panel1);

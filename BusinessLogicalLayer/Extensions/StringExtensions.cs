@@ -206,7 +206,6 @@ namespace BusinessLogicalLayer.Extensions
             return "";
         }
 
-        /*
         public static string CalculaValorProdutos(double valor, int quantidade)
         {
             if (quantidade > 1)
@@ -216,6 +215,5 @@ namespace BusinessLogicalLayer.Extensions
             }
             return "Quantidade de itens inválida!";
         }
-        */
     }
 }

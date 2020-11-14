@@ -50,6 +50,7 @@
     <Compile Include="FuncionarioDAL.cs" />
     <Compile Include="ProdutoDAL.cs" />
     <Compile Include="QuartoDAL.cs" />
+    <Compile Include="SaidaProdutoDAL.cs" />
     <Compile Include="ULTRAFuncionarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

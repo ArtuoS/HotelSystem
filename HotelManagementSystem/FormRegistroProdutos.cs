@@ -33,10 +33,6 @@ namespace HotelManagementSystem
             cbFornecedor.DataSource = responseFornecedor.Data;
             cbFornecedor.ValueMember = "RAZAOSOCIAL";
 
-            QueryResponse<Produto> responseProduto = produtoBLL.GetAll();
-            cbProduto.DataSource = responseProduto.Data;
-            cbProduto.ValueMember = "NOME";
-
             UpdateGridView();
         }
 
@@ -66,7 +62,6 @@ namespace HotelManagementSystem
 
                 if (response.Success)
                 {
-                    FerramentasTextBox.LimpaTextBoxes(this);
                     itens_Produtos.Clear();
                     UpdateGridView();
                 }
@@ -97,7 +92,6 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Existem valores inválidos!");
             }
-
         }
 
         private void cbFornecedor_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,29 +110,6 @@ namespace HotelManagementSystem
             SingleResponse<Produto> response = produtoBLL.GetByNome(produto);
             txtIDProduto.Text = Convert.ToString(produto.ID);
             txtDescricao.Text = produto.Descricao;
-        }
-
-        public void ClonaValores(ItensEntrada ie1, ItensEntrada ie2)
-        {
-            ie1.ProdutoID = ie2.ProdutoID;
-            ie1.Valor = ie2.Valor;
-            ie1.Quantidade = ie2.Quantidade;
-        }
-
-        public Itens_Produto ConversaoClasses(string produto, ItensEntrada itemEntrada)
-        {
-            Itens_Produto item = new Itens_Produto();
-            item.Produto = produto;
-            item.Quantidade = itemEntrada.Quantidade;
-            item.Valor = itemEntrada.Valor;
-            return item;
-        }
-
-        private void UpdateGridView()
-        {
-            var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
-            var source = new BindingSource(bindingList, null);
-            dgvItens.DataSource = source;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -169,6 +140,57 @@ namespace HotelManagementSystem
                 return;
 
 
+        }
+
+        string Message = "";
+        private void btnSelecionaFornecedor_Click(object sender, EventArgs e)
+        {
+            if (FornecedorFoiSelecionado(Message))
+            {
+                QueryResponse<Produto> responseProduto = produtoBLL.GetAll();
+                cbProduto.DataSource = responseProduto.Data;
+                cbProduto.ValueMember = "NOME";
+                Message = "Fornecedor selecionado!";
+                MessageBox.Show(Message);
+                cbFornecedor.Enabled = false;
+            }
+            else
+            {
+                Message = "Fornecedor já selecionado!";
+                MessageBox.Show(Message);
+            }
+        }
+
+        public bool FornecedorFoiSelecionado(string message)
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void ClonaValores(ItensEntrada ie1, ItensEntrada ie2)
+        {
+            ie1.ProdutoID = ie2.ProdutoID;
+            ie1.Valor = ie2.Valor;
+            ie1.Quantidade = ie2.Quantidade;
+        }
+
+        public Itens_Produto ConversaoClasses(string produto, ItensEntrada itemEntrada)
+        {
+            Itens_Produto item = new Itens_Produto();
+            item.Produto = produto;
+            item.Quantidade = itemEntrada.Quantidade;
+            item.Valor = itemEntrada.Valor;
+            return item;
+        }
+
+        private void UpdateGridView()
+        {
+            var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
+            var source = new BindingSource(bindingList, null);
+            dgvItens.DataSource = source;
         }
     }
 }

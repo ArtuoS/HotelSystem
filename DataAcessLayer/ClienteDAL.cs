@@ -309,6 +309,51 @@ namespace DataAcessLayer
             }
         }
 
+        public SingleResponse<Cliente> GetByNome(Cliente cliente)
+        {
+            SingleResponse<Cliente> response = new SingleResponse<Cliente>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM CLIENTES WHERE NOME = @NOME";
+            command.Parameters.AddWithValue("@NOME", cliente.Nome);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    cliente.ID = (int)reader["ID"];
+                    cliente.Nome = (string)reader["NOME"];
+                    response.Data = cliente;
+                }
+
+                response.Success = true;
+                response.Message = "Dados selecionados com sucesso!";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+        }
+
         public Response IsCPFUnique(Cliente cliente)
         {
             QueryResponse<Cliente> response = new QueryResponse<Cliente>();
