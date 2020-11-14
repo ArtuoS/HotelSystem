@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-	public class VendaProduto
-	{
-		public int ID { get; set; }
-		public int ProdutoID { get; set; }
-		public int ReservaID { get; set; }
-		public DateTime DataCompra { get; set; }
-		public int QtdCompra { get; set; }
-	}
+    public class VendaProduto
+    {
+        public int ID { get; set; }
+        public DateTime DataVenda { get; set; }
+        public double Valor { get; set; }
+        public int FornecedorID { get; set; }
+        public int FuncionarioID { get; set; }
+        public List<ItensVenda> Itens { get; set; }
+        public VendaProduto()
+        {
+            this.Itens = new List<ItensVenda>();
+        }
+    }
 }

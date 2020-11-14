@@ -18,7 +18,7 @@ namespace HotelManagementSystem
             Application.EnableVisualStyles();
             
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormVendaItens());
+            Application.Run(new FormRegistroProdutos());
         }
     }
 }

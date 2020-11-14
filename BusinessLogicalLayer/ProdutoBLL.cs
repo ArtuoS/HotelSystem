@@ -48,6 +48,12 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        public SingleResponse<Produto> GetById(int id)
+        {
+            SingleResponse<Produto> response = produtoDAL.GetById(id);
+            return response;
+        }
+
         public override Response Validate(Produto produto)
         {
             AddError(produto.Nome.ValidaNome());

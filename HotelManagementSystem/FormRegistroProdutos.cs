@@ -20,11 +20,6 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
-        EntradaProdutoBLL entradaProdutoBLL = new EntradaProdutoBLL();
-        ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
-        FornecedorBLL fornecedorBLL = new FornecedorBLL();
-        ProdutoBLL produtoBLL = new ProdutoBLL();
-        int listIndex;
 
         private void FormRegistroProdutos_Load(object sender, EventArgs e)
         {
@@ -36,10 +31,17 @@ namespace HotelManagementSystem
             UpdateGridView();
         }
 
+        EntradaProdutoBLL entradaProdutoBLL = new EntradaProdutoBLL();
+        ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
+        FornecedorBLL fornecedorBLL = new FornecedorBLL();
+        ProdutoBLL produtoBLL = new ProdutoBLL();
 
         List<Itens_Produto> itens_Produtos = new List<Itens_Produto>();
         EntradaProduto entradaProduto = new EntradaProduto();
         ItensEntrada itensEntrada = new ItensEntrada();
+
+        string Message = "";
+        int listIndex;
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
@@ -138,11 +140,8 @@ namespace HotelManagementSystem
         {
             if (e.RowIndex < 0)
                 return;
-
-
         }
 
-        string Message = "";
         private void btnSelecionaFornecedor_Click(object sender, EventArgs e)
         {
             if (FornecedorFoiSelecionado(Message))

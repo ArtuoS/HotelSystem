@@ -45,22 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CheckIn.cs" />
-    <Compile Include="Classes\CheckIn_Cliente.cs" />
-    <Compile Include="Classes\CheckOut.cs" />
-    <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="CheckIn.cs" />
+    <Compile Include="CheckIn_Cliente.cs" />
+    <Compile Include="CheckOut.cs" />
+    <Compile Include="Cliente.cs" />
     <Compile Include="ConnectionString.cs" />
-    <Compile Include="Classes\EntradaProduto.cs" />
+    <Compile Include="EntradaProduto.cs" />
     <Compile Include="Enumeradores\CargosFuncionarios.cs" />
     <Compile Include="Enumeradores\TipoQuartos.cs" />
-    <Compile Include="Classes\Fornecedor.cs" />
-    <Compile Include="Classes\Funcionario.cs" />
-    <Compile Include="Classes\ItensEntrada.cs" />
-    <Compile Include="Classes\Itens_Produto.cs" />
-    <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="Funcionario.cs" />
+    <Compile Include="ItensEntrada.cs" />
+    <Compile Include="ItensVenda.cs" />
+    <Compile Include="Itens_Produto.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Quarto.cs" />
-    <Compile Include="Classes\VendaProduto.cs" />
+    <Compile Include="Quarto.cs" />
+    <Compile Include="VendaProduto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

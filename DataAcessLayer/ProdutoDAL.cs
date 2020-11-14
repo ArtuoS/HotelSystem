@@ -248,5 +248,51 @@ namespace DataAcessLayer
                 connection.Close();
             }
         }
+        public Response IsProdutoAvaible(Produto produto)
+        {
+            QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PRODUTOS WHERE ID = @ID";
+            command.Parameters.AddWithValue("@CPF", produto.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    response.Success = false;
+                    response.Message = "CPF já cadastrado!";
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+        }
     }
 }

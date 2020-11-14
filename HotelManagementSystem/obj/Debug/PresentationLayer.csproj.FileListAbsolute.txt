@@ -252,3 +252,4 @@ C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\obj\Debug\Presentatio
 C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\obj\Debug\PresentationLayer.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\obj\Debug\HotelManagementSystem.exe
 C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\obj\Debug\HotelManagementSystem.pdb
+C:\Users\arthu\source\repos\HotelSystem\HotelManagementSystem\obj\Debug\HotelManagementSystem.FormVendaItens.resources

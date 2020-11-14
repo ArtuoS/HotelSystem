@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class ItensEntrada
+    public class ItensVenda
     {
-        public int EntradaID { get; set; }
+        public int VendaID { get; set; }
         public int ProdutoID { get; set; }
         public double Valor { get; set; }
         public int Quantidade { get; set; }
