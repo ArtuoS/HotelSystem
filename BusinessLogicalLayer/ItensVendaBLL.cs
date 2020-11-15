@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using BusinessLogicalLayer.Extensions;
+using Common;
 using DataAcessLayer;
 using Entities;
 using System;
@@ -33,6 +34,8 @@ namespace BusinessLogicalLayer
         public override Response Validate(ItensVenda item)
         {
             //AddError(StringExtensions.CalculaValorProdutos(item.Valor, item.Quantidade));
+
+            AddError(item.ProdutoID.VerificaEstoque());
 
             return base.Validate(item);
         }

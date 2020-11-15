@@ -1,4 +1,6 @@
-﻿using Entities.Enumeradores;
+﻿using Common;
+using Entities;
+using Entities.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,7 @@ namespace BusinessLogicalLayer.Extensions
 {
     static class StringExtensions
     {
+
         public static string ValidadorEmail(this string email)
         {
             Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
@@ -215,5 +218,17 @@ namespace BusinessLogicalLayer.Extensions
             }
             return "Quantidade de itens inválida!";
         }
+
+        public static string VerificaEstoque(this int produtoid)
+        {
+            ProdutoBLL produtoBLL = new ProdutoBLL();
+            SingleResponse<Produto> response = produtoBLL.GetById(produtoid);
+            if (response.Data.QtdEstoque > 0)
+            {
+                return "";
+            }
+            return "Produto sem estoque!";
+        }
+
     }
 }

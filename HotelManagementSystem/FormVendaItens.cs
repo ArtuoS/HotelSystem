@@ -122,18 +122,19 @@ namespace HotelManagementSystem
 
 
                 Response response = vendaProdutoBLL.InsertEntrada(vendaProduto);
+                Response response1;
 
                 foreach (ItensVenda item in vendaProduto.Itens)
                 {
                     SingleResponse<VendaProduto> singleResponse = vendaProdutoBLL.GetEntradaID(vendaProduto);
                     vendaProduto.Itens.Where(i => item.VendaID == 0);
                     item.VendaID = singleResponse.Data.ID;
-                    Response response1 = itensVendaBLL.InsertItem(item);
+                    response1 = itensVendaBLL.InsertItem(item);
                 }
-                MessageBox.Show(response.Message);
 
                 if (response.Success)
                 {
+                    MessageBox.Show(response.Message);
                     itens_Produtos.Clear();
                     UpdateGridView();
                     UpdateGridViewCarrinho();

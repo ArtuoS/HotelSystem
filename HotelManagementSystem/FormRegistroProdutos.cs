@@ -42,24 +42,18 @@ namespace HotelManagementSystem
 
         string Message = "";
         int listIndex;
+        double valorTemp = 0;
+        int qtdTemp = 0;
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
             try
             {
-                entradaProduto.DataEntrada = DateTime.Now;
                 entradaProduto.FornecedorID = int.Parse(txtIDFornecedor.Text);
-                entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
-
+                //entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
+                entradaProduto.FuncionarioID = 45;
                 Response response = entradaProdutoBLL.InsertEntrada(entradaProduto);
 
-                foreach (ItensEntrada item in entradaProduto.Itens)
-                {
-                    SingleResponse<EntradaProduto> singleResponse = entradaProdutoBLL.GetEntradaID(entradaProduto);
-                    entradaProduto.Itens.Where(i => item.EntradaID == 0);
-                    item.EntradaID = singleResponse.Data.ID;
-                    Response response1 = itensEntradaBLL.InsertItem(item);
-                }
                 MessageBox.Show(response.Message);
 
                 if (response.Success)
@@ -72,6 +66,7 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Existem valores inválidos!");
             }
+
         }
 
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
@@ -89,6 +84,29 @@ namespace HotelManagementSystem
                 itens_Produtos.Add(ConversaoClasses(cbProduto.GetItemText(cbProduto.SelectedItem), itensEntrada1));
                 entradaProduto.Itens.Add(itensEntrada1);
                 UpdateGridView();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+        }
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (valorTemp != 0 && qtdTemp != 0)
+                {
+                    entradaProduto.Valor -= (valorTemp * qtdTemp);
+                    txtValor.Text = Convert.ToString(entradaProduto.Valor);
+                    itens_Produtos.RemoveAt(listIndex);
+                    entradaProduto.Itens.RemoveAt(listIndex);
+                    dgvItens.DataSource = itens_Produtos.ToList();
+                    MessageBox.Show("Produto deletado!");
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto foi selecionado!");
+                }
             }
             catch (FormatException)
             {
@@ -119,19 +137,19 @@ namespace HotelManagementSystem
             Application.Exit();
         }
 
-        private void btnDeletar_Click(object sender, EventArgs e)
-        {
-            itens_Produtos.RemoveAt(listIndex);
-            entradaProduto.Itens.RemoveAt(listIndex);
-            dgvItens.DataSource = itens_Produtos.ToList();
-            MessageBox.Show("Produto deletado!");
-        }
+
 
         private void dgvItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvItens.SelectedRows.Count > 0)
             {
                 listIndex = e.RowIndex;
+
+                string QUANTIDADE = dgvItens.SelectedRows[0].Cells[2].Value + string.Empty;
+                string VALOR = dgvItens.SelectedRows[0].Cells[1].Value + string.Empty;
+                qtdTemp = int.Parse(QUANTIDADE);
+                valorTemp = double.Parse(VALOR);
+
                 MessageBox.Show("Produto selecionado!");
             }
         }

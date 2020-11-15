@@ -15,9 +15,9 @@ namespace DataAcessLayer
         //Insert entrada
         //scope_identity
 
-        public Response InsertEntrada(EntradaProduto entradaProduto)
+        public SingleResponse<EntradaProduto> InsertEntrada(EntradaProduto entradaProduto)
         {
-            Response response = new Response();
+            SingleResponse<EntradaProduto> response = new SingleResponse<EntradaProduto>();
 
             // responsável por realizar conexão física com o banco
             SqlConnection connection = new SqlConnection();
@@ -117,7 +117,7 @@ namespace DataAcessLayer
             SqlCommand command1 = new SqlCommand();
             command1.CommandText = "UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE + @QUANTIDADE WHERE ID = @PRODUTOID";
             command1.Parameters.AddWithValue("@QUANTIDADE", itens.Quantidade);
-            command1.Parameters.AddWithValue("@PRODUTOID", itens.ProdutoID); ;
+            command1.Parameters.AddWithValue("@PRODUTOID", itens.ProdutoID);
 
             command1.Connection = connection;
             SqlTransaction transaction = null;
@@ -250,6 +250,87 @@ namespace DataAcessLayer
             }
             finally
             {
+                connection.Close();
+            }
+            return response;
+        }
+
+        public Response AtualizaEstoque(int produtoID, int quantidade)
+        {
+            Response response = new Response();
+
+            // responsável por realizar conexão física com o banco
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            // responsável por executar uma query no banco
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE + @QUANTIDADE WHERE ID = @PRODUTOID";
+            command.Parameters.AddWithValue("@QUANTIDADE", quantidade);
+            command.Parameters.AddWithValue("@PRODUTOID", produtoID);
+
+            // SqlCommando -> O QUE
+            // SqlConnection -> ONDE
+            command.Connection = connection;
+
+            // Realiza, de fato, a conexão física com o banco.
+            // Lança erros caso a base na exista ou esteja ocupada.
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                response.Success = true;
+                response.Message = "Estoque atualizado com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+            return response;
+        }
+
+        public Response AtualizaPreco(int produtoID, double valor, int quantidade)
+        {
+            Response response = new Response();
+
+            // responsável por realizar conexão física com o banco
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            // responsável por executar uma query no banco
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "UPDATE PRODUTOS SET VALORUNITARIO = ((VALORUNITARIO * QTDESTOQUE) + (@VALOR * @QUANTIDADE)) / (QTDESTOQUE + @QUANTIDADE) WHERE ID = @PRODUTOID";
+            command.Parameters.AddWithValue("@PRODUTOID", produtoID);
+            command.Parameters.AddWithValue("@QUANTIDADE", quantidade);
+            command.Parameters.AddWithValue("@VALOR", valor);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                response.Success = true;
+                response.Message = "Estoque atualizado com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
                 connection.Close();
             }
             return response;
