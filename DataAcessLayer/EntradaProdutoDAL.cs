@@ -59,16 +59,13 @@ namespace DataAcessLayer
             return response;
         }
 
-        /*
         public Response InsertItem(ItensEntrada itens)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConnectionString.GetConnectionString();
 
-            // responsável por executar uma query no banco
             SqlCommand command = new SqlCommand();
             command.CommandText = "INSERT INTO ITENSENTRADA (ENTRADAID, PRODUTOID, VALOR, QUANTIDADE) VALUES (@ENTRADAID, @PRODUTOID, @VALOR, @QUANTIDADE)";
             command.Parameters.AddWithValue("@ENTRADAID", itens.EntradaID);
@@ -76,80 +73,16 @@ namespace DataAcessLayer
             command.Parameters.AddWithValue("@VALOR", itens.Valor);
             command.Parameters.AddWithValue("@QUANTIDADE", itens.Quantidade);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
             command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
             try
             {
                 connection.Open();
                 command.ExecuteNonQuery();
                 response.Success = true;
-                response.Message = "Item cadastrado com sucesso!";
+                response.Message = "Item inserido com sucesso!";
             }
             catch (Exception ex)
             {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
-        }
-        */
-
-        public Response InsertItem(ItensEntrada itens)
-        {
-            Response response = new Response();
-
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            // responsável por executar uma query no banco
-            SqlCommand command1 = new SqlCommand();
-            command1.CommandText = "UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE + @QUANTIDADE WHERE ID = @PRODUTOID";
-            command1.Parameters.AddWithValue("@QUANTIDADE", itens.Quantidade);
-            command1.Parameters.AddWithValue("@PRODUTOID", itens.ProdutoID);
-
-            command1.Connection = connection;
-            SqlTransaction transaction = null;
-
-            try
-            {
-                connection.Open();
-
-                transaction = connection.BeginTransaction();
-
-                command1.Transaction = transaction;
-                command1.ExecuteScalar();
-
-                SqlCommand command2 = new SqlCommand();
-                command2.Transaction = transaction;
-
-                command2.CommandText = "INSERT INTO ITENSENTRADA (ENTRADAID, PRODUTOID, VALOR, QUANTIDADE) VALUES (@ENTRADAID, @PRODUTOID, @VALOR, @QUANTIDADE)";
-                command2.Parameters.AddWithValue("@ENTRADAID", itens.EntradaID);
-                command2.Parameters.AddWithValue("@PRODUTOID", itens.ProdutoID);
-                command2.Parameters.AddWithValue("@VALOR", itens.Valor);
-                command2.Parameters.AddWithValue("@QUANTIDADE", itens.Quantidade);
-
-                command2.Connection = connection;
-
-                command2.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Item cadastrado com sucesso!";
-                transaction.Commit();
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
                 response.Success = false;
                 response.Message = "Erro no Banco de Dados, contate um ADM!";
                 response.StackTrace = ex.StackTrace;

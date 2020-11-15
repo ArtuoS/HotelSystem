@@ -197,6 +197,54 @@ namespace DataAcessLayer
                 connection.Close();
             }
         }
+        public QueryResponse<Produto> GetAllComEstoque()
+        {
+            QueryResponse<Produto> response = new QueryResponse<Produto>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PRODUTOS WHERE QTDESTOQUE != 0";
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<Produto> produtos = new List<Produto>();
+
+                while (reader.Read())
+                {
+                    Produto produto = new Produto();
+                    produto.ID = (int)reader["ID"];
+                    produto.Nome = (string)reader["NOME"];
+                    produto.Descricao = (string)reader["DESCRICAO"];
+                    produto.ValorUnitario = (double)reader["VALORUNITARIO"];
+                    produto.QtdEstoque = (int)reader["QTDESTOQUE"];
+                    produtos.Add(produto);
+                }
+
+                response.Success = true;
+                response.Message = "Dados selecionados com sucesso!";
+                response.Data = produtos;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+        }
         public SingleResponse<Produto> GetByNome(Produto produto)
         {
             SingleResponse<Produto> response = new SingleResponse<Produto>();

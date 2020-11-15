@@ -31,7 +31,7 @@ namespace BusinessLogicalLayer
 
         public override Response Validate(ItensEntrada item)
         {
-            //AddError(StringExtensions.CalculaValorProdutos(item.Valor, item.Quantidade));
+            AddError(item.Quantidade.VerificaQuantidadeItens());
 
             return base.Validate(item);
         }

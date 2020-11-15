@@ -30,11 +30,14 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.txtProdutoID = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.txtValorUnitario = new System.Windows.Forms.TextBox();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnSelecionaCliente = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.cbCliente = new System.Windows.Forms.ComboBox();
@@ -55,8 +58,6 @@
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.cbCPF = new System.Windows.Forms.ComboBox();
             this.btnVender = new System.Windows.Forms.Button();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -98,41 +99,62 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1094, 563);
+            this.panel1.Size = new System.Drawing.Size(1252, 818);
             this.panel1.TabIndex = 88;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(698, 505);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 21);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "Valor Total";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(702, 529);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.ReadOnly = true;
+            this.txtValor.Size = new System.Drawing.Size(156, 26);
+            this.txtValor.TabIndex = 105;
             // 
             // txtProdutoID
             // 
-            this.txtProdutoID.Location = new System.Drawing.Point(12, 351);
+            this.txtProdutoID.Location = new System.Drawing.Point(69, 577);
             this.txtProdutoID.Name = "txtProdutoID";
-            this.txtProdutoID.Size = new System.Drawing.Size(156, 26);
+            this.txtProdutoID.Size = new System.Drawing.Size(10, 26);
             this.txtProdutoID.TabIndex = 104;
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(12, 447);
+            this.txtQuantidade.Location = new System.Drawing.Point(101, 577);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(156, 26);
+            this.txtQuantidade.Size = new System.Drawing.Size(10, 26);
             this.txtQuantidade.TabIndex = 102;
             // 
             // txtValorUnitario
             // 
-            this.txtValorUnitario.Location = new System.Drawing.Point(12, 415);
+            this.txtValorUnitario.Location = new System.Drawing.Point(117, 577);
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(156, 26);
+            this.txtValorUnitario.Size = new System.Drawing.Size(10, 26);
             this.txtValorUnitario.TabIndex = 101;
             this.txtValorUnitario.Text = "d";
             // 
             // txtProduto
             // 
-            this.txtProduto.Location = new System.Drawing.Point(12, 383);
+            this.txtProduto.Location = new System.Drawing.Point(85, 577);
             this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Size = new System.Drawing.Size(156, 26);
+            this.txtProduto.Size = new System.Drawing.Size(10, 26);
             this.txtProduto.TabIndex = 100;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel5.Controls.Add(this.btnSelecionaCliente);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.cbCliente);
             this.panel5.Controls.Add(this.label6);
@@ -142,8 +164,22 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(12, 32);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(272, 224);
+            this.panel5.Size = new System.Drawing.Size(243, 284);
             this.panel5.TabIndex = 99;
+            // 
+            // btnSelecionaCliente
+            // 
+            this.btnSelecionaCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnSelecionaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionaCliente.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionaCliente.Location = new System.Drawing.Point(15, 206);
+            this.btnSelecionaCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelecionaCliente.Name = "btnSelecionaCliente";
+            this.btnSelecionaCliente.Size = new System.Drawing.Size(207, 62);
+            this.btnSelecionaCliente.TabIndex = 105;
+            this.btnSelecionaCliente.Text = "Selecionar Cliente";
+            this.btnSelecionaCliente.UseVisualStyleBackColor = false;
+            this.btnSelecionaCliente.Click += new System.EventHandler(this.btnSelecionaCliente_Click);
             // 
             // panel7
             // 
@@ -152,7 +188,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(272, 26);
+            this.panel7.Size = new System.Drawing.Size(243, 26);
             this.panel7.TabIndex = 87;
             // 
             // label4
@@ -163,7 +199,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(272, 26);
+            this.label4.Size = new System.Drawing.Size(243, 26);
             this.label4.TabIndex = 0;
             this.label4.Text = "Informações do Cliente";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -174,9 +210,8 @@
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(15, 61);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(235, 29);
+            this.cbCliente.Size = new System.Drawing.Size(207, 29);
             this.cbCliente.TabIndex = 91;
-            this.cbCliente.SelectedIndexChanged += new System.EventHandler(this.cbCliente_SelectedIndexChanged_1);
             // 
             // label2
             // 
@@ -186,9 +221,9 @@
             this.label2.Location = new System.Drawing.Point(11, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 21);
+            this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 96;
-            this.label2.Text = "ID";
+            this.label2.Text = "ID do Cliente";
             // 
             // txtID
             // 
@@ -203,7 +238,7 @@
             this.txtCPF.Location = new System.Drawing.Point(15, 117);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(235, 26);
+            this.txtCPF.Size = new System.Drawing.Size(207, 26);
             this.txtCPF.TabIndex = 92;
             // 
             // label1
@@ -346,10 +381,11 @@
             // 
             this.cbCPF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCPF.FormattingEnabled = true;
-            this.cbCPF.Location = new System.Drawing.Point(1192, 582);
+            this.cbCPF.Location = new System.Drawing.Point(12, 322);
             this.cbCPF.Name = "cbCPF";
-            this.cbCPF.Size = new System.Drawing.Size(10, 29);
+            this.cbCPF.Size = new System.Drawing.Size(243, 29);
             this.cbCPF.TabIndex = 94;
+            this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.cbCPF_SelectedIndexChanged);
             // 
             // btnVender
             // 
@@ -365,31 +401,11 @@
             this.btnVender.UseVisualStyleBackColor = false;
             this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(702, 529);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(156, 26);
-            this.txtValor.TabIndex = 105;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(698, 505);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 21);
-            this.label7.TabIndex = 97;
-            this.label7.Text = "Valor Total";
-            // 
             // FormVendaItens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 563);
+            this.ClientSize = new System.Drawing.Size(1252, 818);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -442,5 +458,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSelecionaCliente;
     }
 }

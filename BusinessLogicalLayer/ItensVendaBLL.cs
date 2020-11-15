@@ -23,19 +23,9 @@ namespace BusinessLogicalLayer
             return response;
         }
 
-        /*
-        public QueryResponse<Itens_Produto> GetProdutoInfo()
-        {
-            QueryResponse<Itens_Produto> response = entradaProdutoDAL.GetProdutoInfo();
-            return response;
-        }
-        */
-
         public override Response Validate(ItensVenda item)
         {
-            //AddError(StringExtensions.CalculaValorProdutos(item.Valor, item.Quantidade));
-
-            AddError(item.ProdutoID.VerificaEstoque());
+            AddError(item.ProdutoID.VerificaEstoque(item.Quantidade));
 
             return base.Validate(item);
         }

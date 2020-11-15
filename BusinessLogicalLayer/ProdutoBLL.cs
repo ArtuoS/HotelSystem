@@ -42,6 +42,12 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        public QueryResponse<Produto> GetAllComEstoque()
+        {
+            QueryResponse<Produto> response = produtoDAL.GetAllComEstoque();
+            return response;
+        }
+
         public SingleResponse<Produto> GetByNome(Produto produto)
         {
             SingleResponse<Produto> response = produtoDAL.GetByNome(produto);

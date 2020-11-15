@@ -309,6 +309,58 @@ namespace DataAcessLayer
             }
         }
 
+        public SingleResponse<Cliente> GetByCpf(string cpf)
+        {
+            SingleResponse<Cliente> response = new SingleResponse<Cliente>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM CLIENTES WHERE CPF = @CPF";
+            command.Parameters.AddWithValue("@CPF", cpf);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.ID = (int)reader["ID"];
+                    cliente.Nome = (string)reader["NOME"];
+                    cliente.CPF = (string)reader["CPF"];
+                    cliente.RG = (string)reader["RG"];
+                    cliente.TelefoneFixo = (string)reader["TELEFONEFIXO"];
+                    cliente.TelefoneCelular = (string)reader["TELEFONECELULAR"];
+                    cliente.Email = (string)reader["EMAIL"];
+                    cliente.Ativo = (bool)reader["ATIVO"];
+                    response.Data = cliente;
+                }
+
+                response.Success = true;
+                response.Message = "Dados selecionados com sucesso!";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+        }
+
         public SingleResponse<Cliente> GetByNome(Cliente cliente)
         {
             SingleResponse<Cliente> response = new SingleResponse<Cliente>();

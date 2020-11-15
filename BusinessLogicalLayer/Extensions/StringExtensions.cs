@@ -209,25 +209,24 @@ namespace BusinessLogicalLayer.Extensions
             return "";
         }
 
-        public static string CalculaValorProdutos(double valor, int quantidade)
-        {
-            if (quantidade > 1)
-            {
-                valor *= quantidade;
-                return "";
-            }
-            return "Quantidade de itens inválida!";
-        }
-
-        public static string VerificaEstoque(this int produtoid)
+        public static string VerificaEstoque(this int produtoid, int qtdItens)
         {
             ProdutoBLL produtoBLL = new ProdutoBLL();
             SingleResponse<Produto> response = produtoBLL.GetById(produtoid);
-            if (response.Data.QtdEstoque > 0)
+            if (response.Data.QtdEstoque > 0 && response.Data.QtdEstoque >= qtdItens)
             {
                 return "";
             }
-            return "Produto sem estoque!";
+            return $"Produto {response.Data.Nome} sem estoque suficiente, remova-o do carrinho ou altere a quantidade!";
+        }
+
+        public static string VerificaQuantidadeItens(this int quantidade)
+        {
+            if (quantidade > 0)
+            {
+                return "";
+            }
+            return "Quantidade de itens inválida!";
         }
 
     }

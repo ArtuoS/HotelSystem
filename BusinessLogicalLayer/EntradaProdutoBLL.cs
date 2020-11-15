@@ -14,17 +14,7 @@ namespace BusinessLogicalLayer
     public class EntradaProdutoBLL : BaseValidator<EntradaProduto>
     {
         EntradaProdutoDAL entradaProdutoDAL = new EntradaProdutoDAL();
-        /*
-        public Response InsertEntrada(EntradaProduto entrada)
-        {
-            Response response = Validate(entrada);
-            if (response.Success)
-            {
-                return entradaProdutoDAL.InsertEntrada(entrada);
-            }
-            return response;
-        }
-        */
+
         public Response InsertEntrada(EntradaProduto entrada)
         {
             Response response = Validate(entrada);
@@ -39,9 +29,10 @@ namespace BusinessLogicalLayer
                     {
                         foreach (ItensEntrada item in entrada.Itens)
                         {
+                            ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
                             SingleResponse<EntradaProduto> responseEntradaID = entradaProdutoDAL.GetEntradaID(entrada);
                             item.EntradaID = responseEntradaID.Data.ID;
-                            entradaProdutoDAL.InsertItem(item);
+                            itensEntradaBLL.InsertItem(item);
                             entradaProdutoDAL.AtualizaPreco(item.ProdutoID, item.Valor, item.Quantidade);
                             entradaProdutoDAL.AtualizaEstoque(item.ProdutoID, item.Quantidade);
                         }

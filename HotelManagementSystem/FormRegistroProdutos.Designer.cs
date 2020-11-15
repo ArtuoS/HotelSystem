@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSelecionaFornecedor = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.txtValorUnitario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSelecionaFornecedor = new System.Windows.Forms.Button();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,20 +83,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1160, 505);
             this.panel2.TabIndex = 89;
-            // 
-            // btnSelecionaFornecedor
-            // 
-            this.btnSelecionaFornecedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
-            this.btnSelecionaFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelecionaFornecedor.ForeColor = System.Drawing.Color.White;
-            this.btnSelecionaFornecedor.Location = new System.Drawing.Point(20, 185);
-            this.btnSelecionaFornecedor.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSelecionaFornecedor.Name = "btnSelecionaFornecedor";
-            this.btnSelecionaFornecedor.Size = new System.Drawing.Size(207, 62);
-            this.btnSelecionaFornecedor.TabIndex = 104;
-            this.btnSelecionaFornecedor.Text = "Selecionar Fornecedor";
-            this.btnSelecionaFornecedor.UseVisualStyleBackColor = false;
-            this.btnSelecionaFornecedor.Click += new System.EventHandler(this.btnSelecionaFornecedor_Click);
             // 
             // panel5
             // 
@@ -306,6 +292,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(247, 266);
             this.panel1.TabIndex = 90;
+            // 
+            // btnSelecionaFornecedor
+            // 
+            this.btnSelecionaFornecedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnSelecionaFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionaFornecedor.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionaFornecedor.Location = new System.Drawing.Point(20, 185);
+            this.btnSelecionaFornecedor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelecionaFornecedor.Name = "btnSelecionaFornecedor";
+            this.btnSelecionaFornecedor.Size = new System.Drawing.Size(207, 62);
+            this.btnSelecionaFornecedor.TabIndex = 104;
+            this.btnSelecionaFornecedor.Text = "Selecionar Fornecedor";
+            this.btnSelecionaFornecedor.UseVisualStyleBackColor = false;
+            this.btnSelecionaFornecedor.Click += new System.EventHandler(this.btnSelecionaFornecedor_Click);
             // 
             // cbFornecedor
             // 

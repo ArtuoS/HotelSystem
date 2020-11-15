@@ -75,6 +75,20 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        public SingleResponse<Cliente> GetByCpf(string cpf)
+        {
+            if (!string.IsNullOrEmpty(cpf))
+            {
+                cpf = cpf.Replace(".", "").Replace("-", "");
+            }
+            SingleResponse<Cliente> response = clienteDAL.GetByCpf(cpf);
+            if (!string.IsNullOrEmpty(cpf))
+            {
+                cpf = cpf.Replace(".", "").Replace("-", "");
+            }
+            return response;
+        }
+
         public override Response Validate(Cliente cliente)
         {
             AddError(cliente.Nome.ValidaNome());

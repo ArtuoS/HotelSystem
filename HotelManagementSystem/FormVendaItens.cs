@@ -23,7 +23,7 @@ namespace HotelManagementSystem
 
         private void FormVendaItens_Load(object sender, EventArgs e)
         {
-            cbCPF.Visible = false;
+            cbCPF.Visible = true;
             QueryResponse<Cliente> response = clienteBLL.GetAll();
             cbCliente.DataSource = response.Data;
             cbCliente.ValueMember = "NOME";
@@ -44,10 +44,11 @@ namespace HotelManagementSystem
         ItensVendaBLL itensVendaBLL = new ItensVendaBLL();
 
         int listIndex;
+        string Message;
 
         public void UpdateGridView()
         {
-            QueryResponse<Produto> response = produtoBLL.GetAll();
+            QueryResponse<Produto> response = produtoBLL.GetAllComEstoque();
             if (response.Success)
             {
                 dgvProdutos.DataSource = response.Data;
@@ -63,19 +64,6 @@ namespace HotelManagementSystem
             var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
             var source = new BindingSource(bindingList, null);
             dgvCarrinho.DataSource = source;
-        }
-
-        private void cbCliente_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            QueryResponse<Cliente> response = clienteBLL.GetAll();
-            foreach (Cliente cliente in response.Data)
-            {
-                if (cbCPF.GetItemText(cbCPF.SelectedItem) == cliente.CPF)
-                {
-                    txtCPF.Text = cliente.CPF;
-                    txtID.Text = Convert.ToString(cliente.ID);
-                }
-            }
         }
 
         private void dgvCarrinho_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,35 +102,25 @@ namespace HotelManagementSystem
 
         private void btnVender_Click(object sender, EventArgs e)
         {
+
             try
             {
-                vendaProduto.DataVenda = DateTime.Now;
-                //vendaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
+                //entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
                 vendaProduto.FuncionarioID = 45;
+                Response response = vendaProdutoBLL.InsertVenda(vendaProduto);
 
-
-                Response response = vendaProdutoBLL.InsertEntrada(vendaProduto);
-                Response response1;
-
-                foreach (ItensVenda item in vendaProduto.Itens)
-                {
-                    SingleResponse<VendaProduto> singleResponse = vendaProdutoBLL.GetEntradaID(vendaProduto);
-                    vendaProduto.Itens.Where(i => item.VendaID == 0);
-                    item.VendaID = singleResponse.Data.ID;
-                    response1 = itensVendaBLL.InsertItem(item);
-                }
+                MessageBox.Show(response.Message);
 
                 if (response.Success)
                 {
-                    MessageBox.Show(response.Message);
                     itens_Produtos.Clear();
-                    UpdateGridView();
                     UpdateGridViewCarrinho();
+                    UpdateGridView();
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Insira valores válidos!");
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 
@@ -182,6 +160,42 @@ namespace HotelManagementSystem
             item.Quantidade = itemVenda.Quantidade;
             item.Valor = itemVenda.Valor;
             return item;
+        }
+
+        private void btnSelecionaCliente_Click(object sender, EventArgs e)
+        {
+            if (ClienteFoiSelecionado(Message))
+            {
+                Message = "Cliente selecionado!";
+                MessageBox.Show(Message);
+                cbCliente.Enabled = false;
+            }
+            else
+            {
+                Message = "Cliente já selecionado!";
+                MessageBox.Show(Message);
+            }
+        }
+
+        public bool ClienteFoiSelecionado(string message)
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void cbCPF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            if (cliente.CPF != "Entities.Cliente")
+            {
+                cliente.CPF = cbCPF.GetItemText(cbCPF.SelectedItem);
+                SingleResponse<Cliente> response = clienteBLL.GetByCpf(cliente.CPF);
+                txtCPF.Text = cliente.CPF;
+                txtID.Text = Convert.ToString(response.Data.ID);
+            }
         }
     }
 }
