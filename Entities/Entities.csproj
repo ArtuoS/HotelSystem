@@ -57,6 +57,7 @@
     <Compile Include="Funcionario.cs" />
     <Compile Include="ItensEntrada.cs" />
     <Compile Include="ItensVenda.cs" />
+    <Compile Include="Itens_Consumidos.cs" />
     <Compile Include="Itens_Produto.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

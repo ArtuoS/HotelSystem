@@ -24,10 +24,11 @@ namespace HotelManagementSystem
         CheckIn_ClienteBLL checkIn_ClienteBLL = new CheckIn_ClienteBLL();
         CheckOutBLL checkOutBLL = new CheckOutBLL();
         ClienteBLL clienteBLL = new ClienteBLL();
-
-        System.Threading.Thread t;
+        Itens_ConsumidosBLL Itens_ConsumidosBLL = new Itens_ConsumidosBLL();
 
         string QUARTOID;
+        Cliente cliente = new Cliente();
+
         private void dgvCheckOut_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCheckOut.SelectedRows.Count > 0)
@@ -40,7 +41,6 @@ namespace HotelManagementSystem
                 txtIDCliente.Text = CLIENTEID;
 
 
-                Cliente cliente = new Cliente();
                 cliente.ID = int.Parse(txtIDCliente.Text);
                 SingleResponse<Cliente> response = clienteBLL.GetById(cliente);
                 if (response.Success)
@@ -51,6 +51,7 @@ namespace HotelManagementSystem
                     txtTelefoneF.Text = cliente.TelefoneFixo;
                     txtTelefoneC.Text = cliente.TelefoneCelular;
                     txtEmail.Text = cliente.Email;
+                    UpdateGridViewItensConsumidos();
                 }
             }
         }
@@ -68,19 +69,23 @@ namespace HotelManagementSystem
             }
         }
 
-        public void GetHoraAtual()
+        private void UpdateGridViewItensConsumidos()
         {
-            while (true)
+            QueryResponse<Itens_Consumidos> response = Itens_ConsumidosBLL.GetItensConsumidosByCliente(int.Parse(txtIDCliente.Text));
+            if (response.Success)
             {
-                txtDataAtual.Invoke((MethodInvoker)(() => txtDataAtual.Text = DateTime.Now.ToString()));
+                dgvItensConsumidos.DataSource = response.Data;
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
             }
         }
+
 
         private void FormCheckOut_Load(object sender, EventArgs e)
         {
             UpdateGridView();
-            t = new System.Threading.Thread(GetHoraAtual);
-            t.Start();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
@@ -91,7 +96,7 @@ namespace HotelManagementSystem
                 checkOut.ID = int.Parse(txtID.Text);
                 checkOut.QuartoID = int.Parse(QUARTOID);
                 checkOut.ClienteID = int.Parse(txtIDCliente.Text);
-                checkOut.DataSaida = DateTime.Parse(txtDataAtual.Text);
+                checkOut.DataSaida = DateTime.Now;
                 checkOut.Valor = 10; //ISSO É UM TESTE! MUDA ISSO DOIDO!
 
                 Response response = checkOutBLL.Insert(checkOut);

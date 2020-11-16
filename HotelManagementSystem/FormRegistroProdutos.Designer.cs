@@ -31,7 +31,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDeletar = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnAdicionarProduto = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvItens = new System.Windows.Forms.DataGridView();
@@ -88,11 +87,10 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
             this.panel5.Controls.Add(this.btnDeletar);
-            this.panel5.Controls.Add(this.btnAtualizar);
             this.panel5.Controls.Add(this.btnAdicionarProduto);
-            this.panel5.Location = new System.Drawing.Point(471, 332);
+            this.panel5.Location = new System.Drawing.Point(684, 332);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(668, 76);
+            this.panel5.Size = new System.Drawing.Size(455, 76);
             this.panel5.TabIndex = 100;
             // 
             // btnDeletar
@@ -100,7 +98,7 @@
             this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.ForeColor = System.Drawing.Color.White;
-            this.btnDeletar.Location = new System.Drawing.Point(16, 8);
+            this.btnDeletar.Location = new System.Drawing.Point(15, 7);
             this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(207, 58);
@@ -109,25 +107,12 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
-            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(231, 8);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(207, 58);
-            this.btnAtualizar.TabIndex = 102;
-            this.btnAtualizar.Text = "Atualizar Produto";
-            this.btnAtualizar.UseVisualStyleBackColor = false;
-            // 
             // btnAdicionarProduto
             // 
             this.btnAdicionarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
             this.btnAdicionarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProduto.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(446, 8);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(233, 7);
             this.btnAdicionarProduto.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
             this.btnAdicionarProduto.Size = new System.Drawing.Size(207, 58);
@@ -529,7 +514,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSelecionaFornecedor;
     }
 }

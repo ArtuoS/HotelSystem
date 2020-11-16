@@ -1,4 +1,4 @@
-﻿ using BusinessLogicalLayer;
+﻿using BusinessLogicalLayer;
 using Common;
 using Entities;
 using System;
@@ -118,7 +118,6 @@ namespace HotelManagementSystem
         {
             Fornecedor fornecedor = new Fornecedor();
             fornecedor.RazaoSocial = cbFornecedor.GetItemText(cbFornecedor.SelectedItem);
-            MessageBox.Show(cbFornecedor.GetItemText(cbFornecedor.SelectedItem));
             SingleResponse<Fornecedor> response = fornecedorBLL.GetByRazaoSocial(fornecedor);
             txtCNPJ.Text = fornecedor.CNPJ;
             txtIDFornecedor.Text = Convert.ToString(fornecedor.ID);
@@ -137,8 +136,6 @@ namespace HotelManagementSystem
         {
             Application.Exit();
         }
-
-
 
         private void dgvItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -53,6 +53,7 @@
     <Compile Include="FuncionarioBLL.cs" />
     <Compile Include="ItensEntradaBLL.cs" />
     <Compile Include="ItensVendaBLL.cs" />
+    <Compile Include="Itens_ConsumidosBLL.cs" />
     <Compile Include="ProdutoBLL.cs" />
     <Compile Include="QuartoBLL.cs" />
     <Compile Include="ULTRAFuncionarioBLL.cs" />

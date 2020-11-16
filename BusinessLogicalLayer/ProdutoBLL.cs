@@ -45,6 +45,7 @@ namespace BusinessLogicalLayer
         public QueryResponse<Produto> GetAllComEstoque()
         {
             QueryResponse<Produto> response = produtoDAL.GetAllComEstoque();
+            //ACEITAR SOMENTE .2 DPS DA VIRGULA
             return response;
         }
 

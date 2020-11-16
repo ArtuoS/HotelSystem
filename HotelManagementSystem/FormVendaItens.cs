@@ -24,6 +24,13 @@ namespace HotelManagementSystem
         private void FormVendaItens_Load(object sender, EventArgs e)
         {
             cbCPF.Visible = true;
+            btnAddNoCarrinho.Enabled = false;
+            btnVender.Enabled = false;
+            txtQuantidadeItens.Enabled = false;
+            txtValor.Enabled = false;
+            btnRemoverDoCarrinho.Enabled = false;
+            dgvCarrinho.Enabled = false;
+            dgvProdutos.Enabled = false;
             QueryResponse<Cliente> response = clienteBLL.GetAll();
             cbCliente.DataSource = response.Data;
             cbCliente.ValueMember = "NOME";
@@ -45,6 +52,8 @@ namespace HotelManagementSystem
 
         int listIndex;
         string Message;
+        double valorTemp = 0;
+        int qtdTemp = 0;
 
         public void UpdateGridView()
         {
@@ -72,6 +81,12 @@ namespace HotelManagementSystem
             if (dgvCarrinho.SelectedRows.Count > 0)
             {
                 listIndex = e.RowIndex;
+
+                string QUANTIDADE = dgvCarrinho.SelectedRows[0].Cells[2].Value + string.Empty;
+                string VALOR = dgvCarrinho.SelectedRows[0].Cells[1].Value + string.Empty;
+                qtdTemp = int.Parse(QUANTIDADE);
+                valorTemp = double.Parse(VALOR);
+
                 MessageBox.Show("Produto selecionado!");
             }
 
@@ -132,6 +147,7 @@ namespace HotelManagementSystem
                 itensVenda1.ProdutoID = int.Parse(txtProdutoID.Text);
                 itensVenda1.Valor = double.Parse(txtValorUnitario.Text);
                 itensVenda1.Quantidade = int.Parse(txtQuantidadeItens.Text);
+                itensVenda1.ClienteID = int.Parse(txtID.Text);
                 ClonaValores(itensVenda, itensVenda1);
 
                 vendaProduto.Valor += (itensVenda.Quantidade * itensVenda.Valor);
@@ -151,6 +167,7 @@ namespace HotelManagementSystem
             iv1.ProdutoID = iv2.ProdutoID;
             iv1.Valor = iv2.Valor;
             iv1.Quantidade = iv2.Quantidade;
+            iv1.ClienteID = iv2.ClienteID;
         }
 
         public Itens_Produto ConversaoClasses(string produto, ItensVenda itemVenda)
@@ -169,6 +186,13 @@ namespace HotelManagementSystem
                 Message = "Cliente selecionado!";
                 MessageBox.Show(Message);
                 cbCliente.Enabled = false;
+                btnAddNoCarrinho.Enabled = true;
+                btnVender.Enabled = true;
+                txtQuantidadeItens.Enabled = true;
+                txtValor.Enabled = true;
+                btnRemoverDoCarrinho.Enabled = true;
+                dgvCarrinho.Enabled = true;
+                dgvProdutos.Enabled = true;
             }
             else
             {
@@ -189,12 +213,36 @@ namespace HotelManagementSystem
         private void cbCPF_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
+            cliente.CPF = cbCPF.GetItemText(cbCPF.SelectedItem);
             if (cliente.CPF != "Entities.Cliente")
             {
-                cliente.CPF = cbCPF.GetItemText(cbCPF.SelectedItem);
                 SingleResponse<Cliente> response = clienteBLL.GetByCpf(cliente.CPF);
                 txtCPF.Text = cliente.CPF;
                 txtID.Text = Convert.ToString(response.Data.ID);
+            }
+        }
+
+        private void btnRemoverDoCarrinho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (valorTemp != 0 && qtdTemp != 0)
+                {
+                    vendaProduto.Valor -= (valorTemp * qtdTemp);
+                    txtValor.Text = Convert.ToString(vendaProduto.Valor);
+                    itens_Produtos.RemoveAt(listIndex);
+                    vendaProduto.Itens.RemoveAt(listIndex);
+                    dgvCarrinho.DataSource = itens_Produtos.ToList();
+                    MessageBox.Show("Produto deletado!");
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto foi selecionado!");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
     }

@@ -34,7 +34,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvItensConsumidos = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
@@ -55,7 +55,6 @@
             this.label = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnCheckOut = new System.Windows.Forms.Button();
-            this.txtDataAtual = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,7 +62,7 @@
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItensConsumidos)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -91,7 +90,6 @@
             this.panel1.Controls.Add(this.label);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.btnCheckOut);
-            this.panel1.Controls.Add(this.txtDataAtual);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -117,7 +115,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
             this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dgvItensConsumidos);
             this.panel5.Location = new System.Drawing.Point(393, 340);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(778, 222);
@@ -145,16 +143,16 @@
             this.label9.Text = "Itens consumidos pelo cliente";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // dgvItensConsumidos
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 164);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvItensConsumidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvItensConsumidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItensConsumidos.Location = new System.Drawing.Point(24, 41);
+            this.dgvItensConsumidos.Name = "dgvItensConsumidos";
+            this.dgvItensConsumidos.ReadOnly = true;
+            this.dgvItensConsumidos.RowHeadersWidth = 51;
+            this.dgvItensConsumidos.Size = new System.Drawing.Size(730, 164);
+            this.dgvItensConsumidos.TabIndex = 0;
             // 
             // panel2
             // 
@@ -187,7 +185,7 @@
             this.label7.Location = new System.Drawing.Point(16, 411);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 25);
+            this.label7.Size = new System.Drawing.Size(96, 21);
             this.label7.TabIndex = 97;
             this.label7.Text = "ID do Cliente";
             // 
@@ -197,7 +195,7 @@
             this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.ReadOnly = true;
-            this.txtIDCliente.Size = new System.Drawing.Size(322, 30);
+            this.txtIDCliente.Size = new System.Drawing.Size(322, 26);
             this.txtIDCliente.TabIndex = 96;
             // 
             // txtTelefoneF
@@ -206,7 +204,7 @@
             this.txtTelefoneF.Mask = "(99) 0000-0000";
             this.txtTelefoneF.Name = "txtTelefoneF";
             this.txtTelefoneF.ReadOnly = true;
-            this.txtTelefoneF.Size = new System.Drawing.Size(322, 30);
+            this.txtTelefoneF.Size = new System.Drawing.Size(322, 26);
             this.txtTelefoneF.TabIndex = 95;
             // 
             // panel3
@@ -237,7 +235,7 @@
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
             this.txtTelefoneC.ReadOnly = true;
-            this.txtTelefoneC.Size = new System.Drawing.Size(322, 30);
+            this.txtTelefoneC.Size = new System.Drawing.Size(322, 26);
             this.txtTelefoneC.TabIndex = 94;
             // 
             // txtNome
@@ -246,7 +244,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(322, 30);
+            this.txtNome.Size = new System.Drawing.Size(322, 26);
             this.txtNome.TabIndex = 84;
             // 
             // Email
@@ -257,7 +255,7 @@
             this.Email.Location = new System.Drawing.Point(12, 357);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(61, 25);
+            this.Email.Size = new System.Drawing.Size(50, 21);
             this.Email.TabIndex = 91;
             this.Email.Text = "Email";
             // 
@@ -269,7 +267,7 @@
             this.label6.Location = new System.Drawing.Point(16, 52);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 25);
+            this.label6.Size = new System.Drawing.Size(50, 21);
             this.label6.TabIndex = 85;
             this.label6.Text = "Nome";
             // 
@@ -279,7 +277,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(322, 30);
+            this.txtEmail.Size = new System.Drawing.Size(322, 26);
             this.txtEmail.TabIndex = 90;
             // 
             // label2
@@ -290,7 +288,7 @@
             this.label2.Location = new System.Drawing.Point(16, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 25);
+            this.label2.Size = new System.Drawing.Size(37, 21);
             this.label2.TabIndex = 86;
             this.label2.Text = "CPF";
             // 
@@ -302,7 +300,7 @@
             this.label5.Location = new System.Drawing.Point(12, 295);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 25);
+            this.label5.Size = new System.Drawing.Size(120, 21);
             this.label5.TabIndex = 89;
             this.label5.Text = "Telefone Celular";
             // 
@@ -314,7 +312,7 @@
             this.label3.Location = new System.Drawing.Point(16, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 25);
+            this.label3.Size = new System.Drawing.Size(30, 21);
             this.label3.TabIndex = 87;
             this.label3.Text = "RG";
             // 
@@ -324,7 +322,7 @@
             this.txtRG.Mask = "00.000.000-9";
             this.txtRG.Name = "txtRG";
             this.txtRG.ReadOnly = true;
-            this.txtRG.Size = new System.Drawing.Size(322, 30);
+            this.txtRG.Size = new System.Drawing.Size(322, 26);
             this.txtRG.TabIndex = 93;
             // 
             // label4
@@ -335,7 +333,7 @@
             this.label4.Location = new System.Drawing.Point(12, 233);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 25);
+            this.label4.Size = new System.Drawing.Size(99, 21);
             this.label4.TabIndex = 88;
             this.label4.Text = "Telefone Fixo";
             // 
@@ -345,7 +343,7 @@
             this.txtCPF.Mask = "000.000.000-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(322, 30);
+            this.txtCPF.Size = new System.Drawing.Size(322, 26);
             this.txtCPF.TabIndex = 92;
             // 
             // label
@@ -354,7 +352,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(9, 18);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(136, 25);
+            this.label.Size = new System.Drawing.Size(108, 21);
             this.label.TabIndex = 82;
             this.label.Text = "ID do Check-in";
             // 
@@ -362,7 +360,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(12, 42);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(43, 30);
+            this.txtID.Size = new System.Drawing.Size(43, 26);
             this.txtID.TabIndex = 81;
             // 
             // btnCheckOut
@@ -378,15 +376,6 @@
             this.btnCheckOut.Text = "Realizar Check-out";
             this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
-            // 
-            // txtDataAtual
-            // 
-            this.txtDataAtual.Location = new System.Drawing.Point(13, 569);
-            this.txtDataAtual.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDataAtual.Name = "txtDataAtual";
-            this.txtDataAtual.ReadOnly = true;
-            this.txtDataAtual.Size = new System.Drawing.Size(199, 30);
-            this.txtDataAtual.TabIndex = 10;
             // 
             // panel4
             // 
@@ -422,7 +411,7 @@
             // 
             // FormCheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 633);
@@ -439,7 +428,7 @@
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItensConsumidos)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -453,7 +442,6 @@
 
         private System.Windows.Forms.DataGridView dgvCheckOut;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtDataAtual;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label;
@@ -477,7 +465,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItensConsumidos;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;

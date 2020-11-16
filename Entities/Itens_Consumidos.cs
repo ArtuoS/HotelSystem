@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class ItensVenda
+    public class Itens_Consumidos
     {
-        public int VendaID { get; set; }
-        public int ProdutoID { get; set; }
+        public string Nome { get; set; }
         public double Valor { get; set; }
         public int Quantidade { get; set; }
-        public int ClienteID { get; set; }
-
+        public double ValorTotal { get; set; }
     }
 }

@@ -46,6 +46,7 @@
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRemoverDoCarrinho = new System.Windows.Forms.Button();
             this.txtQuantidadeItens = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddNoCarrinho = new System.Windows.Forms.Button();
@@ -99,7 +100,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1252, 818);
+            this.panel1.Size = new System.Drawing.Size(1094, 570);
             this.panel1.TabIndex = 88;
             // 
             // label7
@@ -124,21 +125,21 @@
             // 
             // txtProdutoID
             // 
-            this.txtProdutoID.Location = new System.Drawing.Point(69, 577);
+            this.txtProdutoID.Location = new System.Drawing.Point(5, 745);
             this.txtProdutoID.Name = "txtProdutoID";
             this.txtProdutoID.Size = new System.Drawing.Size(10, 26);
             this.txtProdutoID.TabIndex = 104;
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(101, 577);
+            this.txtQuantidade.Location = new System.Drawing.Point(37, 745);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(10, 26);
             this.txtQuantidade.TabIndex = 102;
             // 
             // txtValorUnitario
             // 
-            this.txtValorUnitario.Location = new System.Drawing.Point(117, 577);
+            this.txtValorUnitario.Location = new System.Drawing.Point(53, 745);
             this.txtValorUnitario.Name = "txtValorUnitario";
             this.txtValorUnitario.Size = new System.Drawing.Size(10, 26);
             this.txtValorUnitario.TabIndex = 101;
@@ -146,7 +147,7 @@
             // 
             // txtProduto
             // 
-            this.txtProduto.Location = new System.Drawing.Point(85, 577);
+            this.txtProduto.Location = new System.Drawing.Point(21, 745);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(10, 26);
             this.txtProduto.TabIndex = 100;
@@ -256,6 +257,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel2.Controls.Add(this.btnRemoverDoCarrinho);
             this.panel2.Controls.Add(this.txtQuantidadeItens);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnAddNoCarrinho);
@@ -265,6 +267,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(775, 261);
             this.panel2.TabIndex = 98;
+            // 
+            // btnRemoverDoCarrinho
+            // 
+            this.btnRemoverDoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnRemoverDoCarrinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverDoCarrinho.ForeColor = System.Drawing.Color.White;
+            this.btnRemoverDoCarrinho.Location = new System.Drawing.Point(353, 187);
+            this.btnRemoverDoCarrinho.Margin = new System.Windows.Forms.Padding(5);
+            this.btnRemoverDoCarrinho.Name = "btnRemoverDoCarrinho";
+            this.btnRemoverDoCarrinho.Size = new System.Drawing.Size(197, 56);
+            this.btnRemoverDoCarrinho.TabIndex = 102;
+            this.btnRemoverDoCarrinho.Text = "Remover Item do Carrinho de Compras";
+            this.btnRemoverDoCarrinho.UseVisualStyleBackColor = false;
+            this.btnRemoverDoCarrinho.Click += new System.EventHandler(this.btnRemoverDoCarrinho_Click);
             // 
             // txtQuantidadeItens
             // 
@@ -323,10 +339,17 @@
             // 
             // dgvProdutos
             // 
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.AllowUserToOrderColumns = true;
+            this.dgvProdutos.AllowUserToResizeColumns = false;
+            this.dgvProdutos.AllowUserToResizeRows = false;
+            this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Location = new System.Drawing.Point(17, 34);
             this.dgvProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
             this.dgvProdutos.RowHeadersWidth = 51;
             this.dgvProdutos.RowTemplate.Height = 24;
             this.dgvProdutos.Size = new System.Drawing.Size(736, 145);
@@ -367,10 +390,17 @@
             // 
             // dgvCarrinho
             // 
+            this.dgvCarrinho.AllowUserToAddRows = false;
+            this.dgvCarrinho.AllowUserToDeleteRows = false;
+            this.dgvCarrinho.AllowUserToOrderColumns = true;
+            this.dgvCarrinho.AllowUserToResizeColumns = false;
+            this.dgvCarrinho.AllowUserToResizeRows = false;
+            this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Location = new System.Drawing.Point(19, 35);
             this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvCarrinho.Name = "dgvCarrinho";
+            this.dgvCarrinho.ReadOnly = true;
             this.dgvCarrinho.RowHeadersWidth = 51;
             this.dgvCarrinho.RowTemplate.Height = 24;
             this.dgvCarrinho.Size = new System.Drawing.Size(736, 145);
@@ -381,7 +411,7 @@
             // 
             this.cbCPF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCPF.FormattingEnabled = true;
-            this.cbCPF.Location = new System.Drawing.Point(12, 322);
+            this.cbCPF.Location = new System.Drawing.Point(3, 777);
             this.cbCPF.Name = "cbCPF";
             this.cbCPF.Size = new System.Drawing.Size(243, 29);
             this.cbCPF.TabIndex = 94;
@@ -405,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 818);
+            this.ClientSize = new System.Drawing.Size(1094, 570);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -459,5 +489,6 @@
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSelecionaCliente;
+        private System.Windows.Forms.Button btnRemoverDoCarrinho;
     }
 }

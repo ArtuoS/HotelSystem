@@ -13,14 +13,14 @@ namespace HotelManagementSystem
         /// </summary>
         [STAThread]
         static void Main()
-        
+
         {
             Application.EnableVisualStyles();
-            
+
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormProduto());
             //Application.Run(new FormRegistroProdutos());
-            Application.Run(new FormVendaItens());
+            Application.Run(new FormCheckOut());
         }
     }
 }

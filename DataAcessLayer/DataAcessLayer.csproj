@@ -48,6 +48,7 @@
     <Compile Include="EntradaProdutoDAL.cs" />
     <Compile Include="FornecedorDAL.cs" />
     <Compile Include="FuncionarioDAL.cs" />
+    <Compile Include="Itens_ConsumidosDAL.cs" />
     <Compile Include="ProdutoDAL.cs" />
     <Compile Include="QuartoDAL.cs" />
     <Compile Include="ULTRAFuncionarioDAL.cs" />
