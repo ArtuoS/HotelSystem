@@ -139,10 +139,5 @@ namespace HotelManagementSystem
                 txtEmail.Text = EMAIL;
             }
         }
-
-        private void btnAtivados_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

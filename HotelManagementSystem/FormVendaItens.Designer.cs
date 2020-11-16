@@ -59,6 +59,7 @@
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.cbCPF = new System.Windows.Forms.ComboBox();
             this.btnVender = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -396,6 +397,7 @@
             this.dgvCarrinho.AllowUserToResizeColumns = false;
             this.dgvCarrinho.AllowUserToResizeRows = false;
             this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCarrinho.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Location = new System.Drawing.Point(19, 35);
             this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -490,5 +492,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSelecionaCliente;
         private System.Windows.Forms.Button btnRemoverDoCarrinho;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

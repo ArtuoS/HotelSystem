@@ -154,7 +154,7 @@ namespace HotelManagementSystem
         {
             if (cbTipoQuarto.SelectedIndex == 0)
             {
-                pbImgQuarto.ImageLocation = @"C: \Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\economico.jpg";
+                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSystem\HotelManagementSystem\Imagens\economico.jpg";
             }
             else if (cbTipoQuarto.SelectedIndex == 1)
             {

@@ -44,6 +44,7 @@
             this.txtValor = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbImgQuarto = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuarto)).BeginInit();
             this.panel2.SuspendLayout();
@@ -52,7 +53,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtID);
@@ -67,6 +68,7 @@
             this.panel1.Controls.Add(this.cbTipoQuarto);
             this.panel1.Controls.Add(this.txtValor);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -76,8 +78,10 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
             this.btnAdicionar.Location = new System.Drawing.Point(13, 215);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -108,17 +112,18 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(1126, 4);
+            this.btnFechar.Location = new System.Drawing.Point(1126, 0);
             this.btnFechar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(28, 31);
+            this.btnFechar.Size = new System.Drawing.Size(28, 25);
             this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "X";
-            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // dgvQuarto
@@ -137,8 +142,10 @@
             // 
             // btnDeletar
             // 
-            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnDeletar.FlatAppearance.BorderSize = 0;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletar.ForeColor = System.Drawing.Color.White;
             this.btnDeletar.Location = new System.Drawing.Point(13, 347);
             this.btnDeletar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -151,8 +158,10 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnAtualizar.FlatAppearance.BorderSize = 0;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
             this.btnAtualizar.Location = new System.Drawing.Point(13, 281);
             this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -226,7 +235,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel2.Controls.Add(this.pbImgQuarto);
             this.panel2.Location = new System.Drawing.Point(871, 62);
             this.panel2.Name = "panel2";
@@ -243,6 +252,15 @@
             this.pbImgQuarto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImgQuarto.TabIndex = 57;
             this.pbImgQuarto.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1154, 25);
+            this.panel3.TabIndex = 60;
             // 
             // FormQuarto
             // 
@@ -284,5 +302,6 @@
         private System.Windows.Forms.PictureBox pbImgQuarto;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Panel panel3;
     }
 }

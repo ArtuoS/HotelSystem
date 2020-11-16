@@ -45,11 +45,11 @@ namespace HotelManagementSystem
             Produto produto = new Produto();
             produto.Nome = txtNome.Text;
             produto.Descricao = txtDescricao.Text;
-            produto.ValorUnitario = double.Parse(txtValor.Text);
+            produto.ValorUnitario = 0;
 
             Response response = produtoBLL.Insert(produto);
             MessageBox.Show(response.Message);
-            if(response.Success)
+            if (response.Success)
             {
                 UpdateGridView();
                 FerramentasTextBox.LimpaTextBoxes(this);
@@ -103,6 +103,6 @@ namespace HotelManagementSystem
             }
         }
 
-        
+
     }
 }

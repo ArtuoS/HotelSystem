@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtDataAtual = new System.Windows.Forms.TextBox();
             this.btnCheckIn = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtClienteID = new System.Windows.Forms.TextBox();
@@ -46,10 +44,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpDataSaidaPrevista = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnDeletar = new System.Windows.Forms.Button();
-            this.txtCheckInID = new System.Windows.Forms.TextBox();
             this.dgvCheckIn = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -58,37 +55,30 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIn)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
-            this.panel1.Controls.Add(this.txtDataAtual);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.panel1.Controls.Add(this.btnCheckIn);
-            this.panel1.Controls.Add(this.btnFechar);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1184, 681);
             this.panel1.TabIndex = 0;
             // 
-            // txtDataAtual
-            // 
-            this.txtDataAtual.Location = new System.Drawing.Point(972, 391);
-            this.txtDataAtual.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDataAtual.Name = "txtDataAtual";
-            this.txtDataAtual.ReadOnly = true;
-            this.txtDataAtual.Size = new System.Drawing.Size(199, 25);
-            this.txtDataAtual.TabIndex = 9;
-            // 
             // btnCheckIn
             // 
-            this.btnCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnCheckIn.FlatAppearance.BorderSize = 0;
             this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckIn.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckIn.ForeColor = System.Drawing.Color.White;
             this.btnCheckIn.Location = new System.Drawing.Point(12, 449);
             this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4);
@@ -99,23 +89,9 @@
             this.btnCheckIn.UseVisualStyleBackColor = false;
             this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
-            // btnFechar
-            // 
-            this.btnFechar.FlatAppearance.BorderSize = 0;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(1159, 3);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(25, 28);
-            this.btnFechar.TabIndex = 9;
-            this.btnFechar.Text = "X";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtClienteID);
             this.panel3.Controls.Add(this.dgvClientes);
@@ -129,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(70, 92);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -164,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(21, 39);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -184,7 +160,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel2.Controls.Add(this.dgvQuartos);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtQuartoID);
@@ -210,7 +186,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(20, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -231,7 +207,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.dtpDataSaidaPrevista);
             this.panel4.Location = new System.Drawing.Point(12, 390);
@@ -241,7 +217,7 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(21, 8);
@@ -261,51 +237,12 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.btnDeletar);
-            this.panel5.Controls.Add(this.txtCheckInID);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel5.Controls.Add(this.dgvCheckIn);
             this.panel5.Location = new System.Drawing.Point(12, 506);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1014, 163);
+            this.panel5.Size = new System.Drawing.Size(802, 163);
             this.panel5.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(837, 33);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "ID do Check-in";
-            // 
-            // btnDeletar
-            // 
-            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
-            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletar.ForeColor = System.Drawing.Color.White;
-            this.btnDeletar.Location = new System.Drawing.Point(786, 90);
-            this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(198, 50);
-            this.btnDeletar.TabIndex = 82;
-            this.btnDeletar.Text = "Realizar Check-out";
-            this.btnDeletar.UseVisualStyleBackColor = false;
-            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
-            // 
-            // txtCheckInID
-            // 
-            this.txtCheckInID.Location = new System.Drawing.Point(866, 57);
-            this.txtCheckInID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCheckInID.Name = "txtCheckInID";
-            this.txtCheckInID.ReadOnly = true;
-            this.txtCheckInID.Size = new System.Drawing.Size(46, 25);
-            this.txtCheckInID.TabIndex = 9;
-            this.txtCheckInID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgvCheckIn
             // 
@@ -318,7 +255,30 @@
             this.dgvCheckIn.ReadOnly = true;
             this.dgvCheckIn.Size = new System.Drawing.Size(754, 116);
             this.dgvCheckIn.TabIndex = 9;
-            this.dgvCheckIn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIn_CellClick);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel6.Controls.Add(this.btnFechar);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1184, 20);
+            this.panel6.TabIndex = 82;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Location = new System.Drawing.Point(1156, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(25, 26);
+            this.btnFechar.TabIndex = 9;
+            this.btnFechar.Text = "X";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FormCheckIn
             // 
@@ -334,7 +294,6 @@
             this.Text = "FormCheckIn";
             this.Load += new System.EventHandler(this.FormCheckIn_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -343,8 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIn)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -365,13 +324,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtClienteID;
-        private System.Windows.Forms.TextBox txtDataAtual;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvCheckIn;
-        private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCheckInID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpDataSaidaPrevista;
+        private System.Windows.Forms.Panel panel6;
     }
 }

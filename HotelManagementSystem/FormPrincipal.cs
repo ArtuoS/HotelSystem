@@ -16,19 +16,6 @@ namespace HotelManagementSystem
 {
     public partial class FormPrincipal : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-         (
-               int nLeftRect,
-               int nTopRect,
-               int nRightRect,
-               int nBottomRect,
-               int nWidthEllipse,
-               int nHeightEllipse
-
-         );
-
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             lblNome.Text = Environments.FuncionarioLogado.Nome;
@@ -47,7 +34,6 @@ namespace HotelManagementSystem
         public FormPrincipal()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             if (!Environments.FuncionarioLogado.IsADM)
             {
                 btnFornecedores.Hide();
@@ -61,7 +47,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnClientes.Height;
             pnlNav.Top = btnClientes.Top;
-            btnClientes.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formCliente.ShowDialog();
             this.Show();
@@ -71,7 +56,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnFuncionarios.Height;
             pnlNav.Top = btnFuncionarios.Top;
-            btnFuncionarios.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formFuncionario.ShowDialog();
             this.Show();
@@ -81,7 +65,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnFornecedores.Height;
             pnlNav.Top = btnFornecedores.Top;
-            btnFornecedores.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formFornecedor.ShowDialog();
             this.Show();
@@ -91,7 +74,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnQuartos.Height;
             pnlNav.Top = btnQuartos.Top;
-            btnQuartos.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formQuarto.ShowDialog();
             this.Show();
@@ -101,7 +83,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
-            btnProdutos.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formProduto.ShowDialog();
             this.Show();
@@ -111,7 +92,6 @@ namespace HotelManagementSystem
         {
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
-            btnProdutos.BackColor = Color.FromArgb(94, 96, 206);
             this.Hide();
             formRegistroProdutos.ShowDialog();
             this.Show();
@@ -119,34 +99,27 @@ namespace HotelManagementSystem
 
         private void btnClientes_Leave(object sender, EventArgs e)
         {
-            btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
         }
 
         private void btnFuncionarios_Leave(object sender, EventArgs e)
         {
-            btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
         }
 
         private void btnFornecedores_Leave(object sender, EventArgs e)
         {
-            btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
         }
 
         private void btnQuartos_Leave(object sender, EventArgs e)
         {
-            btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
         }
 
         private void btnProdutos_Leave(object sender, EventArgs e)
         {
-            btnProdutos.BackColor = Color.FromArgb(83, 144, 217);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
     }
 }

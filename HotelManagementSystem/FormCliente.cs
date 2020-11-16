@@ -122,20 +122,5 @@ namespace HotelManagementSystem
                 FerramentasTextBox.LimpaTextBoxes(this);
             }
         }
-
-        private void btnDesativar_Click(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            cliente.ID = int.Parse(txtID.Text);
-
-            Response response = clienteBLL.DesativaCliente(cliente);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
-            {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
-            }
-        }
     }
 }

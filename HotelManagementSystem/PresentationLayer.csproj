@@ -191,6 +191,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Imagens\avatar.png" />
     <Content Include="Imagens\economico.jpg" />
     <Content Include="Imagens\executivo.jpg" />
     <Content Include="Imagens\suite.jpg" />

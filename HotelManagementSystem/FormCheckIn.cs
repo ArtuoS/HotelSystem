@@ -18,7 +18,6 @@ namespace HotelManagementSystem
         public FormCheckIn()
         {
             InitializeComponent();
-            txtDataAtual.Text = DateTime.Now.ToString();
         }
 
         QuartoBLL quartoBLL = new QuartoBLL();
@@ -26,7 +25,6 @@ namespace HotelManagementSystem
         CheckInBLL checkInBLL = new CheckInBLL();
         CheckOutBLL checkOutBLL = new CheckOutBLL();
 
-        System.Threading.Thread t;
         string QUARTOID;
 
         private void FormCheckIn_Load(object sender, EventArgs e)
@@ -34,8 +32,6 @@ namespace HotelManagementSystem
             UpdateGridViewQuartos();
             UpdateGridViewClientes();
             UpdateGridViewCheckIn();
-            t = new System.Threading.Thread(GetHoraAtual);
-            t.Start();
         }
 
         private void UpdateGridViewQuartos()
@@ -99,22 +95,10 @@ namespace HotelManagementSystem
                 txtClienteID.Text = ID;
             }
         }
-        private void dgvCheckIn_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvCheckIn.SelectedRows.Count > 0)
-            {
-                string ID = dgvCheckIn.SelectedRows[0].Cells[0].Value + string.Empty;
-                QUARTOID = dgvCheckIn.SelectedRows[0].Cells[1].Value + string.Empty;
-
-                txtCheckInID.Text = ID;
-            }
-
-        }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
-            t.Abort();
         }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
@@ -127,36 +111,11 @@ namespace HotelManagementSystem
 
             Response response = checkInBLL.Insert(checkIn);
             MessageBox.Show(response.Message);
-            
-            if(response.Success)
+
+            if (response.Success)
             {
                 UpdateGridViewQuartos();
                 UpdateGridViewCheckIn();
-                FerramentasTextBox.LimpaTextBoxes(this);
-            }
-        }
-
-        public void GetHoraAtual()
-        {
-            while (true)
-            {
-                txtDataAtual.Invoke((MethodInvoker)(() => txtDataAtual.Text = DateTime.Now.ToString()));
-            }
-        }
-
-        private void btnDeletar_Click(object sender, EventArgs e)
-        {
-            CheckIn checkIn = new CheckIn();
-            checkIn.ID = int.Parse(txtCheckInID.Text);
-            checkIn.QuartoID = int.Parse(QUARTOID);
-
-            Response response = checkInBLL.Delete(checkIn);
-            MessageBox.Show(response.Message);
-
-            if(response.Success)
-            {
-                UpdateGridViewCheckIn();
-                UpdateGridViewQuartos();
                 FerramentasTextBox.LimpaTextBoxes(this);
             }
         }

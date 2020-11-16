@@ -43,12 +43,12 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnDesativar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtTelefoneF = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefoneC = new System.Windows.Forms.MaskedTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(17, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -76,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(17, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -88,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(17, 150);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -100,7 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(13, 210);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -112,9 +112,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 272);
+            this.label5.Location = new System.Drawing.Point(13, 237);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 21);
@@ -124,9 +124,9 @@
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.Email.ForeColor = System.Drawing.Color.White;
-            this.Email.Location = new System.Drawing.Point(13, 334);
+            this.Email.Location = new System.Drawing.Point(17, 290);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(50, 21);
@@ -135,7 +135,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(17, 359);
+            this.txtEmail.Location = new System.Drawing.Point(17, 315);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 26);
@@ -180,8 +180,10 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnAtualizar.FlatAppearance.BorderSize = 0;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
             this.btnAtualizar.Location = new System.Drawing.Point(475, 422);
             this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4);
@@ -194,8 +196,10 @@
             // 
             // btnDeletar
             // 
-            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnDeletar.FlatAppearance.BorderSize = 0;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletar.ForeColor = System.Drawing.Color.White;
             this.btnDeletar.Location = new System.Drawing.Point(681, 422);
             this.btnDeletar.Margin = new System.Windows.Forms.Padding(4);
@@ -209,7 +213,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(1140, 418);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -218,30 +222,16 @@
             this.label6.TabIndex = 74;
             this.label6.Text = "ID";
             // 
-            // btnDesativar
-            // 
-            this.btnDesativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
-            this.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesativar.ForeColor = System.Drawing.Color.White;
-            this.btnDesativar.Location = new System.Drawing.Point(887, 422);
-            this.btnDesativar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDesativar.Name = "btnDesativar";
-            this.btnDesativar.Size = new System.Drawing.Size(198, 50);
-            this.btnDesativar.TabIndex = 75;
-            this.btnDesativar.Text = "Desativar Cliente";
-            this.btnDesativar.UseVisualStyleBackColor = false;
-            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
-            // 
             // btnFechar
             // 
-            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.Location = new System.Drawing.Point(1158, 2);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(25, 28);
+            this.btnFechar.Size = new System.Drawing.Size(25, 24);
             this.btnFechar.TabIndex = 76;
             this.btnFechar.Text = "X";
             this.btnFechar.UseVisualStyleBackColor = false;
@@ -249,7 +239,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.txtTelefoneF);
             this.panel1.Controls.Add(this.txtTelefoneC);
@@ -258,17 +248,19 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1184, 482);
+            this.panel1.Size = new System.Drawing.Size(1184, 456);
             this.panel1.TabIndex = 77;
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionar.Location = new System.Drawing.Point(269, 422);
+            this.btnAdicionar.Location = new System.Drawing.Point(269, 395);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(198, 50);
@@ -279,7 +271,7 @@
             // 
             // txtTelefoneF
             // 
-            this.txtTelefoneF.Location = new System.Drawing.Point(17, 234);
+            this.txtTelefoneF.Location = new System.Drawing.Point(17, 208);
             this.txtTelefoneF.Mask = "(99) 0000-0000";
             this.txtTelefoneF.Name = "txtTelefoneF";
             this.txtTelefoneF.Size = new System.Drawing.Size(206, 26);
@@ -287,11 +279,20 @@
             // 
             // txtTelefoneC
             // 
-            this.txtTelefoneC.Location = new System.Drawing.Point(17, 296);
+            this.txtTelefoneC.Location = new System.Drawing.Point(17, 261);
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
             this.txtTelefoneC.Size = new System.Drawing.Size(206, 26);
             this.txtTelefoneC.TabIndex = 78;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1184, 26);
+            this.panel2.TabIndex = 78;
             // 
             // FormCliente
             // 
@@ -299,7 +300,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 482);
             this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.btnDesativar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAtualizar);
@@ -313,6 +313,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -345,12 +346,12 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnDesativar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox txtTelefoneF;
         private System.Windows.Forms.MaskedTextBox txtTelefoneC;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
