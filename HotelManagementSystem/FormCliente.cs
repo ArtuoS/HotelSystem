@@ -68,58 +68,82 @@ namespace HotelManagementSystem
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Nome = txtNome.Text;
-            cliente.CPF = txtCPF.Text;
-            cliente.RG = txtRG.Text;
-            cliente.TelefoneFixo = txtTelefoneF.Text;
-            cliente.TelefoneCelular = txtTelefoneC.Text;
-            cliente.Email = txtEmail.Text;
-
-            Response response = clienteBLL.Insert(cliente);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Cliente cliente = new Cliente();
+                cliente.Nome = txtNome.Text;
+                cliente.CPF = txtCPF.Text;
+                cliente.RG = txtRG.Text;
+                cliente.TelefoneFixo = txtTelefoneF.Text;
+                cliente.TelefoneCelular = txtTelefoneC.Text;
+                cliente.Email = txtEmail.Text;
+
+                Response response = clienteBLL.Insert(cliente);
+                MessageBox.Show(response.Message);
+
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.ID = int.Parse(txtID.Text);
-            cliente.Nome = txtNome.Text;
-            cliente.CPF = txtCPF.Text;
-            cliente.RG = txtRG.Text;
-            cliente.TelefoneFixo = txtTelefoneF.Text;
-            cliente.TelefoneCelular = txtTelefoneC.Text;
-            cliente.Email = txtEmail.Text;
-            cliente.Ativo = true; //pensar em algo!
-
-            Response response = clienteBLL.Update(cliente);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Cliente cliente = new Cliente();
+                cliente.ID = int.Parse(txtID.Text);
+                cliente.Nome = txtNome.Text;
+                cliente.CPF = txtCPF.Text;
+                cliente.RG = txtRG.Text;
+                cliente.TelefoneFixo = txtTelefoneF.Text;
+                cliente.TelefoneCelular = txtTelefoneC.Text;
+                cliente.Email = txtEmail.Text;
+                cliente.Ativo = true; //pensar em algo!
+
+                Response response = clienteBLL.Update(cliente);
+                MessageBox.Show(response.Message);
+
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+
+            }
+
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.ID = int.Parse(txtID.Text);
-
-            Response response = clienteBLL.Delete(cliente);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Cliente cliente = new Cliente();
+                cliente.ID = int.Parse(txtID.Text);
+
+                Response response = clienteBLL.Delete(cliente);
+                MessageBox.Show(response.Message);
+
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
     }

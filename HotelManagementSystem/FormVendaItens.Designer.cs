@@ -30,6 +30,8 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.txtProdutoID = new System.Windows.Forms.TextBox();
@@ -59,8 +61,8 @@
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.cbCPF = new System.Windows.Forms.ComboBox();
             this.btnVender = new System.Windows.Forms.Button();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,18 +76,19 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(59)))));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(10, 33);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 21);
+            this.label6.Size = new System.Drawing.Size(71, 25);
             this.label6.TabIndex = 87;
             this.label6.Text = "Cliente";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtValor);
             this.panel1.Controls.Add(this.txtProdutoID);
@@ -101,48 +104,74 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1094, 570);
+            this.panel1.Size = new System.Drawing.Size(1113, 586);
             this.panel1.TabIndex = 88;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel8.Controls.Add(this.btnFechar);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1113, 30);
+            this.panel8.TabIndex = 106;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Location = new System.Drawing.Point(1078, 0);
+            this.btnFechar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(38, 29);
+            this.btnFechar.TabIndex = 107;
+            this.btnFechar.Text = "X";
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(96)))), ((int)(((byte)(206)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(698, 505);
+            this.label7.Location = new System.Drawing.Point(698, 513);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 21);
+            this.label7.Size = new System.Drawing.Size(104, 25);
             this.label7.TabIndex = 97;
             this.label7.Text = "Valor Total";
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(702, 529);
+            this.txtValor.Location = new System.Drawing.Point(677, 540);
             this.txtValor.Name = "txtValor";
             this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(156, 26);
+            this.txtValor.Size = new System.Drawing.Size(156, 30);
             this.txtValor.TabIndex = 105;
             // 
             // txtProdutoID
             // 
             this.txtProdutoID.Location = new System.Drawing.Point(5, 745);
             this.txtProdutoID.Name = "txtProdutoID";
-            this.txtProdutoID.Size = new System.Drawing.Size(10, 26);
+            this.txtProdutoID.Size = new System.Drawing.Size(10, 30);
             this.txtProdutoID.TabIndex = 104;
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.Location = new System.Drawing.Point(37, 745);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(10, 26);
+            this.txtQuantidade.Size = new System.Drawing.Size(10, 30);
             this.txtQuantidade.TabIndex = 102;
             // 
             // txtValorUnitario
             // 
             this.txtValorUnitario.Location = new System.Drawing.Point(53, 745);
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(10, 26);
+            this.txtValorUnitario.Size = new System.Drawing.Size(10, 30);
             this.txtValorUnitario.TabIndex = 101;
             this.txtValorUnitario.Text = "d";
             // 
@@ -150,12 +179,12 @@
             // 
             this.txtProduto.Location = new System.Drawing.Point(21, 745);
             this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Size = new System.Drawing.Size(10, 26);
+            this.txtProduto.Size = new System.Drawing.Size(10, 30);
             this.txtProduto.TabIndex = 100;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel5.Controls.Add(this.btnSelecionaCliente);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.cbCliente);
@@ -164,17 +193,18 @@
             this.panel5.Controls.Add(this.txtID);
             this.panel5.Controls.Add(this.txtCPF);
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Location = new System.Drawing.Point(12, 32);
+            this.panel5.Location = new System.Drawing.Point(12, 47);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(243, 284);
             this.panel5.TabIndex = 99;
             // 
             // btnSelecionaCliente
             // 
-            this.btnSelecionaCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnSelecionaCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnSelecionaCliente.FlatAppearance.BorderSize = 0;
             this.btnSelecionaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelecionaCliente.ForeColor = System.Drawing.Color.White;
-            this.btnSelecionaCliente.Location = new System.Drawing.Point(15, 206);
+            this.btnSelecionaCliente.Location = new System.Drawing.Point(15, 210);
             this.btnSelecionaCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelecionaCliente.Name = "btnSelecionaCliente";
             this.btnSelecionaCliente.Size = new System.Drawing.Size(207, 62);
@@ -212,18 +242,18 @@
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(15, 61);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(207, 29);
+            this.cbCliente.Size = new System.Drawing.Size(207, 33);
             this.cbCliente.TabIndex = 91;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(59)))));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(11, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 21);
+            this.label2.Size = new System.Drawing.Size(121, 25);
             this.label2.TabIndex = 96;
             this.label2.Text = "ID do Cliente";
             // 
@@ -232,7 +262,7 @@
             this.txtID.Location = new System.Drawing.Point(15, 173);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(48, 26);
+            this.txtID.Size = new System.Drawing.Size(48, 30);
             this.txtID.TabIndex = 90;
             // 
             // txtCPF
@@ -240,44 +270,45 @@
             this.txtCPF.Location = new System.Drawing.Point(15, 117);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(207, 26);
+            this.txtCPF.Size = new System.Drawing.Size(207, 30);
             this.txtCPF.TabIndex = 92;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(59)))));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(11, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 21);
+            this.label1.Size = new System.Drawing.Size(46, 25);
             this.label1.TabIndex = 93;
             this.label1.Text = "CPF";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel2.Controls.Add(this.btnRemoverDoCarrinho);
             this.panel2.Controls.Add(this.txtQuantidadeItens);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnAddNoCarrinho);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dgvProdutos);
-            this.panel2.Location = new System.Drawing.Point(308, 230);
+            this.panel2.Location = new System.Drawing.Point(308, 245);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(775, 261);
             this.panel2.TabIndex = 98;
             // 
             // btnRemoverDoCarrinho
             // 
-            this.btnRemoverDoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnRemoverDoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnRemoverDoCarrinho.FlatAppearance.BorderSize = 0;
             this.btnRemoverDoCarrinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverDoCarrinho.ForeColor = System.Drawing.Color.White;
             this.btnRemoverDoCarrinho.Location = new System.Drawing.Point(353, 187);
             this.btnRemoverDoCarrinho.Margin = new System.Windows.Forms.Padding(5);
             this.btnRemoverDoCarrinho.Name = "btnRemoverDoCarrinho";
-            this.btnRemoverDoCarrinho.Size = new System.Drawing.Size(197, 56);
+            this.btnRemoverDoCarrinho.Size = new System.Drawing.Size(197, 60);
             this.btnRemoverDoCarrinho.TabIndex = 102;
             this.btnRemoverDoCarrinho.Text = "Remover Item do Carrinho de Compras";
             this.btnRemoverDoCarrinho.UseVisualStyleBackColor = false;
@@ -287,30 +318,31 @@
             // 
             this.txtQuantidadeItens.Location = new System.Drawing.Point(19, 217);
             this.txtQuantidadeItens.Name = "txtQuantidadeItens";
-            this.txtQuantidadeItens.Size = new System.Drawing.Size(50, 26);
+            this.txtQuantidadeItens.Size = new System.Drawing.Size(50, 30);
             this.txtQuantidadeItens.TabIndex = 101;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(59)))));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 193);
+            this.label5.Location = new System.Drawing.Point(14, 189);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 21);
+            this.label5.Size = new System.Drawing.Size(184, 25);
             this.label5.TabIndex = 97;
             this.label5.Text = "Quantidade de Itens";
             // 
             // btnAddNoCarrinho
             // 
-            this.btnAddNoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnAddNoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnAddNoCarrinho.FlatAppearance.BorderSize = 0;
             this.btnAddNoCarrinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNoCarrinho.ForeColor = System.Drawing.Color.White;
             this.btnAddNoCarrinho.Location = new System.Drawing.Point(556, 187);
             this.btnAddNoCarrinho.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddNoCarrinho.Name = "btnAddNoCarrinho";
-            this.btnAddNoCarrinho.Size = new System.Drawing.Size(197, 56);
+            this.btnAddNoCarrinho.Size = new System.Drawing.Size(197, 60);
             this.btnAddNoCarrinho.TabIndex = 100;
             this.btnAddNoCarrinho.Text = "Adicionar ao Carrinho de Compras";
             this.btnAddNoCarrinho.UseVisualStyleBackColor = false;
@@ -328,6 +360,7 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.ForeColor = System.Drawing.Color.White;
@@ -359,10 +392,10 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(48)))), ((int)(((byte)(195)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.dgvCarrinho);
-            this.panel4.Location = new System.Drawing.Point(308, 31);
+            this.panel4.Location = new System.Drawing.Point(308, 46);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(775, 193);
             this.panel4.TabIndex = 97;
@@ -379,6 +412,7 @@
             // 
             // label8
             // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label8.ForeColor = System.Drawing.Color.White;
@@ -415,16 +449,17 @@
             this.cbCPF.FormattingEnabled = true;
             this.cbCPF.Location = new System.Drawing.Point(3, 777);
             this.cbCPF.Name = "cbCPF";
-            this.cbCPF.Size = new System.Drawing.Size(243, 29);
+            this.cbCPF.Size = new System.Drawing.Size(243, 33);
             this.cbCPF.TabIndex = 94;
             this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.cbCPF_SelectedIndexChanged);
             // 
             // btnVender
             // 
-            this.btnVender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(144)))), ((int)(((byte)(217)))));
+            this.btnVender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnVender.FlatAppearance.BorderSize = 0;
             this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVender.ForeColor = System.Drawing.Color.White;
-            this.btnVender.Location = new System.Drawing.Point(866, 499);
+            this.btnVender.Location = new System.Drawing.Point(866, 514);
             this.btnVender.Margin = new System.Windows.Forms.Padding(5);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(197, 56);
@@ -435,17 +470,19 @@
             // 
             // FormVendaItens
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 570);
+            this.ClientSize = new System.Drawing.Size(1113, 586);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormVendaItens";
             this.Text = "FormVendaItens";
             this.Load += new System.EventHandler(this.FormVendaItens_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -492,6 +529,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSelecionaCliente;
         private System.Windows.Forms.Button btnRemoverDoCarrinho;
-        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnFechar;
     }
 }

@@ -51,13 +51,7 @@ namespace HotelManagementSystem
                 fornecedor.CNPJ = txtCNPJ.Text;
                 fornecedor.TelefoneCelular = txtTelefoneC.Text;
                 fornecedor.Email = txtEmail.Text;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Existem valores inválidos!");
-            }
-            finally
-            {
+
                 Response response = fornecedorBLL.Insert(fornecedor);
                 MessageBox.Show(response.Message);
                 if (response.Success)
@@ -66,55 +60,60 @@ namespace HotelManagementSystem
                     FerramentasTextBox.LimpaTextBoxes(this);
                 }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor.ID = int.Parse(txtID.Text);
-
-            Response response = fornecedorBLL.Delete(fornecedor);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Fornecedor fornecedor = new Fornecedor();
+                fornecedor.ID = int.Parse(txtID.Text);
+
+                Response response = fornecedorBLL.Delete(fornecedor);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor.ID = int.Parse(txtID.Text);
-            fornecedor.RazaoSocial = txtRazaoSocial.Text;
-            fornecedor.Nome = txtNome.Text;
-            fornecedor.CNPJ = txtCNPJ.Text;
-            fornecedor.TelefoneCelular = txtTelefoneC.Text;
-            fornecedor.Email = txtEmail.Text;
-
-            Response response = fornecedorBLL.Update(fornecedor);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
-            }
-        }
-        /*
-        private void btnDesativar_Click(object sender, EventArgs e)
-        {
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor.ID = int.Parse(txtID.Text);
+                Fornecedor fornecedor = new Fornecedor();
+                fornecedor.ID = int.Parse(txtID.Text);
+                fornecedor.RazaoSocial = txtRazaoSocial.Text;
+                fornecedor.Nome = txtNome.Text;
+                fornecedor.CNPJ = txtCNPJ.Text;
+                fornecedor.TelefoneCelular = txtTelefoneC.Text;
+                fornecedor.Email = txtEmail.Text;
 
-            Response response = fornecedorBLL.Disable(fornecedor);
-            MessageBox.Show(response.Message);
-            if (response.Success)
-            {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Response response = fornecedorBLL.Update(fornecedor);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+
         }
-        */
+
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();

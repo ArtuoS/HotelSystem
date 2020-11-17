@@ -30,6 +30,7 @@ namespace HotelManagementSystem
         FormProduto formProduto = new FormProduto();
         FormQuarto formQuarto = new FormQuarto();
         FormRegistroProdutos formRegistroProdutos = new FormRegistroProdutos();
+        FormVendaItens formVendaItens = new FormVendaItens();
 
         public FormPrincipal()
         {
@@ -97,29 +98,36 @@ namespace HotelManagementSystem
             this.Show();
         }
 
-        private void btnClientes_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void btnFuncionarios_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void btnFornecedores_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void btnQuartos_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void btnProdutos_Leave(object sender, EventArgs e)
-        {
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void btnVendaProdutos_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnProdutos.Height;
+            pnlNav.Top = btnProdutos.Top;
+            this.Hide();
+            formVendaItens.ShowDialog();
+            this.Show();
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnProdutos.Height;
+            pnlNav.Top = btnProdutos.Top;
+            this.Hide();
+            formCheckIn.ShowDialog();
+            this.Show();
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnProdutos.Height;
+            pnlNav.Top = btnProdutos.Top;
+            this.Hide();
+            formCheckOut.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -31,9 +31,9 @@ namespace HotelManagementSystem
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
             try
             {
+                Funcionario funcionario = new Funcionario();
                 funcionario.ID = Convert.ToInt32(txtID.Text);
                 funcionario.Nome = txtNome.Text;
                 funcionario.CPF = txtCPF.Text;
@@ -44,10 +44,30 @@ namespace HotelManagementSystem
                 funcionario.Bairro = txtBairro.Text;
                 funcionario.NumeroCasa = int.Parse(txtNumeroCasa.Text);
                 funcionario.IsADM = cbAdministrador.Checked;
-            }
-            finally
-            {
+
                 Response response = funcionarioBLL.Update(funcionario);
+                MessageBox.Show(response.Message);
+                    
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Funcionario funcionario = new Funcionario();
+                funcionario.ID = int.Parse(txtID.Text);
+                Response response = funcionarioBLL.Delete(funcionario);
                 MessageBox.Show(response.Message);
 
                 if (response.Success)
@@ -56,19 +76,9 @@ namespace HotelManagementSystem
                     FerramentasTextBox.LimpaTextBoxes(this);
                 }
             }
-        }
-
-        private void btnDeletar_Click(object sender, EventArgs e)
-        {
-            Funcionario funcionario = new Funcionario();
-            funcionario.ID = int.Parse(txtID.Text);
-            Response response = funcionarioBLL.Delete(funcionario);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            catch (FormatException)
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 
@@ -92,9 +102,9 @@ namespace HotelManagementSystem
 
         private void btnAdiciona_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
             try
             {
+                Funcionario funcionario = new Funcionario();
                 funcionario.Nome = txtNome.Text;
                 funcionario.CPF = txtCPF.Text;
                 funcionario.RG = txtRG.Text;
@@ -105,9 +115,7 @@ namespace HotelManagementSystem
                 funcionario.Bairro = txtBairro.Text;
                 funcionario.NumeroCasa = int.Parse(txtNumeroCasa.Text);
                 funcionario.IsADM = cbAdministrador.Checked;
-            }
-            finally
-            {
+
                 Response response = funcionarioBLL.Insert(funcionario);
                 MessageBox.Show(response.Message);
 
@@ -116,6 +124,10 @@ namespace HotelManagementSystem
                     UpdateGridView();
                     FerramentasTextBox.LimpaTextBoxes(this);
                 }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 

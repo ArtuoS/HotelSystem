@@ -117,11 +117,9 @@ namespace HotelManagementSystem
 
         private void btnVender_Click(object sender, EventArgs e)
         {
-
             try
             {
-                //entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
-                vendaProduto.FuncionarioID = 45;
+                vendaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
                 Response response = vendaProdutoBLL.InsertVenda(vendaProduto);
 
                 MessageBox.Show(response.Message);
@@ -244,6 +242,11 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Existem valores inválidos!");
             }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

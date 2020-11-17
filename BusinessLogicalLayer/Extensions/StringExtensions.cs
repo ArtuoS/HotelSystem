@@ -106,6 +106,19 @@ namespace BusinessLogicalLayer.Extensions
             return "";
         }
 
+        public static string ValidaRazaoSocial(this string razaoSocial)
+        {
+            if (string.IsNullOrEmpty(razaoSocial))
+            {
+                return "A razão social deve ser informado!";
+            }
+            else if (razaoSocial.Length < 3 || razaoSocial.Length > 100)
+            {
+                return "A razão social deve ter entre 3 e 100 caractéres!";
+            }
+            return "";
+        }
+
         public static string ValidaDescricaoProduto(this string descricao)
         {
             if (string.IsNullOrEmpty(descricao))

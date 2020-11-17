@@ -32,6 +32,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
+            this.btnCheckOut = new System.Windows.Forms.Button();
+            this.btnCheckIn = new System.Windows.Forms.Button();
+            this.btnVendaProdutos = new System.Windows.Forms.Button();
             this.btnEntradaProdutos = new System.Windows.Forms.Button();
             this.btnProdutos = new System.Windows.Forms.Button();
             this.btnQuartos = new System.Windows.Forms.Button();
@@ -58,8 +61,9 @@
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1200, 720);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1600, 886);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // button1
@@ -68,9 +72,10 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1175, 0);
+            this.button1.Location = new System.Drawing.Point(1567, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
+            this.button1.Size = new System.Drawing.Size(33, 31);
             this.button1.TabIndex = 5;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
@@ -80,14 +85,18 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.Location = new System.Drawing.Point(267, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 25);
+            this.panel1.Size = new System.Drawing.Size(1333, 31);
             this.panel1.TabIndex = 6;
             // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.pnlNav.Controls.Add(this.btnCheckOut);
+            this.pnlNav.Controls.Add(this.btnCheckIn);
+            this.pnlNav.Controls.Add(this.btnVendaProdutos);
             this.pnlNav.Controls.Add(this.btnEntradaProdutos);
             this.pnlNav.Controls.Add(this.btnProdutos);
             this.pnlNav.Controls.Add(this.btnQuartos);
@@ -97,9 +106,58 @@
             this.pnlNav.Controls.Add(this.panel3);
             this.pnlNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNav.Location = new System.Drawing.Point(0, 0);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(200, 720);
+            this.pnlNav.Size = new System.Drawing.Size(267, 886);
             this.pnlNav.TabIndex = 0;
+            // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCheckOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckOut.FlatAppearance.BorderSize = 0;
+            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
+            this.btnCheckOut.Location = new System.Drawing.Point(0, 594);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(267, 52);
+            this.btnCheckOut.TabIndex = 8;
+            this.btnCheckOut.Text = "Check-out";
+            this.btnCheckOut.UseVisualStyleBackColor = false;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
+            // 
+            // btnCheckIn
+            // 
+            this.btnCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckIn.FlatAppearance.BorderSize = 0;
+            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckIn.ForeColor = System.Drawing.Color.White;
+            this.btnCheckIn.Location = new System.Drawing.Point(0, 542);
+            this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(267, 52);
+            this.btnCheckIn.TabIndex = 7;
+            this.btnCheckIn.Text = "Check-in";
+            this.btnCheckIn.UseVisualStyleBackColor = false;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
+            // 
+            // btnVendaProdutos
+            // 
+            this.btnVendaProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnVendaProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendaProdutos.FlatAppearance.BorderSize = 0;
+            this.btnVendaProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendaProdutos.ForeColor = System.Drawing.Color.White;
+            this.btnVendaProdutos.Location = new System.Drawing.Point(0, 490);
+            this.btnVendaProdutos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVendaProdutos.Name = "btnVendaProdutos";
+            this.btnVendaProdutos.Size = new System.Drawing.Size(267, 52);
+            this.btnVendaProdutos.TabIndex = 6;
+            this.btnVendaProdutos.Text = "Venda de Produtos";
+            this.btnVendaProdutos.UseVisualStyleBackColor = false;
+            this.btnVendaProdutos.Click += new System.EventHandler(this.btnVendaProdutos_Click);
             // 
             // btnEntradaProdutos
             // 
@@ -108,9 +166,10 @@
             this.btnEntradaProdutos.FlatAppearance.BorderSize = 0;
             this.btnEntradaProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntradaProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnEntradaProdutos.Location = new System.Drawing.Point(0, 355);
+            this.btnEntradaProdutos.Location = new System.Drawing.Point(0, 438);
+            this.btnEntradaProdutos.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntradaProdutos.Name = "btnEntradaProdutos";
-            this.btnEntradaProdutos.Size = new System.Drawing.Size(200, 42);
+            this.btnEntradaProdutos.Size = new System.Drawing.Size(267, 52);
             this.btnEntradaProdutos.TabIndex = 5;
             this.btnEntradaProdutos.Text = "Entrada de Produtos";
             this.btnEntradaProdutos.UseVisualStyleBackColor = false;
@@ -123,14 +182,14 @@
             this.btnProdutos.FlatAppearance.BorderSize = 0;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 313);
+            this.btnProdutos.Location = new System.Drawing.Point(0, 386);
+            this.btnProdutos.Margin = new System.Windows.Forms.Padding(4);
             this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Size = new System.Drawing.Size(200, 42);
+            this.btnProdutos.Size = new System.Drawing.Size(267, 52);
             this.btnProdutos.TabIndex = 2;
             this.btnProdutos.Text = "Produtos";
             this.btnProdutos.UseVisualStyleBackColor = false;
             this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
-            this.btnProdutos.Leave += new System.EventHandler(this.btnProdutos_Leave);
             // 
             // btnQuartos
             // 
@@ -139,14 +198,14 @@
             this.btnQuartos.FlatAppearance.BorderSize = 0;
             this.btnQuartos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuartos.ForeColor = System.Drawing.Color.White;
-            this.btnQuartos.Location = new System.Drawing.Point(0, 271);
+            this.btnQuartos.Location = new System.Drawing.Point(0, 334);
+            this.btnQuartos.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuartos.Name = "btnQuartos";
-            this.btnQuartos.Size = new System.Drawing.Size(200, 42);
+            this.btnQuartos.Size = new System.Drawing.Size(267, 52);
             this.btnQuartos.TabIndex = 4;
             this.btnQuartos.Text = "Quartos";
             this.btnQuartos.UseVisualStyleBackColor = false;
             this.btnQuartos.Click += new System.EventHandler(this.btnQuartos_Click);
-            this.btnQuartos.Leave += new System.EventHandler(this.btnQuartos_Leave);
             // 
             // btnFornecedores
             // 
@@ -155,14 +214,14 @@
             this.btnFornecedores.FlatAppearance.BorderSize = 0;
             this.btnFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFornecedores.ForeColor = System.Drawing.Color.White;
-            this.btnFornecedores.Location = new System.Drawing.Point(0, 229);
+            this.btnFornecedores.Location = new System.Drawing.Point(0, 282);
+            this.btnFornecedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnFornecedores.Name = "btnFornecedores";
-            this.btnFornecedores.Size = new System.Drawing.Size(200, 42);
+            this.btnFornecedores.Size = new System.Drawing.Size(267, 52);
             this.btnFornecedores.TabIndex = 3;
             this.btnFornecedores.Text = "Fornecedores";
             this.btnFornecedores.UseVisualStyleBackColor = false;
             this.btnFornecedores.Click += new System.EventHandler(this.btnFornecedores_Click);
-            this.btnFornecedores.Leave += new System.EventHandler(this.btnFornecedores_Leave);
             // 
             // btnFuncionarios
             // 
@@ -171,14 +230,14 @@
             this.btnFuncionarios.FlatAppearance.BorderSize = 0;
             this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionarios.ForeColor = System.Drawing.Color.White;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 187);
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 230);
+            this.btnFuncionarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnFuncionarios.Name = "btnFuncionarios";
-            this.btnFuncionarios.Size = new System.Drawing.Size(200, 42);
+            this.btnFuncionarios.Size = new System.Drawing.Size(267, 52);
             this.btnFuncionarios.TabIndex = 2;
             this.btnFuncionarios.Text = "Funcionarios";
             this.btnFuncionarios.UseVisualStyleBackColor = false;
             this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
-            this.btnFuncionarios.Leave += new System.EventHandler(this.btnFuncionarios_Leave);
             // 
             // btnClientes
             // 
@@ -187,14 +246,14 @@
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.White;
-            this.btnClientes.Location = new System.Drawing.Point(0, 145);
+            this.btnClientes.Location = new System.Drawing.Point(0, 178);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(200, 42);
+            this.btnClientes.Size = new System.Drawing.Size(267, 52);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            this.btnClientes.Leave += new System.EventHandler(this.btnClientes_Leave);
             // 
             // panel3
             // 
@@ -203,8 +262,9 @@
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 145);
+            this.panel3.Size = new System.Drawing.Size(267, 178);
             this.panel3.TabIndex = 0;
             // 
             // lblCargo
@@ -212,9 +272,10 @@
             this.lblCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lblCargo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblCargo.ForeColor = System.Drawing.Color.White;
-            this.lblCargo.Location = new System.Drawing.Point(0, 119);
+            this.lblCargo.Location = new System.Drawing.Point(0, 146);
+            this.lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(200, 23);
+            this.lblCargo.Size = new System.Drawing.Size(267, 28);
             this.lblCargo.TabIndex = 2;
             this.lblCargo.Text = "Cargo";
             this.lblCargo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,9 +285,10 @@
             this.lblNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lblNome.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblNome.ForeColor = System.Drawing.Color.White;
-            this.lblNome.Location = new System.Drawing.Point(0, 91);
+            this.lblNome.Location = new System.Drawing.Point(0, 112);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(200, 28);
+            this.lblNome.Size = new System.Drawing.Size(267, 34);
             this.lblNome.TabIndex = 1;
             this.lblNome.Text = "User Name";
             this.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -237,20 +299,21 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::HotelManagementSystem.Properties.Resources.avatar;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(267, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.ClientSize = new System.Drawing.Size(1600, 886);
             this.Controls.Add(this.pnlPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
@@ -280,5 +343,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEntradaProdutos;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCheckOut;
+        private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Button btnVendaProdutos;
     }
 }

@@ -94,6 +94,7 @@
             this.btnFechar.TabIndex = 77;
             this.btnFechar.Text = "X";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // btnExcluir
             // 
@@ -133,6 +134,7 @@
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Location = new System.Drawing.Point(224, 54);
             this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.RowHeadersWidth = 51;
             this.dgvProdutos.Size = new System.Drawing.Size(637, 218);
             this.dgvProdutos.TabIndex = 73;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
@@ -144,7 +146,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(182, 275);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 21);
+            this.label4.Size = new System.Drawing.Size(30, 25);
             this.label4.TabIndex = 75;
             this.label4.Text = "ID";
             // 
@@ -155,7 +157,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(7, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 21);
+            this.label2.Size = new System.Drawing.Size(130, 25);
             this.label2.TabIndex = 8;
             this.label2.Text = "Valor Unitário";
             // 
@@ -191,7 +193,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(11, 249);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 21);
+            this.label3.Size = new System.Drawing.Size(39, 25);
             this.label3.TabIndex = 9;
             this.label3.Text = "R$";
             // 
@@ -200,7 +202,7 @@
             this.txtID.Location = new System.Drawing.Point(171, 298);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(47, 26);
+            this.txtID.Size = new System.Drawing.Size(47, 30);
             this.txtID.TabIndex = 74;
             // 
             // txtValor
@@ -208,7 +210,7 @@
             this.txtValor.Location = new System.Drawing.Point(48, 246);
             this.txtValor.Name = "txtValor";
             this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(170, 26);
+            this.txtValor.Size = new System.Drawing.Size(170, 30);
             this.txtValor.TabIndex = 7;
             // 
             // label1
@@ -218,7 +220,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(7, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 21);
+            this.label1.Size = new System.Drawing.Size(96, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Descrição";
             // 
@@ -229,7 +231,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(7, 30);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(50, 21);
+            this.label.Size = new System.Drawing.Size(63, 25);
             this.label.TabIndex = 4;
             this.label.Text = "Nome";
             // 
@@ -237,12 +239,12 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(11, 54);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 26);
+            this.txtNome.Size = new System.Drawing.Size(207, 30);
             this.txtNome.TabIndex = 3;
             // 
             // FormProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 338);
             this.Controls.Add(this.panel1);

@@ -50,8 +50,7 @@ namespace HotelManagementSystem
             try
             {
                 entradaProduto.FornecedorID = int.Parse(txtIDFornecedor.Text);
-                //entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
-                entradaProduto.FuncionarioID = 45;
+                entradaProduto.FuncionarioID = Environments.FuncionarioLogado.ID;
                 Response response = entradaProdutoBLL.InsertEntrada(entradaProduto);
 
                 MessageBox.Show(response.Message);

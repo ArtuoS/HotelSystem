@@ -42,49 +42,71 @@ namespace HotelManagementSystem
 
         private void btnAdiciona_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto();
-            produto.Nome = txtNome.Text;
-            produto.Descricao = txtDescricao.Text;
-            produto.ValorUnitario = 0;
-
-            Response response = produtoBLL.Insert(produto);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Produto produto = new Produto();
+                produto.Nome = txtNome.Text;
+                produto.Descricao = txtDescricao.Text;
+                produto.ValorUnitario = 0;
+
+                Response response = produtoBLL.Insert(produto);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto();
-            produto.ID = int.Parse(txtID.Text);
-            produto.Nome = txtNome.Text;
-            produto.Descricao = txtDescricao.Text;
-            produto.ValorUnitario = double.Parse(txtValor.Text);
-
-            Response response = produtoBLL.Update(produto);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Produto produto = new Produto();
+                produto.ID = int.Parse(txtID.Text);
+                produto.Nome = txtNome.Text;
+                produto.Descricao = txtDescricao.Text;
+                produto.ValorUnitario = double.Parse(txtValor.Text);
+
+                Response response = produtoBLL.Update(produto);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
             }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto();
-            produto.ID = int.Parse(txtID.Text);
-
-            Response response = produtoBLL.Delete(produto);
-            MessageBox.Show(response.Message);
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                Produto produto = new Produto();
+                produto.ID = int.Parse(txtID.Text);
+
+                Response response = produtoBLL.Delete(produto);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+
         }
 
         private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -103,6 +125,9 @@ namespace HotelManagementSystem
             }
         }
 
-
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

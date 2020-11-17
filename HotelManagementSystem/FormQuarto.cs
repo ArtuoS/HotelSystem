@@ -38,13 +38,7 @@ namespace HotelManagementSystem
                 quarto.ValorNoite = Convert.ToDouble(txtValor.Text);
                 quarto.PessoasMaximas = int.Parse(txtPessoasMax.Text);
                 quarto.Ocupado = false;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Existem valores inválidos!");
-            }
-            finally
-            {
+
                 Response response = quartoBLL.Insert(quarto);
                 MessageBox.Show(response.Message);
 
@@ -54,7 +48,10 @@ namespace HotelManagementSystem
                     FerramentasTextBox.LimpaTextBoxes(this);
                 }
             }
-
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -67,13 +64,7 @@ namespace HotelManagementSystem
                 quarto.ValorNoite = double.Parse(txtValor.Text);
                 quarto.PessoasMaximas = int.Parse(txtPessoasMax.Text);
                 quarto.Ocupado = false;
-            }
-            catch
-            {
-                MessageBox.Show("Existem valores inválidos!");
-            }
-            finally
-            {
+
                 Response response = quartoBLL.Update(quarto);
                 MessageBox.Show(response.Message);
 
@@ -83,21 +74,34 @@ namespace HotelManagementSystem
                     FerramentasTextBox.LimpaTextBoxes(this);
                 }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             Quarto quarto = new Quarto();
-            quarto.ID = int.Parse(txtID.Text);
-
-            Response response = quartoBLL.Delete(quarto);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            try
             {
-                UpdateGridView();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                quarto.ID = int.Parse(txtID.Text);
+
+                Response response = quartoBLL.Delete(quarto);
+                MessageBox.Show(response.Message);
+
+                if (response.Success)
+                {
+                    UpdateGridView();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+
+            }
+
         }
 
         private void UpdateGridView()
@@ -154,11 +158,11 @@ namespace HotelManagementSystem
         {
             if (cbTipoQuarto.SelectedIndex == 0)
             {
-                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSystem\HotelManagementSystem\Imagens\economico.jpg";
+                pbImgQuarto.ImageLocation = @"HotelSystem\HotelManagementSystem\Imagens\economico.jpg";
             }
             else if (cbTipoQuarto.SelectedIndex == 1)
             {
-                pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\executivo.jpg";
+                pbImgQuarto.ImageLocation = @"HotelSys\HotelManagementSystem\Imagens\executivo.jpg";
             }
             else
             {
@@ -170,12 +174,12 @@ namespace HotelManagementSystem
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+                (e.KeyChar != ','))
             {
                 e.Handled = true;
             }
 
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
@@ -184,12 +188,12 @@ namespace HotelManagementSystem
         private void txtPessoasMax_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+                (e.KeyChar != ','))
             {
                 e.Handled = true;
             }
 
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -2))
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf(',') > -2))
             {
                 e.Handled = true;
             }

@@ -13,6 +13,7 @@ namespace BusinessLogicalLayer
     public class FornecedorBLL : BaseValidator<Fornecedor>
     {
         FornecedorDAL fornecedorDAL = new FornecedorDAL();
+
         public Response Insert(Fornecedor fornecedor)
         {
             Response response = Validate(fornecedor);
@@ -38,12 +39,7 @@ namespace BusinessLogicalLayer
         {
             return fornecedorDAL.Delete(fornecedor);
         }
-        /*
-        public Response Disable(Fornecedor fornecedor)
-        {
-            return fornecedorDAL.Disable(fornecedor);
-        }
-        */
+
         public QueryResponse<Fornecedor> GetAll()
         {
             QueryResponse<Fornecedor> response = fornecedorDAL.GetAll();
@@ -69,6 +65,8 @@ namespace BusinessLogicalLayer
         {
             AddError(fornecedor.Nome.ValidaNome());
 
+            AddError(fornecedor.RazaoSocial.ValidaRazaoSocial());
+
             AddError(fornecedor.CNPJ.ValidadorCNPJ());
 
             AddError(fornecedor.Email.ValidadorEmail());
@@ -84,6 +82,7 @@ namespace BusinessLogicalLayer
             }
 
             AddError(fornecedor.TelefoneCelular.ValidaTelefone(0));
+
 
             return base.Validate(fornecedor);
         }

@@ -55,10 +55,10 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(17, 54);
+            this.txtNome.Location = new System.Drawing.Point(17, 51);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(206, 26);
+            this.txtNome.Size = new System.Drawing.Size(206, 30);
             this.txtNome.TabIndex = 0;
             // 
             // label1
@@ -66,10 +66,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 29);
+            this.label1.Location = new System.Drawing.Point(17, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 21);
+            this.label1.Size = new System.Drawing.Size(63, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome";
             // 
@@ -78,10 +78,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 91);
+            this.label2.Location = new System.Drawing.Point(17, 85);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 21);
+            this.label2.Size = new System.Drawing.Size(46, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "CPF";
             // 
@@ -90,10 +90,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 150);
+            this.label3.Location = new System.Drawing.Point(17, 146);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 21);
+            this.label3.Size = new System.Drawing.Size(38, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "RG";
             // 
@@ -102,10 +102,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(13, 210);
+            this.label4.Location = new System.Drawing.Point(13, 207);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 21);
+            this.label4.Size = new System.Drawing.Size(124, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Telefone Fixo";
             // 
@@ -114,10 +114,10 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 237);
+            this.label5.Location = new System.Drawing.Point(13, 268);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 21);
+            this.label5.Size = new System.Drawing.Size(150, 25);
             this.label5.TabIndex = 9;
             this.label5.Text = "Telefone Celular";
             // 
@@ -126,35 +126,35 @@
             this.Email.AutoSize = true;
             this.Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.Email.ForeColor = System.Drawing.Color.White;
-            this.Email.Location = new System.Drawing.Point(17, 290);
+            this.Email.Location = new System.Drawing.Point(17, 329);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(50, 21);
+            this.Email.Size = new System.Drawing.Size(61, 25);
             this.Email.TabIndex = 11;
             this.Email.Text = "Email";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(17, 315);
+            this.txtEmail.Location = new System.Drawing.Point(17, 358);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(206, 26);
+            this.txtEmail.Size = new System.Drawing.Size(206, 30);
             this.txtEmail.TabIndex = 10;
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(17, 175);
-            this.txtRG.Mask = "00.000.000-9";
+            this.txtRG.Location = new System.Drawing.Point(17, 174);
+            this.txtRG.Mask = "00,000,000-9";
             this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(206, 26);
+            this.txtRG.Size = new System.Drawing.Size(206, 30);
             this.txtRG.TabIndex = 54;
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(17, 115);
-            this.txtCPF.Mask = "000.000.000-99";
+            this.txtCPF.Location = new System.Drawing.Point(17, 113);
+            this.txtCPF.Mask = "000,000,000-99";
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(206, 26);
+            this.txtCPF.Size = new System.Drawing.Size(206, 30);
             this.txtCPF.TabIndex = 53;
             // 
             // dgvCliente
@@ -175,7 +175,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(39, 26);
+            this.txtID.Size = new System.Drawing.Size(39, 30);
             this.txtID.TabIndex = 71;
             // 
             // btnAtualizar
@@ -218,7 +218,7 @@
             this.label6.Location = new System.Drawing.Point(1140, 418);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 21);
+            this.label6.Size = new System.Drawing.Size(30, 25);
             this.label6.TabIndex = 74;
             this.label6.Text = "ID";
             // 
@@ -246,6 +246,13 @@
             this.panel1.Controls.Add(this.Email);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtNome);
+            this.panel1.Controls.Add(this.txtCPF);
+            this.panel1.Controls.Add(this.txtRG);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 26);
@@ -271,18 +278,18 @@
             // 
             // txtTelefoneF
             // 
-            this.txtTelefoneF.Location = new System.Drawing.Point(17, 208);
+            this.txtTelefoneF.Location = new System.Drawing.Point(17, 235);
             this.txtTelefoneF.Mask = "(99) 0000-0000";
             this.txtTelefoneF.Name = "txtTelefoneF";
-            this.txtTelefoneF.Size = new System.Drawing.Size(206, 26);
+            this.txtTelefoneF.Size = new System.Drawing.Size(206, 30);
             this.txtTelefoneF.TabIndex = 79;
             // 
             // txtTelefoneC
             // 
-            this.txtTelefoneC.Location = new System.Drawing.Point(17, 261);
+            this.txtTelefoneC.Location = new System.Drawing.Point(18, 296);
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
-            this.txtTelefoneC.Size = new System.Drawing.Size(206, 26);
+            this.txtTelefoneC.Size = new System.Drawing.Size(206, 30);
             this.txtTelefoneC.TabIndex = 78;
             // 
             // panel2
@@ -296,7 +303,7 @@
             // 
             // FormCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 482);
             this.Controls.Add(this.btnFechar);
@@ -305,13 +312,6 @@
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dgvCliente);
-            this.Controls.Add(this.txtRG);
-            this.Controls.Add(this.txtCPF);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
