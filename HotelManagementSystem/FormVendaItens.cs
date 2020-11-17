@@ -126,6 +126,8 @@ namespace HotelManagementSystem
 
                 if (response.Success)
                 {
+                    txtValor.Text = "";
+                    txtQuantidadeItens.Text = "";
                     itens_Produtos.Clear();
                     UpdateGridViewCarrinho();
                     UpdateGridView();
