@@ -95,13 +95,31 @@ namespace BusinessLogicalLayer.Extensions
 
         public static string ValidaNome(this string nome)
         {
+            Regex rg = new Regex(@"^[a-zA-Z]+$");
+            if (rg.IsMatch(nome))
+            {
+                if (string.IsNullOrEmpty(nome))
+                {
+                    return "O nome deve ser informado!";
+                }
+                else if (nome.Length < 3 || nome.Length > 100)
+                {
+                    return "O nome deve ter entre 3 e 100 caractéres!";
+                }
+                return "";
+            }
+            return "O nome só aceita letras!";
+        }
+
+        public static string ValidaNomeProduto(this string nome)
+        {
             if (string.IsNullOrEmpty(nome))
             {
-                return "O nome deve ser informado!";
+                return "O nome do produto deve ser informado!";
             }
-            else if (nome.Length < 3 || nome.Length > 100)
+            else if (nome.Length < 3 || nome.Length > 70)
             {
-                return "O nome deve ter entre 3 e 100 caractéres!";
+                return "O nome do produto deve ter entre 3 e 100 caractéres!";
             }
             return "";
         }
@@ -115,6 +133,19 @@ namespace BusinessLogicalLayer.Extensions
             else if (razaoSocial.Length < 3 || razaoSocial.Length > 100)
             {
                 return "A razão social deve ter entre 3 e 100 caractéres!";
+            }
+            return "";
+        }
+
+        public static string VerificaValorUnitario(this double valorUnitario)
+        {
+            if (string.IsNullOrEmpty(valorUnitario.ToString()))
+            {
+                return "Insira um valor!";
+            }
+            else if (valorUnitario <= 0)
+            {
+                return "Valor deve ser maior que zero!";
             }
             return "";
         }
@@ -242,5 +273,10 @@ namespace BusinessLogicalLayer.Extensions
             return "Quantidade de itens inválida!";
         }
 
+        public static int SubtraiDatas(DateTime dt1, DateTime dt2)
+        {
+            TimeSpan span = dt2.Subtract(dt1);
+            return span.Days;
+        }
     }
 }

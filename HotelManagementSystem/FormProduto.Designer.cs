@@ -35,15 +35,13 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnAdiciona = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -57,12 +55,9 @@
             this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Controls.Add(this.dgvProdutos);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtDescricao);
             this.panel1.Controls.Add(this.btnAdiciona);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.txtValor);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label);
             this.panel1.Controls.Add(this.txtNome);
@@ -75,6 +70,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -144,22 +140,11 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(182, 275);
+            this.label4.Location = new System.Drawing.Point(182, 223);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 25);
+            this.label4.Size = new System.Drawing.Size(24, 21);
             this.label4.TabIndex = 75;
             this.label4.Text = "ID";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(7, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Valor Unitário";
             // 
             // txtDescricao
             // 
@@ -185,33 +170,14 @@
             this.btnAdiciona.UseVisualStyleBackColor = false;
             this.btnAdiciona.Click += new System.EventHandler(this.btnAdiciona_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 249);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 25);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "R$";
-            // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(171, 298);
+            this.txtID.Location = new System.Drawing.Point(171, 246);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(47, 30);
+            this.txtID.Size = new System.Drawing.Size(47, 26);
             this.txtID.TabIndex = 74;
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(48, 246);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(170, 30);
-            this.txtValor.TabIndex = 7;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -220,7 +186,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(7, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Descrição";
             // 
@@ -231,7 +197,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(7, 30);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(63, 25);
+            this.label.Size = new System.Drawing.Size(50, 21);
             this.label.TabIndex = 4;
             this.label.Text = "Nome";
             // 
@@ -239,12 +205,24 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(11, 54);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 30);
+            this.txtNome.Size = new System.Drawing.Size(207, 26);
             this.txtNome.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(5, 3);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(151, 21);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Registro de Produtos";
             // 
             // FormProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 338);
             this.Controls.Add(this.panel1);
@@ -252,11 +230,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProduto";
             this.Load += new System.EventHandler(this.FormProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.ResumeLayout(false);
 
@@ -265,9 +245,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label;
@@ -280,5 +257,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Label label9;
     }
 }

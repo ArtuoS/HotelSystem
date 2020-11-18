@@ -31,6 +31,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
@@ -48,8 +49,8 @@
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnRemoverDoCarrinho = new System.Windows.Forms.Button();
             this.txtQuantidadeItens = new System.Windows.Forms.MaskedTextBox();
+            this.btnRemoverDoCarrinho = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddNoCarrinho = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -81,7 +82,7 @@
             this.label6.Location = new System.Drawing.Point(10, 33);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 25);
+            this.label6.Size = new System.Drawing.Size(57, 21);
             this.label6.TabIndex = 87;
             this.label6.Text = "Cliente";
             // 
@@ -110,12 +111,25 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.btnFechar);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1113, 30);
             this.panel8.TabIndex = 106;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(5, 4);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 21);
+            this.label9.TabIndex = 107;
+            this.label9.Text = "Venda de Itens";
             // 
             // btnFechar
             // 
@@ -138,10 +152,10 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(698, 513);
+            this.label7.Location = new System.Drawing.Point(707, 513);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 25);
+            this.label7.Size = new System.Drawing.Size(83, 21);
             this.label7.TabIndex = 97;
             this.label7.Text = "Valor Total";
             // 
@@ -150,28 +164,28 @@
             this.txtValor.Location = new System.Drawing.Point(677, 540);
             this.txtValor.Name = "txtValor";
             this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(156, 30);
+            this.txtValor.Size = new System.Drawing.Size(156, 26);
             this.txtValor.TabIndex = 105;
             // 
             // txtProdutoID
             // 
             this.txtProdutoID.Location = new System.Drawing.Point(5, 745);
             this.txtProdutoID.Name = "txtProdutoID";
-            this.txtProdutoID.Size = new System.Drawing.Size(10, 30);
+            this.txtProdutoID.Size = new System.Drawing.Size(10, 26);
             this.txtProdutoID.TabIndex = 104;
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.Location = new System.Drawing.Point(37, 745);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(10, 30);
+            this.txtQuantidade.Size = new System.Drawing.Size(10, 26);
             this.txtQuantidade.TabIndex = 102;
             // 
             // txtValorUnitario
             // 
             this.txtValorUnitario.Location = new System.Drawing.Point(53, 745);
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(10, 30);
+            this.txtValorUnitario.Size = new System.Drawing.Size(10, 26);
             this.txtValorUnitario.TabIndex = 101;
             this.txtValorUnitario.Text = "d";
             // 
@@ -179,7 +193,7 @@
             // 
             this.txtProduto.Location = new System.Drawing.Point(21, 745);
             this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Size = new System.Drawing.Size(10, 30);
+            this.txtProduto.Size = new System.Drawing.Size(10, 26);
             this.txtProduto.TabIndex = 100;
             // 
             // panel5
@@ -242,7 +256,7 @@
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(15, 61);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(207, 33);
+            this.cbCliente.Size = new System.Drawing.Size(207, 29);
             this.cbCliente.TabIndex = 91;
             // 
             // label2
@@ -253,7 +267,7 @@
             this.label2.Location = new System.Drawing.Point(11, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 25);
+            this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 96;
             this.label2.Text = "ID do Cliente";
             // 
@@ -262,7 +276,7 @@
             this.txtID.Location = new System.Drawing.Point(15, 173);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(48, 30);
+            this.txtID.Size = new System.Drawing.Size(48, 26);
             this.txtID.TabIndex = 90;
             // 
             // txtCPF
@@ -270,7 +284,7 @@
             this.txtCPF.Location = new System.Drawing.Point(15, 117);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(207, 30);
+            this.txtCPF.Size = new System.Drawing.Size(207, 26);
             this.txtCPF.TabIndex = 92;
             // 
             // label1
@@ -281,15 +295,15 @@
             this.label1.Location = new System.Drawing.Point(11, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 25);
+            this.label1.Size = new System.Drawing.Size(37, 21);
             this.label1.TabIndex = 93;
             this.label1.Text = "CPF";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.panel2.Controls.Add(this.btnRemoverDoCarrinho);
             this.panel2.Controls.Add(this.txtQuantidadeItens);
+            this.panel2.Controls.Add(this.btnRemoverDoCarrinho);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnAddNoCarrinho);
             this.panel2.Controls.Add(this.panel3);
@@ -298,6 +312,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(775, 261);
             this.panel2.TabIndex = 98;
+            // 
+            // txtQuantidadeItens
+            // 
+            this.txtQuantidadeItens.Location = new System.Drawing.Point(19, 221);
+            this.txtQuantidadeItens.Mask = "0000";
+            this.txtQuantidadeItens.Name = "txtQuantidadeItens";
+            this.txtQuantidadeItens.Size = new System.Drawing.Size(50, 26);
+            this.txtQuantidadeItens.TabIndex = 103;
+            this.txtQuantidadeItens.ValidatingType = typeof(int);
             // 
             // btnRemoverDoCarrinho
             // 
@@ -314,13 +337,6 @@
             this.btnRemoverDoCarrinho.UseVisualStyleBackColor = false;
             this.btnRemoverDoCarrinho.Click += new System.EventHandler(this.btnRemoverDoCarrinho_Click);
             // 
-            // txtQuantidadeItens
-            // 
-            this.txtQuantidadeItens.Location = new System.Drawing.Point(19, 217);
-            this.txtQuantidadeItens.Name = "txtQuantidadeItens";
-            this.txtQuantidadeItens.Size = new System.Drawing.Size(50, 30);
-            this.txtQuantidadeItens.TabIndex = 101;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -329,7 +345,7 @@
             this.label5.Location = new System.Drawing.Point(14, 189);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 25);
+            this.label5.Size = new System.Drawing.Size(149, 21);
             this.label5.TabIndex = 97;
             this.label5.Text = "Quantidade de Itens";
             // 
@@ -449,7 +465,7 @@
             this.cbCPF.FormattingEnabled = true;
             this.cbCPF.Location = new System.Drawing.Point(3, 777);
             this.cbCPF.Name = "cbCPF";
-            this.cbCPF.Size = new System.Drawing.Size(243, 33);
+            this.cbCPF.Size = new System.Drawing.Size(243, 29);
             this.cbCPF.TabIndex = 94;
             this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.cbCPF_SelectedIndexChanged);
             // 
@@ -470,7 +486,7 @@
             // 
             // FormVendaItens
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 586);
             this.Controls.Add(this.panel1);
@@ -478,11 +494,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormVendaItens";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormVendaItens";
             this.Load += new System.EventHandler(this.FormVendaItens_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -523,7 +541,6 @@
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.TextBox txtValorUnitario;
         private System.Windows.Forms.TextBox txtProdutoID;
-        private System.Windows.Forms.MaskedTextBox txtQuantidadeItens;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label7;
@@ -531,5 +548,7 @@
         private System.Windows.Forms.Button btnRemoverDoCarrinho;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox txtQuantidadeItens;
     }
 }

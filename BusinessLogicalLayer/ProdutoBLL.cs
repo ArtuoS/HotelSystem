@@ -65,7 +65,7 @@ namespace BusinessLogicalLayer
 
         public override Response Validate(Produto produto)
         {
-            AddError(produto.Nome.ValidaNome());
+            AddError(produto.Nome.ValidaNomeProduto());
 
             AddError(produto.Descricao.ValidaDescricaoProduto());
 

@@ -245,5 +245,54 @@ namespace DataAcessLayer
                 connection.Close();
             }
         }
+
+        public SingleResponse<Quarto> GetById(int id)
+        {
+            SingleResponse<Quarto> response = new SingleResponse<Quarto>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM QUARTOS WHERE ID = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Quarto quarto = new Quarto();
+                    quarto.ID = (int)reader["ID"];
+                    quarto.TipoQuarto = (TipoQuartos)reader["TIPOQUARTO"];
+                    quarto.ValorNoite = (double)reader["VALORNOITE"];
+                    quarto.PessoasMaximas = (int)reader["PESSOASMAXIMAS"];
+                    quarto.Ocupado = (bool)reader["OCUPADO"];
+                    response.Data = quarto;
+                }
+
+                response.Success = true;
+                response.Message = "Dados selecionados com sucesso!";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                // finally sempre é executado, independente de exceções ou returns!
+                connection.Close();
+            }
+        }
     }
 }

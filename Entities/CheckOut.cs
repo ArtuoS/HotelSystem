@@ -13,5 +13,6 @@ namespace Entities
         public int ClienteID { get; set; }
         public DateTime DataSaida { get; set; }
         public double Valor { get; set; }
+        public int CheckInID { get; set; }
     }
 }

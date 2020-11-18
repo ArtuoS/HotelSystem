@@ -136,7 +136,7 @@ namespace HotelManagementSystem
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void dgvItens_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -208,6 +208,34 @@ namespace HotelManagementSystem
             var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
             var source = new BindingSource(bindingList, null);
             dgvItens.DataSource = source;
+        }
+
+        private void txtValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

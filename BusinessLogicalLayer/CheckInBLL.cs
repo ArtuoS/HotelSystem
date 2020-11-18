@@ -35,7 +35,12 @@ namespace BusinessLogicalLayer
             return response;
         }
 
-        
+        public SingleResponse<CheckIn> GetById(int id)
+        {
+            SingleResponse<CheckIn> response = checkInDAL.GetById(id);
+            return response;
+        }
+
         public override Response Validate(CheckIn checkIn)
         {
             AddError(checkIn.DataSaidaPrevista.VerificaDatas());

@@ -117,7 +117,7 @@ namespace DataAcessLayer
             }
             return response;
         }
-        // // // // // //
+
         public Response Delete(CheckIn checkIn)
         {
             Response response = new Response();
@@ -174,6 +174,7 @@ namespace DataAcessLayer
             }
             return response;
         }
+
         public QueryResponse<CheckIn> GetAll()
         {
             QueryResponse<CheckIn> response = new QueryResponse<CheckIn>();
@@ -218,10 +219,57 @@ namespace DataAcessLayer
             }
             finally
             {
+                connection.Close();
+            }
+        }
+
+        public SingleResponse<CheckIn> GetById(int id)
+        {
+            SingleResponse<CheckIn> response = new SingleResponse<CheckIn>();
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConnectionString.GetConnectionString();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM CHECKIN WHERE ID = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    CheckIn checkIn = new CheckIn();
+                    checkIn.ID = (int)reader["ID"];
+                    checkIn.QuartoID = (int)reader["QUARTOID"];
+                    checkIn.ClienteID = (int)reader["CLIENTEID"];
+                    checkIn.DataEntrada = (DateTime)reader["DATAENTRADA"];
+                    checkIn.DataSaidaPrevista = (DateTime)reader["DATASAIDAPREVISTA"];
+                    response.Data = checkIn;
+                }
+
+                response.Success = true;
+                response.Message = "Dados selecionados com sucesso!";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Erro no Banco de Dados, contate um ADM!";
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
                 // finally sempre é executado, independente de exceções ou returns!
                 connection.Close();
             }
-
         }
     }
 }

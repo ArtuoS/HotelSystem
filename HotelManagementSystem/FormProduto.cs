@@ -47,7 +47,6 @@ namespace HotelManagementSystem
                 Produto produto = new Produto();
                 produto.Nome = txtNome.Text;
                 produto.Descricao = txtDescricao.Text;
-                produto.ValorUnitario = 0;
 
                 Response response = produtoBLL.Insert(produto);
                 MessageBox.Show(response.Message);
@@ -71,7 +70,6 @@ namespace HotelManagementSystem
                 produto.ID = int.Parse(txtID.Text);
                 produto.Nome = txtNome.Text;
                 produto.Descricao = txtDescricao.Text;
-                produto.ValorUnitario = double.Parse(txtValor.Text);
 
                 Response response = produtoBLL.Update(produto);
                 MessageBox.Show(response.Message);
@@ -121,7 +119,6 @@ namespace HotelManagementSystem
                 txtID.Text = ID;
                 txtNome.Text = NOME;
                 txtDescricao.Text = DESCRICAO;
-                txtValor.Text = VALORUNITARIO;
             }
         }
 

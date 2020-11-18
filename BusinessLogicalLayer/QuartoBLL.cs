@@ -24,6 +24,7 @@ namespace BusinessLogicalLayer
             }
             return response;
         }
+
         public Response Update(Quarto quarto)
         {
             Response response = Validate(quarto);
@@ -33,24 +34,36 @@ namespace BusinessLogicalLayer
             }
             return response;
         }
+
         public Response Delete(Quarto quarto)
         {
             return quartoDAL.Delete(quarto);
         }
+
         public QueryResponse<Quarto> GetAll()
         {
-            QueryResponse<Quarto> responseQ = quartoDAL.GetAll();
-            return responseQ;
+            QueryResponse<Quarto> response = quartoDAL.GetAll();
+            return response;
         }
+
         public QueryResponse<Quarto> GetNotOccupied()
         {
-            QueryResponse<Quarto> responseQ = quartoDAL.GetNotOccupied();
-            return responseQ;
+            QueryResponse<Quarto> response = quartoDAL.GetNotOccupied();
+            return response;
         }
+
+        public SingleResponse<Quarto> GetById(int id)
+        {
+            SingleResponse<Quarto> response = quartoDAL.GetById(id);
+            return response;
+        }
+
         public override Response Validate(Quarto quarto)
         {
             AddError(quarto.PessoasMaximas.ValidaPessoasMaximas());
+
             AddError(StringExtensions.ValidaValorQuarto(quarto.ValorNoite, (TipoQuartos)quarto.TipoQuarto));
+
             return base.Validate(quarto);
         }
     }

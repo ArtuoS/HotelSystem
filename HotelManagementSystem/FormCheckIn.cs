@@ -103,21 +103,29 @@ namespace HotelManagementSystem
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            CheckIn checkIn = new CheckIn();
-            checkIn.QuartoID = int.Parse(txtQuartoID.Text);
-            checkIn.ClienteID = int.Parse(txtClienteID.Text);
-            checkIn.DataEntrada = DateTime.Now;
-            checkIn.DataSaidaPrevista = dtpDataSaidaPrevista.Value;
-
-            Response response = checkInBLL.Insert(checkIn);
-            MessageBox.Show(response.Message);
-
-            if (response.Success)
+            try
             {
-                UpdateGridViewQuartos();
-                UpdateGridViewCheckIn();
-                FerramentasTextBox.LimpaTextBoxes(this);
+                CheckIn checkIn = new CheckIn();
+                checkIn.QuartoID = int.Parse(txtQuartoID.Text);
+                checkIn.ClienteID = int.Parse(txtClienteID.Text);
+                checkIn.DataEntrada = DateTime.Now;
+                checkIn.DataSaidaPrevista = dtpDataSaidaPrevista.Value;
+
+                Response response = checkInBLL.Insert(checkIn);
+                MessageBox.Show(response.Message);
+
+                if (response.Success)
+                {
+                    UpdateGridViewQuartos();
+                    UpdateGridViewCheckIn();
+                    FerramentasTextBox.LimpaTextBoxes(this);
+                }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Existem valores inválidos!");
+            }
+
         }
     }
 }

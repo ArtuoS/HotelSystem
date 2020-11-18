@@ -89,8 +89,6 @@ namespace HotelManagementSystem
 
                 MessageBox.Show("Produto selecionado!");
             }
-
-
         }
 
         private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,18 +142,20 @@ namespace HotelManagementSystem
             ItensVenda itensVenda1 = new ItensVenda();
             try
             {
-                itensVenda1.ProdutoID = int.Parse(txtProdutoID.Text);
-                itensVenda1.Valor = double.Parse(txtValorUnitario.Text);
-                itensVenda1.Quantidade = int.Parse(txtQuantidadeItens.Text);
-                itensVenda1.ClienteID = int.Parse(txtID.Text);
-                ClonaValores(itensVenda, itensVenda1);
+                if (int.Parse(txtQuantidadeItens.Text) != 0)
+                {
+                    itensVenda1.ProdutoID = int.Parse(txtProdutoID.Text);
+                    itensVenda1.Valor = double.Parse(txtValorUnitario.Text);
+                    itensVenda1.Quantidade = int.Parse(txtQuantidadeItens.Text);
+                    itensVenda1.ClienteID = int.Parse(txtID.Text);
+                    ClonaValores(itensVenda, itensVenda1);
 
-                vendaProduto.Valor += (itensVenda.Quantidade * itensVenda.Valor);
-                txtValor.Text = Convert.ToString(vendaProduto.Valor);
-                itens_Produtos.Add(ConversaoClasses(txtProduto.Text, itensVenda1));
-                vendaProduto.Itens.Add(itensVenda1);
-                UpdateGridViewCarrinho();
-
+                    vendaProduto.Valor += (itensVenda.Quantidade * itensVenda.Valor);
+                    txtValor.Text = Convert.ToString(vendaProduto.Valor);
+                    itens_Produtos.Add(ConversaoClasses(txtProduto.Text, itensVenda1));
+                    vendaProduto.Itens.Add(itensVenda1);
+                    UpdateGridViewCarrinho();
+                }
             }
             catch (FormatException)
             {

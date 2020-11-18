@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace DataAcessLayer
 {
@@ -13,174 +14,66 @@ namespace DataAcessLayer
     {
         public Response Insert(CheckOut checkOut)
         {
-            Response response = new Response();
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command1 = new SqlCommand();
-
-            command1.CommandText = "INSERT INTO CHECKOUT (QUARTOID, CLIENTEID, DATASAIDA, VALOR) VALUES (@QUARTOID, @CLIENTEID, @DATASAIDA, @VALOR);";
-            command1.Parameters.AddWithValue("@QUARTOID", checkOut.QuartoID);
-            command1.Parameters.AddWithValue("@CLIENTEID", checkOut.ClienteID);
-            command1.Parameters.AddWithValue("@DATASAIDA", checkOut.DataSaida);
-            command1.Parameters.AddWithValue("@VALOR", checkOut.Valor);
-
-            command1.Connection = connection;
-            SqlTransaction transaction = null;
-            try
+            using (TransactionScope scope = new TransactionScope())
             {
-                connection.Open();
+                Response response = new Response();
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConnectionString.GetConnectionString();
 
-                transaction = connection.BeginTransaction();
+                SqlCommand command1 = new SqlCommand();
 
-                command1.Transaction = transaction;
-                command1.ExecuteScalar();
+                command1.CommandText = "INSERT INTO CHECKOUT (QUARTOID, CLIENTEID, DATASAIDA, VALOR, CHECKINID) VALUES (@QUARTOID, @CLIENTEID, @DATASAIDA, @VALOR, @CHECKINID);";
+                command1.Parameters.AddWithValue("@QUARTOID", checkOut.QuartoID);
+                command1.Parameters.AddWithValue("@CLIENTEID", checkOut.ClienteID);
+                command1.Parameters.AddWithValue("@DATASAIDA", checkOut.DataSaida);
+                command1.Parameters.AddWithValue("@VALOR", checkOut.Valor);
+                command1.Parameters.AddWithValue("@CHECKINID", checkOut.CheckInID);
 
-                SqlCommand command2 = new SqlCommand();
-                command2.Transaction = transaction;
+                command1.Connection = connection;
+                try
+                {
+                    connection.Open();
 
-                command2.CommandText = "UPDATE QUARTOS SET OCUPADO = @OCUPADO WHERE ID = @ID";
-                command2.Parameters.AddWithValue("@ID", checkOut.QuartoID);
-                command2.Parameters.AddWithValue("@OCUPADO", false);
+                    command1.ExecuteScalar();
 
-                command2.Connection = connection;
+                    SqlCommand command2 = new SqlCommand();
 
-                transaction.Rollback();
+                    command2.CommandText = "UPDATE QUARTOS SET OCUPADO = @OCUPADO WHERE ID = @ID";
+                    command2.Parameters.AddWithValue("@ID", checkOut.QuartoID);
+                    command2.Parameters.AddWithValue("@OCUPADO", false);
 
-                transaction = connection.BeginTransaction();
-                command2.Transaction = transaction;
-                command2.ExecuteScalar();
+                    command2.Connection = connection;
 
-                SqlCommand command3 = new SqlCommand();
-                command3.Transaction = transaction;
+                    command2.ExecuteScalar();
 
-                command3.CommandText = "DELETE FROM CHECKIN WHERE ID = @ID";
-                command3.Parameters.AddWithValue("@ID", checkOut.ID);
+                    SqlCommand command3 = new SqlCommand();
 
-                command3.Connection = connection;
+                    //DELETE FROM CHECKIN WHERE PRIMARYKEY = @CHECKINID
+                    command3.CommandText = "DELETE FROM CHECKIN WHERE ID = @CHECKINID";
+                    command3.Parameters.AddWithValue("@CHECKINID", checkOut.CheckInID);
 
-                command3.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Check-out realizado com sucesso!";
-                transaction.Commit();
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return response;
-        }
-        /*
-        public Response Update(CheckOut checkOut)
-        {
-            Response response = new Response();
+                    command3.Connection = connection;
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE CLIENTES SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO WHERE ID = @ID";
-
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
+                    command3.ExecuteNonQuery();
+                    response.Success = true;
+                    response.Message = "Check-out realizado com sucesso!";
+                    scope.Complete();
+                }
+                catch (Exception ex)
                 {
                     response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
+                    response.Message = "Erro no Banco de Dados, contate um ADM!";
+                    response.StackTrace = ex.StackTrace;
+                    response.ExceptionError = ex.Message;
                 }
-                response.Success = true;
-                response.Message = "Atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
-        }
-        public Response Delete(CheckOut checkOut)
-        {
-            Response response = new Response();
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command1 = new SqlCommand();
-            command1.CommandText = "DELETE FROM checkOut WHERE ID = @ID";
-            command1.Parameters.AddWithValue("@ID", checkOut.ID);
-
-            command1.Connection = connection;
-            SqlTransaction transaction = null;
-            try
-            {
-                connection.Open();
-
-                transaction = connection.BeginTransaction();
-
-                command1.Transaction = transaction;
-                command1.ExecuteScalar();
-
-                SqlCommand command2 = new SqlCommand();
-                command2.Transaction = transaction;
-
-                command2.CommandText = "UPDATE QUARTOS SET OCUPADO = @OCUPADO WHERE ID = @ID";
-                command2.Parameters.AddWithValue("@ID", checkOut.QuartoID);
-                command2.Parameters.AddWithValue("@OCUPADO", false);
-
-                command2.Connection = connection;
-
-                int nLinhasAfetadas = command2.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
+                finally
                 {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
+                    connection.Close();
                 }
-                response.Success = true;
-                response.Message = "Excluído com sucesso!";
-                transaction.Commit();
+                return response;
             }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
         }
-        */
+
         public QueryResponse<CheckOut> GetAll()
         {
             QueryResponse<CheckOut> response = new QueryResponse<CheckOut>();

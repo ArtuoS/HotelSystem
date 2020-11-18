@@ -53,6 +53,8 @@ namespace BusinessLogicalLayer
         {
             AddError(entrada.Itens.ListaEstaVazia());
 
+            //verifica valor unitario
+
             return base.Validate(entrada);
         }
     }

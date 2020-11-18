@@ -45,6 +45,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbImgQuarto = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuarto)).BeginInit();
             this.panel2.SuspendLayout();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtID);
@@ -262,6 +264,18 @@
             this.panel3.Size = new System.Drawing.Size(1154, 25);
             this.panel3.TabIndex = 60;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(4, 3);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 21);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Registro de Quartos";
+            // 
             // FormQuarto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -303,5 +317,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label9;
     }
 }

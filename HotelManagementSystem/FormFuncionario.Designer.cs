@@ -34,7 +34,6 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdiciona = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
@@ -56,6 +55,8 @@
             this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.panel2.SuspendLayout();
@@ -69,6 +70,7 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(45, 26);
             this.txtID.TabIndex = 47;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAtualizar
             // 
@@ -163,20 +165,6 @@
             this.btnAdiciona.Text = "Adicionar";
             this.btnAdiciona.UseVisualStyleBackColor = false;
             this.btnAdiciona.Click += new System.EventHandler(this.btnAdiciona_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.FlatAppearance.BorderSize = 0;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(1156, 0);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(25, 22);
-            this.btnFechar.TabIndex = 52;
-            this.btnFechar.Text = "X";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // dgvFuncionario
             // 
@@ -318,7 +306,7 @@
             // txtRG
             // 
             this.txtRG.Location = new System.Drawing.Point(13, 161);
-            this.txtRG.Mask = "00,000,000-9";
+            this.txtRG.Mask = "00.000.000-9";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(206, 26);
             this.txtRG.TabIndex = 52;
@@ -346,7 +334,7 @@
             // txtCPF
             // 
             this.txtCPF.Location = new System.Drawing.Point(13, 108);
-            this.txtCPF.Mask = "000,000,000-99";
+            this.txtCPF.Mask = "000.000.000-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(206, 26);
             this.txtCPF.TabIndex = 1;
@@ -361,12 +349,39 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1184, 22);
             this.panel2.TabIndex = 70;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Location = new System.Drawing.Point(1156, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(25, 22);
+            this.btnFechar.TabIndex = 52;
+            this.btnFechar.Text = "X";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(3, 1);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(177, 21);
+            this.label10.TabIndex = 108;
+            this.label10.Text = "Registro de Funcionários";
             // 
             // FormFuncionario
             // 
@@ -384,6 +399,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -417,5 +433,6 @@
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnAdiciona;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -14,17 +14,6 @@ namespace BusinessLogicalLayer
     public class CheckOutBLL : BaseValidator<CheckOut>
     {
         CheckOutDAL checkOutDAL = new CheckOutDAL();
-        /*
-        public Response Insert(CheckOut checkOut)
-        {
-            Response response = Validate(checkOut);
-            if(response.Success)
-            {
-                return checkOutDAL.Insert(checkOut);
-            }
-            return response;
-        }
-        */
         public Response Insert(CheckOut checkOut)
         {
             Response response = Validate(checkOut);
@@ -32,19 +21,24 @@ namespace BusinessLogicalLayer
             {
                 using (TransactionScope scope = new TransactionScope())
                 {
-                    Itens_ConsumidosBLL itensConsumidosBLL = new Itens_ConsumidosBLL();
-                    QueryResponse<Itens_Consumidos> responseItens = itensConsumidosBLL.GetItensConsumidosByCliente(checkOut.ClienteID);
-                    if (responseItens.Success)
+                    CheckInBLL checkInBLL = new CheckInBLL();
+                    SingleResponse<CheckIn> responseCheckIn = checkInBLL.GetById(checkOut.CheckInID);
+                    if (responseCheckIn.Success)
                     {
-                        checkOut.Valor = responseItens.Data.Sum(c => checkOut.Valor + c.ValorTotal);
-                    }
-                    else
-                    {
-                        return responseItens;
+                        QuartoBLL quartoBLL = new QuartoBLL();
+                        SingleResponse<Quarto> responseQuarto = quartoBLL.GetById(checkOut.QuartoID);
+                        if (responseQuarto.Success)
+                        {
+                            Itens_ConsumidosBLL itensConsumidosBLL = new Itens_ConsumidosBLL();
+                            QueryResponse<Itens_Consumidos> responseItens = itensConsumidosBLL.GetItensConsumidosByCliente(checkOut.ClienteID);
+
+                            checkOut.Valor = responseItens.Data.Sum(c => checkOut.Valor + c.ValorTotal);
+                            checkOut.Valor += responseQuarto.Data.ValorNoite * Extensions.StringExtensions.SubtraiDatas(responseCheckIn.Data.DataEntrada, checkOut.DataSaida);
+                        }
                     }
                     scope.Complete();
+                    return checkOutDAL.Insert(checkOut);
                 }
-                return checkOutDAL.Insert(checkOut);
             }
             return response;
         }
@@ -57,6 +51,8 @@ namespace BusinessLogicalLayer
 
         public override Response Validate(CheckOut checkOut)
         {
+            //verifica se datasaidaprevista == datasaida
+            //true = ok, false = multa
             return base.Validate(checkOut);
         }
     }

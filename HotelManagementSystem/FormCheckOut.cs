@@ -40,7 +40,6 @@ namespace HotelManagementSystem
                 txtID.Text = ID;
                 txtIDCliente.Text = CLIENTEID;
 
-
                 cliente.ID = int.Parse(txtIDCliente.Text);
                 SingleResponse<Cliente> response = clienteBLL.GetById(cliente);
                 if (response.Success)
@@ -82,7 +81,6 @@ namespace HotelManagementSystem
             }
         }
 
-
         private void FormCheckOut_Load(object sender, EventArgs e)
         {
             UpdateGridView();
@@ -93,11 +91,11 @@ namespace HotelManagementSystem
             try
             {
                 CheckOut checkOut = new CheckOut();
-                checkOut.ID = int.Parse(txtID.Text);
+                //checkOut.ID = int.Parse(txtID.Text);
                 checkOut.QuartoID = int.Parse(QUARTOID);
                 checkOut.ClienteID = int.Parse(txtIDCliente.Text);
                 checkOut.DataSaida = DateTime.Now;
-                checkOut.Valor = 10; //ISSO É UM TESTE! MUDA ISSO DOIDO!
+                checkOut.CheckInID = int.Parse(txtID.Text);
 
                 Response response = checkOutBLL.Insert(checkOut);
                 MessageBox.Show(response.Message);
@@ -111,7 +109,6 @@ namespace HotelManagementSystem
             {
                 MessageBox.Show("Existem valores inválidos!");
             }
-
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

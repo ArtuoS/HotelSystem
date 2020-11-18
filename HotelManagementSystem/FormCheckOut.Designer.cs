@@ -59,6 +59,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOut)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -102,6 +103,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.btnFechar);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -198,7 +200,7 @@
             this.label7.Location = new System.Drawing.Point(16, 411);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 25);
+            this.label7.Size = new System.Drawing.Size(96, 21);
             this.label7.TabIndex = 97;
             this.label7.Text = "ID do Cliente";
             // 
@@ -208,7 +210,7 @@
             this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.ReadOnly = true;
-            this.txtIDCliente.Size = new System.Drawing.Size(322, 30);
+            this.txtIDCliente.Size = new System.Drawing.Size(322, 26);
             this.txtIDCliente.TabIndex = 96;
             // 
             // txtTelefoneF
@@ -217,7 +219,7 @@
             this.txtTelefoneF.Mask = "(99) 0000-0000";
             this.txtTelefoneF.Name = "txtTelefoneF";
             this.txtTelefoneF.ReadOnly = true;
-            this.txtTelefoneF.Size = new System.Drawing.Size(322, 30);
+            this.txtTelefoneF.Size = new System.Drawing.Size(322, 26);
             this.txtTelefoneF.TabIndex = 95;
             // 
             // panel3
@@ -249,7 +251,7 @@
             this.txtTelefoneC.Mask = "(99) 00000-0000";
             this.txtTelefoneC.Name = "txtTelefoneC";
             this.txtTelefoneC.ReadOnly = true;
-            this.txtTelefoneC.Size = new System.Drawing.Size(322, 30);
+            this.txtTelefoneC.Size = new System.Drawing.Size(322, 26);
             this.txtTelefoneC.TabIndex = 94;
             // 
             // txtNome
@@ -258,7 +260,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(322, 30);
+            this.txtNome.Size = new System.Drawing.Size(322, 26);
             this.txtNome.TabIndex = 84;
             // 
             // Email
@@ -269,7 +271,7 @@
             this.Email.Location = new System.Drawing.Point(12, 357);
             this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(61, 25);
+            this.Email.Size = new System.Drawing.Size(50, 21);
             this.Email.TabIndex = 91;
             this.Email.Text = "Email";
             // 
@@ -281,7 +283,7 @@
             this.label6.Location = new System.Drawing.Point(16, 52);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 25);
+            this.label6.Size = new System.Drawing.Size(50, 21);
             this.label6.TabIndex = 85;
             this.label6.Text = "Nome";
             // 
@@ -291,7 +293,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(322, 30);
+            this.txtEmail.Size = new System.Drawing.Size(322, 26);
             this.txtEmail.TabIndex = 90;
             // 
             // label2
@@ -302,7 +304,7 @@
             this.label2.Location = new System.Drawing.Point(16, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 25);
+            this.label2.Size = new System.Drawing.Size(37, 21);
             this.label2.TabIndex = 86;
             this.label2.Text = "CPF";
             // 
@@ -314,7 +316,7 @@
             this.label5.Location = new System.Drawing.Point(12, 295);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 25);
+            this.label5.Size = new System.Drawing.Size(120, 21);
             this.label5.TabIndex = 89;
             this.label5.Text = "Telefone Celular";
             // 
@@ -326,7 +328,7 @@
             this.label3.Location = new System.Drawing.Point(16, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 25);
+            this.label3.Size = new System.Drawing.Size(30, 21);
             this.label3.TabIndex = 87;
             this.label3.Text = "RG";
             // 
@@ -336,7 +338,7 @@
             this.txtRG.Mask = "00,000,000-9";
             this.txtRG.Name = "txtRG";
             this.txtRG.ReadOnly = true;
-            this.txtRG.Size = new System.Drawing.Size(322, 30);
+            this.txtRG.Size = new System.Drawing.Size(322, 26);
             this.txtRG.TabIndex = 93;
             // 
             // label4
@@ -347,7 +349,7 @@
             this.label4.Location = new System.Drawing.Point(12, 233);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 25);
+            this.label4.Size = new System.Drawing.Size(99, 21);
             this.label4.TabIndex = 88;
             this.label4.Text = "Telefone Fixo";
             // 
@@ -357,7 +359,7 @@
             this.txtCPF.Mask = "000,000,000-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(322, 30);
+            this.txtCPF.Size = new System.Drawing.Size(322, 26);
             this.txtCPF.TabIndex = 92;
             // 
             // label
@@ -366,7 +368,7 @@
             this.label.ForeColor = System.Drawing.Color.White;
             this.label.Location = new System.Drawing.Point(9, 45);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(136, 25);
+            this.label.Size = new System.Drawing.Size(108, 21);
             this.label.TabIndex = 82;
             this.label.Text = "ID do Check-in";
             // 
@@ -374,8 +376,10 @@
             // 
             this.txtID.Location = new System.Drawing.Point(12, 69);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(43, 30);
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(43, 26);
             this.txtID.TabIndex = 81;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCheckOut
             // 
@@ -426,9 +430,21 @@
             this.label8.Text = "Check-in\'s";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(2, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 21);
+            this.label10.TabIndex = 108;
+            this.label10.Text = "Check-out";
+            // 
             // FormCheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 659);
@@ -444,6 +460,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItensConsumidos)).EndInit();
@@ -489,5 +506,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label10;
     }
 }
