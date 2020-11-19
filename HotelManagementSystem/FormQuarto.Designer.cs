@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbImgQuarto = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuarto)).BeginInit();
             this.panel2.SuspendLayout();
@@ -77,6 +77,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1154, 463);
             this.panel1.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(4, 3);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 21);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Registro de Quartos";
             // 
             // btnAdicionar
             // 
@@ -212,7 +224,6 @@
             this.txtPessoasMax.Name = "txtPessoasMax";
             this.txtPessoasMax.Size = new System.Drawing.Size(232, 26);
             this.txtPessoasMax.TabIndex = 3;
-            this.txtPessoasMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPessoasMax_KeyPress);
             // 
             // cbTipoQuarto
             // 
@@ -233,7 +244,6 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(232, 26);
             this.txtValor.TabIndex = 1;
-            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // panel2
             // 
@@ -263,18 +273,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1154, 25);
             this.panel3.TabIndex = 60;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(4, 3);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 21);
-            this.label9.TabIndex = 108;
-            this.label9.Text = "Registro de Quartos";
             // 
             // FormQuarto
             // 

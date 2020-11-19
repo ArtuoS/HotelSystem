@@ -20,7 +20,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
-
+        // Método chamado ao carregar
         private void FormRegistroProdutos_Load(object sender, EventArgs e)
         {
 
@@ -45,6 +45,7 @@ namespace HotelManagementSystem
         double valorTemp = 0;
         int qtdTemp = 0;
 
+        // Insere uma entrada de produtos
         private void btnEntrada_Click(object sender, EventArgs e)
         {
             try
@@ -71,6 +72,7 @@ namespace HotelManagementSystem
 
         }
 
+        // Adiciona um item a entrada de produtos
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
             ItensEntrada itensEntrada1 = new ItensEntrada();
@@ -92,6 +94,8 @@ namespace HotelManagementSystem
                 MessageBox.Show("Existem valores inválidos!");
             }
         }
+
+        // Deleta um item da entrada de produtos
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             try
@@ -116,6 +120,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // A cada vez que o index do combobox muda é chamado e busca um fornecedor pelo ID
         private void cbFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             Fornecedor fornecedor = new Fornecedor();
@@ -125,6 +130,7 @@ namespace HotelManagementSystem
             txtIDFornecedor.Text = Convert.ToString(fornecedor.ID);
         }
 
+        // A cada vez que o index do combobox muda é chamado e busca um produto pelo ID
         private void cbProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Produto produto = new Produto();
@@ -134,11 +140,13 @@ namespace HotelManagementSystem
             txtDescricao.Text = produto.Descricao;
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvItens.SelectedRows.Count > 0)
@@ -160,6 +168,7 @@ namespace HotelManagementSystem
                 return;
         }
 
+        // Seleciona o fornecedor da combobox
         private void btnSelecionaFornecedor_Click(object sender, EventArgs e)
         {
             if (FornecedorFoiSelecionado(Message))
@@ -178,6 +187,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Verifica se o fornecedor foi selecionado
         public bool FornecedorFoiSelecionado(string message)
         {
             if (string.IsNullOrEmpty(message))
@@ -187,6 +197,8 @@ namespace HotelManagementSystem
             return false;
         }
 
+        // Clona obj 1 para a obj 2
+
         public void ClonaValores(ItensEntrada ie1, ItensEntrada ie2)
         {
             ie1.ProdutoID = ie2.ProdutoID;
@@ -194,6 +206,9 @@ namespace HotelManagementSystem
             ie1.Quantidade = ie2.Quantidade;
         }
 
+        // Converte uma classe para outra
+        // O método foi criado pois precisavamos instanciar uma nova variável para cada item dentro do carrinho de compras
+        // e passar para outra variável com o mesmo datatype fora do encapsulamento.
         public Itens_Produto ConversaoClasses(string produto, ItensEntrada itemEntrada)
         {
             Itens_Produto item = new Itens_Produto();
@@ -203,39 +218,12 @@ namespace HotelManagementSystem
             return item;
         }
 
+        // Atualiza os itens da entrada de produto
         private void UpdateGridView()
         {
             var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
             var source = new BindingSource(bindingList, null);
             dgvItens.DataSource = source;
-        }
-
-        private void txtValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != ','))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != ','))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-            {
-                e.Handled = true;
-            }
         }
     }
 }

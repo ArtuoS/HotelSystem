@@ -24,11 +24,13 @@ namespace HotelManagementSystem
         CheckIn_ClienteBLL checkIn_ClienteBLL = new CheckIn_ClienteBLL();
         CheckOutBLL checkOutBLL = new CheckOutBLL();
         ClienteBLL clienteBLL = new ClienteBLL();
+        VendaProdutoBLL vendaProdutoBLL = new VendaProdutoBLL();
         Itens_ConsumidosBLL Itens_ConsumidosBLL = new Itens_ConsumidosBLL();
 
         string QUARTOID;
         Cliente cliente = new Cliente();
 
+        // Preenche os campos com os valores do datagridview
         private void dgvCheckOut_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCheckOut.SelectedRows.Count > 0)
@@ -55,6 +57,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o datagridview com os clientes
         private void UpdateGridView()
         {
             QueryResponse<CheckIn_Cliente> response = checkIn_ClienteBLL.GetData();
@@ -68,6 +71,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o datagridview com os itens consumidos pelo cliente
         private void UpdateGridViewItensConsumidos()
         {
             QueryResponse<Itens_Consumidos> response = Itens_ConsumidosBLL.GetItensConsumidosByCliente(int.Parse(txtIDCliente.Text));
@@ -81,11 +85,13 @@ namespace HotelManagementSystem
             }
         }
 
+        // Carregado quando o formulário é carregado
         private void FormCheckOut_Load(object sender, EventArgs e)
         {
             UpdateGridView();
         }
 
+        // Adiciona um checkout
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             try
@@ -101,6 +107,7 @@ namespace HotelManagementSystem
 
                 if (response.Success)
                 {
+                    MessageBox.Show($"R${Math.Round(checkOut.Valor, 2)} pagos, obrigado e volte sempre!");
                     UpdateGridView();
                     UpdateGridViewItensConsumidos();
                     FerramentasTextBox.LimpaTextBoxes(this);
@@ -112,6 +119,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();

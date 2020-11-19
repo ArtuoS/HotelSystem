@@ -23,12 +23,14 @@ namespace HotelManagementSystem
 
         QuartoBLL quartoBLL = new QuartoBLL();
 
+        // Chamado ao carregar o form
         private void FormQuarto_Load(object sender, EventArgs e)
         {
             cbTipoQuarto.DataSource = Enum.GetValues(typeof(TipoQuartos));
             UpdateGridView();
         }
 
+        // Adiciona um quarto
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             Quarto quarto = new Quarto();
@@ -54,6 +56,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza um quarto
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             Quarto quarto = new Quarto();
@@ -80,6 +83,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Deleta um quarto
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             Quarto quarto = new Quarto();
@@ -104,6 +108,7 @@ namespace HotelManagementSystem
 
         }
 
+        // Atualiza o datagridview com os quartos
         private void UpdateGridView()
         {
             QueryResponse<Quarto> response = quartoBLL.GetAll();
@@ -117,11 +122,13 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Preenche os campos com os valor do datagridview
         private void dgvQuarto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvQuarto.SelectedRows.Count > 0)
@@ -139,6 +146,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Converte os quartos de string para int para passar ao banco
         public int RetornaTipoQuarto(string cargo)
         {
             if (cargo == "Econômico")
@@ -154,11 +162,13 @@ namespace HotelManagementSystem
                 return 2;
             }
         }
+
+        // Atualiza a imagem do quarto ao mudar o index do combobox
         private void cbTipoQuarto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbTipoQuarto.SelectedIndex == 0)
             {
-                pbImgQuarto.ImageLocation = @"HotelSystem\HotelManagementSystem\Imagens\economico.jpg";
+                pbImgQuarto.ImageLocation = @"HotelManagementSystem\Imagens\economico.jpg";
             }
             else if (cbTipoQuarto.SelectedIndex == 1)
             {
@@ -168,34 +178,6 @@ namespace HotelManagementSystem
             {
                 pbImgQuarto.ImageLocation = @"C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\Imagens\suite.jpg";
 
-            }
-        }
-
-        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != ','))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtPessoasMax_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != ','))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf(',') > -2))
-            {
-                e.Handled = true;
             }
         }
     }

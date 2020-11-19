@@ -13,7 +13,6 @@ namespace BusinessLogicalLayer
     public class FuncionarioBLL : BaseValidator<Funcionario>
     {
         private FuncionarioDAL funcionarioDAL = new FuncionarioDAL();
-        int type = 0;
         public Response Insert(Funcionario funcionario)
         {
             Response response = Validate(funcionario);
@@ -26,7 +25,6 @@ namespace BusinessLogicalLayer
 
         public Response Update(Funcionario funcionario)
         {
-            type = 1;
             Response response = Validate(funcionario);
             if (response.Success)
             {

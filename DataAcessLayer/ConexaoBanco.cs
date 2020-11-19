@@ -68,6 +68,7 @@ namespace DataAcessLayer
         {
             try
             {
+                conexao.Open();
                 int nLinhasAfetadas = sqlComando.ExecuteNonQuery();
                 if (nLinhasAfetadas != 1)
                 {
@@ -126,28 +127,28 @@ namespace DataAcessLayer
             }
         }
 
-/*
-        public void ProcessaInformacoesSingleQuery(this object classe, string mensagemSucesso, string mensagemErro)
-        {
-            try
-            {
-                conexao.Open();
-                sqlComando.ExecuteNonQuery();
-                classe.Success = true;
-                response.Message = mensagemSucesso;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = mensagemErro;
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                conexao.Close();
-            }
-        }
-*/
+        /*
+                public void ProcessaInformacoesSingleQuery(this object classe, string mensagemSucesso, string mensagemErro)
+                {
+                    try
+                    {
+                        conexao.Open();
+                        sqlComando.ExecuteNonQuery();
+                        classe.Success = true;
+                        response.Message = mensagemSucesso;
+                    }
+                    catch (Exception ex)
+                    {
+                        response.Success = false;
+                        response.Message = mensagemErro;
+                        response.StackTrace = ex.StackTrace;
+                        response.ExceptionError = ex.Message;
+                    }
+                    finally
+                    {
+                        conexao.Close();
+                    }
+                }
+        */
     }
 }

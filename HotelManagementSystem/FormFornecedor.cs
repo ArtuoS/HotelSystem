@@ -21,6 +21,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
+        // Chamado ao carregar o formulário
         private void FormFornecedor_Load(object sender, EventArgs e)
         {
             UpdateGridView();
@@ -28,6 +29,7 @@ namespace HotelManagementSystem
 
         FornecedorBLL fornecedorBLL = new FornecedorBLL();
 
+        // Atualiza o datagridview com os fornecedores
         private void UpdateGridView()
         {
             QueryResponse<Fornecedor> response = fornecedorBLL.GetAll();
@@ -41,6 +43,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Adiciona um fornecedor
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             Fornecedor fornecedor = new Fornecedor();
@@ -66,6 +69,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Deleta um fornecedor
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             try
@@ -87,6 +91,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza um fornecedor
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try
@@ -114,11 +119,13 @@ namespace HotelManagementSystem
 
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvFornecedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvFornecedores.SelectedRows.Count > 0)

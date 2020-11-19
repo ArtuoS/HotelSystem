@@ -21,6 +21,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
+        // Chamado ao carregar o formulário
         private void FormFuncionario_Load(object sender, EventArgs e)
         {
             cbCargo.DataSource = Enum.GetValues(typeof(CargosFuncionarios));
@@ -29,6 +30,7 @@ namespace HotelManagementSystem
 
         FuncionarioBLL funcionarioBLL = new FuncionarioBLL();
 
+        // Atualiza o funcionário
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try
@@ -47,7 +49,7 @@ namespace HotelManagementSystem
 
                 Response response = funcionarioBLL.Update(funcionario);
                 MessageBox.Show(response.Message);
-                    
+
                 if (response.Success)
                 {
                     UpdateGridView();
@@ -61,6 +63,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Deleta o formulário
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             try
@@ -82,6 +85,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o datagridview com os funcionários
         private void UpdateGridView()
         {
             QueryResponse<Funcionario> response = funcionarioBLL.GetAll();
@@ -95,11 +99,13 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Adiciona um funcionário
         private void btnAdiciona_Click(object sender, EventArgs e)
         {
             try
@@ -131,6 +137,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvFuncionario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvFuncionario.SelectedRows.Count > 0)
@@ -161,6 +168,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Transforma uma cargo de string para int para passar ao banco
         public int RetornaCargo(string cargo)
         {
             if (cargo == "Gerente")
@@ -177,6 +185,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Verifica se é administrador
         public bool RetornaAdministrador(string isAdm)
         {
             if (isAdm == "True")

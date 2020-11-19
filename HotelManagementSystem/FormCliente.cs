@@ -20,6 +20,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
+        // Chamado ao carregar o formulário
         private void FormCliente_Load(object sender, EventArgs e)
         {
             UpdateGridView();
@@ -27,6 +28,7 @@ namespace HotelManagementSystem
 
         ClienteBLL clienteBLL = new ClienteBLL();
 
+        // Atualiza o datagridview com os clientes
         private void UpdateGridView()
         {
             QueryResponse<Cliente> response = clienteBLL.GetAll();
@@ -40,6 +42,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCliente.SelectedRows.Count > 0)
@@ -62,10 +65,13 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        // Adiciona um cliente
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             try
@@ -94,6 +100,7 @@ namespace HotelManagementSystem
 
         }
 
+        // Atualiza um cliente
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try
@@ -125,6 +132,7 @@ namespace HotelManagementSystem
 
         }
 
+        // Deleta um cliente
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             try

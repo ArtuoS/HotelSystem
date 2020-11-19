@@ -566,7 +566,6 @@ namespace DataAcessLayer
 
             conexao.IniciaConexao();
             return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Produto excluído com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
-
         }
 
         public QueryResponse<Produto> GetAll()

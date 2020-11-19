@@ -22,11 +22,13 @@ namespace HotelManagementSystem
 
         ProdutoBLL produtoBLL = new ProdutoBLL();
 
+        // Chamado ao carregar o form
         private void FormProduto_Load(object sender, EventArgs e)
         {
             UpdateGridView();
         }
 
+        // Atualiza o datagridview com o s produtos
         public void UpdateGridView()
         {
             QueryResponse<Produto> response = produtoBLL.GetAll();
@@ -40,6 +42,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Adiciona um produto
         private void btnAdiciona_Click(object sender, EventArgs e)
         {
             try
@@ -62,6 +65,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza um produto
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try
@@ -85,6 +89,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Exclui um produto
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +112,7 @@ namespace HotelManagementSystem
 
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvProdutos.SelectedRows.Count > 0)
@@ -122,6 +128,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();

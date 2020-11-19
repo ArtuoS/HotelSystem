@@ -262,8 +262,9 @@ namespace BusinessLogicalLayer.Extensions
 
         public static int SubtraiDatas(DateTime dt1, DateTime dt2)
         {
+
             TimeSpan span = dt2.Subtract(dt1);
-            return span.Days;
+            return span.Hours;
         }
     }
 }

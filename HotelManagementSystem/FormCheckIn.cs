@@ -25,8 +25,7 @@ namespace HotelManagementSystem
         CheckInBLL checkInBLL = new CheckInBLL();
         CheckOutBLL checkOutBLL = new CheckOutBLL();
 
-        //string QUARTOID = "";
-
+        // Chamado ao carregar o formulário
         private void FormCheckIn_Load(object sender, EventArgs e)
         {
             UpdateGridViewQuartos();
@@ -34,6 +33,7 @@ namespace HotelManagementSystem
             UpdateGridViewCheckIn();
         }
 
+        // Atualiza o datagridview com os quartos não ocupados
         private void UpdateGridViewQuartos()
         {
             QueryResponse<Quarto> response = quartoBLL.GetNotOccupied();
@@ -47,6 +47,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o datagridview com os clientes
         private void UpdateGridViewClientes()
         {
             QueryResponse<Cliente> response = clienteBLL.GetAll();
@@ -60,6 +61,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o datagridview com os checkins
         private void UpdateGridViewCheckIn()
         {
             QueryResponse<CheckIn> response = checkInBLL.GetAll();
@@ -73,6 +75,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvQuartos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvQuartos.SelectedRows.Count > 0)
@@ -83,6 +86,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Preenche os campos com os valores do datagridview
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvClientes.SelectedRows.Count > 0)
@@ -96,11 +100,13 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Adiciona um checkin
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
             try

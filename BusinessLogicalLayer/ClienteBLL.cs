@@ -38,11 +38,6 @@ namespace BusinessLogicalLayer
             return clienteDAL.Delete(cliente);
         }
 
-        public Response DesativaCliente(Cliente cliente)
-        {
-            return clienteDAL.DesativaCliente(cliente);
-        }
-
         public QueryResponse<Cliente> GetAll()
         {
             QueryResponse<Cliente> responseClientes = clienteDAL.GetAll();

@@ -40,7 +40,7 @@ namespace BusinessLogicalLayer
                             }
 
                             checkOut.Valor = responseItens.Data.Sum(c => checkOut.Valor + c.ValorTotal);
-                            checkOut.Valor += responseQuarto.Data.ValorNoite * Extensions.StringExtensions.SubtraiDatas(responseCheckIn.Data.DataEntrada, checkOut.DataSaida);
+                            checkOut.Valor += (responseQuarto.Data.ValorNoite / 24) * Extensions.StringExtensions.SubtraiDatas(responseCheckIn.Data.DataEntrada, checkOut.DataSaida);
                         }
                     }
                     scope.Complete();
@@ -58,8 +58,6 @@ namespace BusinessLogicalLayer
 
         public override Response Validate(CheckOut checkOut)
         {
-            //verifica se datasaidaprevista == datasaida
-            //true = ok, false = multa
             return base.Validate(checkOut);
         }
     }

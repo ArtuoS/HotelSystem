@@ -8,6 +8,7 @@ namespace HotelManagementSystem
 {
     public partial class FormLogin : Form
     {
+        // Chamado ao carregar o formulário
         public FormLogin()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace HotelManagementSystem
         FuncionarioBLL funcionarioBLL = new FuncionarioBLL();
         FormPrincipal formPrincipal;
 
+        // Loga no sistema
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -41,6 +43,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulário
         private void btnFechar_Click_1(object sender, EventArgs e)
         {
             this.Close();

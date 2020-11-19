@@ -15,196 +15,52 @@ namespace DataAcessLayer
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO CLIENTES (NOME, CPF, RG, TELEFONEFIXO, TELEFONECELULAR, EMAIL, ATIVO) VALUES (@NOME, @CPF, @RG, @TELEFONEFIXO, @TELEFONECELULAR, @EMAIL, @ATIVO)");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO CLIENTES (NOME, CPF, RG, TELEFONEFIXO, TELEFONECELULAR, EMAIL, ATIVO) VALUES (@NOME, @CPF, @RG, @TELEFONEFIXO, @TELEFONECELULAR, @EMAIL, @ATIVO)";
-            command.Parameters.AddWithValue("@NOME", cliente.Nome);
-            command.Parameters.AddWithValue("@CPF", cliente.CPF);
-            command.Parameters.AddWithValue("@RG", cliente.RG);
-            command.Parameters.AddWithValue("@TELEFONEFIXO", cliente.TelefoneFixo);
-            command.Parameters.AddWithValue("@TELEFONECELULAR", cliente.TelefoneCelular);
-            command.Parameters.AddWithValue("@EMAIL", cliente.Email);
-            command.Parameters.AddWithValue("@ATIVO", true);
+            conexao.ParametroSql("@NOME", cliente.Nome);
+            conexao.ParametroSql("@CPF", cliente.CPF);
+            conexao.ParametroSql("@RG", cliente.RG);
+            conexao.ParametroSql("@TELEFONEFIXO", cliente.TelefoneFixo);
+            conexao.ParametroSql("@TELEFONECELULAR", cliente.TelefoneCelular);
+            conexao.ParametroSql("@EMAIL", cliente.Email);
+            conexao.ParametroSql("@ATIVO", true);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Cadastrado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Cliente cadastrado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response Update(Cliente cliente)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET NOME = @NOME, DESCRICAO = @DESCRICAO, VALORUNITARIO = @VALORUNITARIO WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE CLIENTES SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO, CPF = @CPF, RG = @RG WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", cliente.ID);
-            command.Parameters.AddWithValue("@NOME", cliente.Nome);
-            command.Parameters.AddWithValue("@CPF", cliente.CPF);
-            command.Parameters.AddWithValue("@RG", cliente.RG);
-            command.Parameters.AddWithValue("@TELEFONEFIXO", cliente.TelefoneFixo);
-            command.Parameters.AddWithValue("@TELEFONECELULAR", cliente.TelefoneCelular);
-            command.Parameters.AddWithValue("@EMAIL", cliente.Email);
-            command.Parameters.AddWithValue("@ATIVO", cliente.Ativo);
+            conexao.ParametroSql("@ID", cliente.ID);
+            conexao.ParametroSql("@NOME", cliente.Nome);
+            conexao.ParametroSql("@CPF", cliente.CPF);
+            conexao.ParametroSql("@RG", cliente.RG);
+            conexao.ParametroSql("@TELEFONEFIXO", cliente.TelefoneFixo);
+            conexao.ParametroSql("@TELEFONECELULAR", cliente.TelefoneCelular);
+            conexao.ParametroSql("@EMAIL", cliente.Email);
+            conexao.ParametroSql("@ATIVO", cliente.Ativo);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Cliente atualizado com sucesso!", "Cliente não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response Delete(Cliente cliente)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"DELETE FROM CLIENTES WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "DELETE FROM CLIENTES WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", cliente.ID);
+            conexao.ParametroSql("@ID", cliente.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Excluído com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
-        }
-
-        public Response DesativaCliente(Cliente cliente)
-        {
-            Response response = new Response();
-
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE CLIENTES SET ATIVO = @ATIVO WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", cliente.ID);
-            command.Parameters.AddWithValue("@ATIVO", false);
-
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Cliente desativado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Cliente excluído com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public QueryResponse<Cliente> GetAll()
@@ -410,6 +266,8 @@ namespace DataAcessLayer
 
         public Response IsCPFUnique(Cliente cliente)
         {
+
+
             QueryResponse<Cliente> response = new QueryResponse<Cliente>();
 
             SqlConnection connection = new SqlConnection();

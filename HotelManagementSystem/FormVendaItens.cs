@@ -20,7 +20,7 @@ namespace HotelManagementSystem
             InitializeComponent();
         }
 
-
+        // Método chamado ao carregar
         private void FormVendaItens_Load(object sender, EventArgs e)
         {
             cbCPF.Visible = true;
@@ -55,6 +55,7 @@ namespace HotelManagementSystem
         double valorTemp = 0;
         int qtdTemp = 0;
 
+        // Atualiza o datagridview com os produtos com estoque
         public void UpdateGridView()
         {
             QueryResponse<Produto> response = produtoBLL.GetAllComEstoque();
@@ -68,6 +69,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Atualiza o carrinho do cliente
         public void UpdateGridViewCarrinho()
         {
             var bindingList = new BindingList<Itens_Produto>(itens_Produtos);
@@ -75,6 +77,7 @@ namespace HotelManagementSystem
             dgvCarrinho.DataSource = source;
         }
 
+        // Passa os valores do datagridview para as textboxes
         private void dgvCarrinho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -91,6 +94,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Passa os valores do datagridview para as textboxes
         private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvProdutos.SelectedRows.Count > 0)
@@ -113,6 +117,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Insere a venda no banco de dados
         private void btnVender_Click(object sender, EventArgs e)
         {
             try
@@ -141,6 +146,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Adiciona um item ao carrinho de compras do cliente
         private void btnAddNoCarrinho_Click(object sender, EventArgs e)
         {
             ItensVenda itensVenda1 = new ItensVenda();
@@ -166,6 +172,8 @@ namespace HotelManagementSystem
                 MessageBox.Show("Insira a quantidade de itens para adicionar ao carrinho!");
             }
         }
+
+        // Clona obj 1 para a obj 2
         public void ClonaValores(ItensVenda iv1, ItensVenda iv2)
         {
             iv1.ProdutoID = iv2.ProdutoID;
@@ -174,6 +182,9 @@ namespace HotelManagementSystem
             iv1.ClienteID = iv2.ClienteID;
         }
 
+        // Converte uma classe para outra
+        // O método foi criado pois precisavamos instanciar uma nova variável para cada item dentro do carrinho de compras
+        // e passar para outra variável com o mesmo datatype fora do encapsulamento.
         public Itens_Produto ConversaoClasses(string produto, ItensVenda itemVenda)
         {
             Itens_Produto item = new Itens_Produto();
@@ -183,6 +194,7 @@ namespace HotelManagementSystem
             return item;
         }
 
+        // Passa os valores do datagridview para as textboxes
         private void btnSelecionaCliente_Click(object sender, EventArgs e)
         {
             if (ClienteFoiSelecionado(Message))
@@ -200,6 +212,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Verifica se algum cliente foi selecionado
         public bool ClienteFoiSelecionado(string message)
         {
             if (string.IsNullOrEmpty(message))
@@ -209,6 +222,7 @@ namespace HotelManagementSystem
             return false;
         }
 
+        // A cada vez que o index do combobox muda é chamado e busca um cliente pelo CPF
         private void cbCPF_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
@@ -221,6 +235,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Remove um item do carrinho de compras
         private void btnRemoverDoCarrinho_Click(object sender, EventArgs e)
         {
             try
@@ -245,6 +260,7 @@ namespace HotelManagementSystem
             }
         }
 
+        // Fecha o formulario
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
