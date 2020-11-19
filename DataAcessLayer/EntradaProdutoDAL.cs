@@ -11,10 +11,6 @@ namespace DataAcessLayer
 {
     public class EntradaProdutoDAL
     {
-        //Insert item
-        //Insert entrada
-        //scope_identity
-
         public SingleResponse<EntradaProduto> InsertEntrada(EntradaProduto entradaProduto)
         {
             SingleResponse<EntradaProduto> response = new SingleResponse<EntradaProduto>();
@@ -187,6 +183,7 @@ namespace DataAcessLayer
             return response;
         }
 
+        /*
         public Response AtualizaEstoque(int produtoID, int quantidade)
         {
             Response response = new Response();
@@ -267,5 +264,6 @@ namespace DataAcessLayer
             }
             return response;
         }
+        */
     }
 }

@@ -41,14 +41,14 @@ namespace HotelManagementSystem
             UpdateGridViewCarrinho();
         }
 
-        List<Itens_Produto> itens_Produtos = new List<Itens_Produto>();
         VendaProduto vendaProduto = new VendaProduto();
         ItensVenda itensVenda = new ItensVenda();
 
         ProdutoBLL produtoBLL = new ProdutoBLL();
         ClienteBLL clienteBLL = new ClienteBLL();
         VendaProdutoBLL vendaProdutoBLL = new VendaProdutoBLL();
-        ItensVendaBLL itensVendaBLL = new ItensVendaBLL();
+        List<Itens_Produto> itens_Produtos = new List<Itens_Produto>();
+        //ItensVendaBLL itensVendaBLL = new ItensVendaBLL();
 
         int listIndex;
         string Message;
@@ -126,6 +126,8 @@ namespace HotelManagementSystem
                 {
                     txtValor.Text = "";
                     txtQuantidadeItens.Text = "";
+                    vendaProduto.Valor = 0;
+                    txtValor.Text = "";
                     itens_Produtos.Clear();
                     UpdateGridViewCarrinho();
                     UpdateGridView();

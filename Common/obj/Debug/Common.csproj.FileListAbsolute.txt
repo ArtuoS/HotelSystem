@@ -74,3 +74,11 @@ C:\Users\arthu\source\repos\HotelSys\Common\obj\Debug\Common.csproj.CoreCompileI
 C:\Users\arthu\source\repos\HotelSys\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelSys\Common\obj\Debug\Common.dll
 C:\Users\arthu\source\repos\HotelSys\Common\obj\Debug\Common.pdb
+C:\Users\entra21\source\repos\Hotel\Common\bin\Debug\Common.dll
+C:\Users\entra21\source\repos\Hotel\Common\bin\Debug\Common.pdb
+C:\Users\entra21\source\repos\Hotel\Common\bin\Debug\Entities.dll
+C:\Users\entra21\source\repos\Hotel\Common\bin\Debug\Entities.pdb
+C:\Users\entra21\source\repos\Hotel\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\entra21\source\repos\Hotel\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\entra21\source\repos\Hotel\Common\obj\Debug\Common.dll
+C:\Users\entra21\source\repos\Hotel\Common\obj\Debug\Common.pdb

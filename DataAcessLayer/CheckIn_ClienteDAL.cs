@@ -56,7 +56,6 @@ namespace DataAcessLayer
             }
             finally
             {
-                // finally sempre é executado, independente de exceções ou returns!
                 connection.Close();
             }
 

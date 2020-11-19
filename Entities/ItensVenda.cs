@@ -13,6 +13,6 @@ namespace Entities
         public double Valor { get; set; }
         public int Quantidade { get; set; }
         public int ClienteID { get; set; }
-
+        public bool FoiPago { get; set; }
     }
 }

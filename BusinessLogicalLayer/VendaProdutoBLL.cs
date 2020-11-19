@@ -14,6 +14,7 @@ namespace BusinessLogicalLayer
     public class VendaProdutoBLL : BaseValidator<VendaProduto>
     {
         VendaProdutoDAL vendaProdutoDAL = new VendaProdutoDAL();
+        ProdutoDAL produtoDAL = new ProdutoDAL();
         public Response InsertVenda(VendaProduto venda)
         {
             Response response = Validate(venda);
@@ -21,35 +22,35 @@ namespace BusinessLogicalLayer
             {
                 venda.DataVenda = DateTime.Now;
                 venda.Valor = venda.Itens.Sum(w => w.Valor * w.Quantidade);
+                SingleResponse<VendaProduto> responseVenda = vendaProdutoDAL.InsertVenda(venda);
                 using (TransactionScope scope = new TransactionScope())
                 {
-                    SingleResponse<VendaProduto> responseEntrada = vendaProdutoDAL.InsertVenda(venda);
-                    if (responseEntrada.Success)
+                    if (responseVenda.Success)
                     {
                         foreach (ItensVenda item in venda.Itens)
                         {
                             ItensVendaBLL itensVendaBLL = new ItensVendaBLL();
-                            SingleResponse<VendaProduto> responseEntradaID = vendaProdutoDAL.GetVendaID(venda);
+                            SingleResponse<VendaProduto> responseEntradaID = vendaProdutoDAL.GetVendaID(venda.ID);
                             item.VendaID = responseEntradaID.Data.ID;
-                            Response responseItensEntrada = itensVendaBLL.InsertItem(item);
-                            if (responseItensEntrada.Success)
+                            Response responseItensVenda = itensVendaBLL.InsertItem(item);
+
+                            if (responseItensVenda.Success)
                             {
-                                vendaProdutoDAL.AtualizaEstoque(item.ProdutoID, item.Quantidade);
-                            } else
-                            {
-                                return responseItensEntrada;
+                                produtoDAL.AtualizaEstoqueVenda(item.ProdutoID, item.Quantidade);
                             }
                         }
+                        venda.Itens.Clear();
                     }
                     scope.Complete();
                 }
+                return responseVenda;
             }
             return response;
         }
 
-        public SingleResponse<VendaProduto> GetVendaID(VendaProduto venda)
+        public SingleResponse<VendaProduto> GetVendaID(int id)
         {
-            SingleResponse<VendaProduto> response = vendaProdutoDAL.GetVendaID(venda);
+            SingleResponse<VendaProduto> response = vendaProdutoDAL.GetVendaID(id);
             return response;
         }
 

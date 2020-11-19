@@ -59,7 +59,7 @@ namespace HotelManagementSystem
                 {
                     txtQuantidade.Text = "";
                     txtValor.Text = "";
-                    txtValorUnitario.Text = "";
+                    entradaProduto.Valor = 0;
                     itens_Produtos.Clear();
                     UpdateGridView();
                 }

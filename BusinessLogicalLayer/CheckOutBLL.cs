@@ -14,6 +14,7 @@ namespace BusinessLogicalLayer
     public class CheckOutBLL : BaseValidator<CheckOut>
     {
         CheckOutDAL checkOutDAL = new CheckOutDAL();
+        VendaProdutoDAL vendaProdutoDAL = new VendaProdutoDAL();
         public Response Insert(CheckOut checkOut)
         {
             Response response = Validate(checkOut);
@@ -31,6 +32,23 @@ namespace BusinessLogicalLayer
                         {
                             Itens_ConsumidosBLL itensConsumidosBLL = new Itens_ConsumidosBLL();
                             QueryResponse<Itens_Consumidos> responseItens = itensConsumidosBLL.GetItensConsumidosByCliente(checkOut.ClienteID);
+
+                            //var a = responseItens.Data.ForEach(c => c.V)
+                            /*
+                            foreach (Itens_Consumidos item in responseItens.Data)
+                            {
+                                ItensVenda itensVenda = new ItensVenda();
+                                itensVenda.ClienteID = checkOut.ClienteID;
+                                itensVenda.ProdutoID = responseItens.Data.Sum(w => w.);
+                                item.VendaID = responseItens.Data.Sum(w => w.VendaID);
+                                vendaProdutoDAL.PagarItem(itensVenda.ClienteID, item.VendaID, itensVenda.ProdutoID, item.Valor);
+                            }
+
+                            foreach (ItensVenda item in responseItens.Data)
+                            {
+                                vendaProdutoDAL.PagarItem(itensVenda.ClienteID, item.VendaID, itensVenda.ProdutoID, item.Valor);
+                            }
+                            */
 
                             checkOut.Valor = responseItens.Data.Sum(c => checkOut.Valor + c.ValorTotal);
                             checkOut.Valor += responseQuarto.Data.ValorNoite * Extensions.StringExtensions.SubtraiDatas(responseCheckIn.Data.DataEntrada, checkOut.DataSaida);

@@ -115,7 +115,7 @@
             this.btnCheckOut.FlatAppearance.BorderSize = 0;
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.ForeColor = System.Drawing.Color.White;
-            this.btnCheckOut.Location = new System.Drawing.Point(0, 481);
+            this.btnCheckOut.Location = new System.Drawing.Point(0, 499);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(200, 42);
             this.btnCheckOut.TabIndex = 8;
@@ -130,7 +130,7 @@
             this.btnCheckIn.FlatAppearance.BorderSize = 0;
             this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckIn.ForeColor = System.Drawing.Color.White;
-            this.btnCheckIn.Location = new System.Drawing.Point(0, 439);
+            this.btnCheckIn.Location = new System.Drawing.Point(0, 457);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(200, 42);
             this.btnCheckIn.TabIndex = 7;
@@ -145,7 +145,7 @@
             this.btnVendaProdutos.FlatAppearance.BorderSize = 0;
             this.btnVendaProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVendaProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnVendaProdutos.Location = new System.Drawing.Point(0, 397);
+            this.btnVendaProdutos.Location = new System.Drawing.Point(0, 415);
             this.btnVendaProdutos.Name = "btnVendaProdutos";
             this.btnVendaProdutos.Size = new System.Drawing.Size(200, 42);
             this.btnVendaProdutos.TabIndex = 6;
@@ -160,7 +160,7 @@
             this.btnEntradaProdutos.FlatAppearance.BorderSize = 0;
             this.btnEntradaProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntradaProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnEntradaProdutos.Location = new System.Drawing.Point(0, 355);
+            this.btnEntradaProdutos.Location = new System.Drawing.Point(0, 373);
             this.btnEntradaProdutos.Name = "btnEntradaProdutos";
             this.btnEntradaProdutos.Size = new System.Drawing.Size(200, 42);
             this.btnEntradaProdutos.TabIndex = 5;
@@ -175,7 +175,7 @@
             this.btnProdutos.FlatAppearance.BorderSize = 0;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnProdutos.Location = new System.Drawing.Point(0, 313);
+            this.btnProdutos.Location = new System.Drawing.Point(0, 331);
             this.btnProdutos.Name = "btnProdutos";
             this.btnProdutos.Size = new System.Drawing.Size(200, 42);
             this.btnProdutos.TabIndex = 2;
@@ -190,7 +190,7 @@
             this.btnQuartos.FlatAppearance.BorderSize = 0;
             this.btnQuartos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuartos.ForeColor = System.Drawing.Color.White;
-            this.btnQuartos.Location = new System.Drawing.Point(0, 271);
+            this.btnQuartos.Location = new System.Drawing.Point(0, 289);
             this.btnQuartos.Name = "btnQuartos";
             this.btnQuartos.Size = new System.Drawing.Size(200, 42);
             this.btnQuartos.TabIndex = 4;
@@ -205,7 +205,7 @@
             this.btnFornecedores.FlatAppearance.BorderSize = 0;
             this.btnFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFornecedores.ForeColor = System.Drawing.Color.White;
-            this.btnFornecedores.Location = new System.Drawing.Point(0, 229);
+            this.btnFornecedores.Location = new System.Drawing.Point(0, 247);
             this.btnFornecedores.Name = "btnFornecedores";
             this.btnFornecedores.Size = new System.Drawing.Size(200, 42);
             this.btnFornecedores.TabIndex = 3;
@@ -220,7 +220,7 @@
             this.btnFuncionarios.FlatAppearance.BorderSize = 0;
             this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionarios.ForeColor = System.Drawing.Color.White;
-            this.btnFuncionarios.Location = new System.Drawing.Point(0, 187);
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 205);
             this.btnFuncionarios.Name = "btnFuncionarios";
             this.btnFuncionarios.Size = new System.Drawing.Size(200, 42);
             this.btnFuncionarios.TabIndex = 2;
@@ -235,7 +235,7 @@
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.White;
-            this.btnClientes.Location = new System.Drawing.Point(0, 145);
+            this.btnClientes.Location = new System.Drawing.Point(0, 163);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(200, 42);
             this.btnClientes.TabIndex = 1;
@@ -251,14 +251,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 145);
+            this.panel3.Size = new System.Drawing.Size(200, 163);
             this.panel3.TabIndex = 0;
             // 
             // lblCargo
             // 
             this.lblCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lblCargo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCargo.ForeColor = System.Drawing.Color.White;
+            this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
             this.lblCargo.Location = new System.Drawing.Point(0, 119);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(200, 23);
@@ -270,7 +270,7 @@
             // 
             this.lblNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lblNome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblNome.ForeColor = System.Drawing.Color.White;
+            this.lblNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
             this.lblNome.Location = new System.Drawing.Point(0, 91);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(200, 28);
@@ -297,7 +297,7 @@
             this.ClientSize = new System.Drawing.Size(1168, 720);
             this.Controls.Add(this.pnlPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";

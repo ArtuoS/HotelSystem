@@ -23,7 +23,6 @@ namespace BusinessLogicalLayer
             return response;
         }
 
-        //GetItensConsumidosByCliente
         public override Response Validate(ItensVenda item)
         {
             AddError(item.ProdutoID.VerificaEstoque(item.Quantidade));

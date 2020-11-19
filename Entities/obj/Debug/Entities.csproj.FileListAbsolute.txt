@@ -69,3 +69,10 @@ C:\Users\arthu\source\repos\HotelSys\Entities\obj\Debug\Entities.csproj.CoreComp
 C:\Users\arthu\source\repos\HotelSys\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelSys\Entities\obj\Debug\Entities.dll
 C:\Users\arthu\source\repos\HotelSys\Entities\obj\Debug\Entities.pdb
+C:\Users\entra21\source\repos\Hotel\Entities\bin\Debug\Entities.dll
+C:\Users\entra21\source\repos\Hotel\Entities\bin\Debug\Entities.pdb
+C:\Users\entra21\source\repos\Hotel\Entities\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\entra21\source\repos\Hotel\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
+C:\Users\entra21\source\repos\Hotel\Entities\obj\Debug\Entities.csproj.CopyComplete
+C:\Users\entra21\source\repos\Hotel\Entities\obj\Debug\Entities.dll
+C:\Users\entra21\source\repos\Hotel\Entities\obj\Debug\Entities.pdb

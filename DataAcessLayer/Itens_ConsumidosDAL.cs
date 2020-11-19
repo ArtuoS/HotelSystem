@@ -19,7 +19,7 @@ namespace DataAcessLayer
             connection.ConnectionString = ConnectionString.GetConnectionString();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT p.NOME, iv.VALOR, iv.QUANTIDADE, (iv.QUANTIDADE * iv.VALOR) AS VALORTOTAL FROM ITENSVENDA iv INNER JOIN PRODUTOS AS p ON iv.PRODUTOID = p.ID WHERE iv.CLIENTEID = @CLIENTEID";
+            command.CommandText = "SELECT iv.VENDAID, p.NOME, iv.VALOR, iv.QUANTIDADE, (iv.QUANTIDADE * iv.VALOR) AS VALORTOTAL FROM ITENSVENDA iv INNER JOIN PRODUTOS AS p ON iv.PRODUTOID = p.ID WHERE iv.CLIENTEID = @CLIENTEID AND iv.FOIPAGO = 0";
             command.Parameters.AddWithValue("@CLIENTEID", clienteID);
 
             command.Connection = connection;
@@ -33,6 +33,7 @@ namespace DataAcessLayer
                 while (reader.Read())
                 {
                     Itens_Consumidos item = new Itens_Consumidos();
+                    item.VendaID = (int)reader["VENDAID"];
                     item.Nome = (string)reader["NOME"];
                     item.Quantidade = (int)reader["QUANTIDADE"];
                     item.Valor = (double)reader["VALOR"];

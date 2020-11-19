@@ -103,3 +103,13 @@ C:\Users\arthu\source\repos\HotelSys\DataAcessLayer\obj\Debug\DataAcessLayer.csp
 C:\Users\arthu\source\repos\HotelSys\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
 C:\Users\arthu\source\repos\HotelSys\DataAcessLayer\obj\Debug\DataAcessLayer.dll
 C:\Users\arthu\source\repos\HotelSys\DataAcessLayer\obj\Debug\DataAcessLayer.pdb
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\Common.dll
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\Entities.dll
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\Common.pdb
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\bin\Debug\Entities.pdb
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\obj\Debug\DataAcessLayer.csprojAssemblyReference.cache
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\obj\Debug\DataAcessLayer.dll
+C:\Users\entra21\source\repos\Hotel\DataAcessLayer\obj\Debug\DataAcessLayer.pdb

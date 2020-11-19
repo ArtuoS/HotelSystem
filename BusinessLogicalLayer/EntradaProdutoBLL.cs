@@ -14,6 +14,7 @@ namespace BusinessLogicalLayer
     public class EntradaProdutoBLL : BaseValidator<EntradaProduto>
     {
         EntradaProdutoDAL entradaProdutoDAL = new EntradaProdutoDAL();
+        ProdutoDAL produtoDAL = new ProdutoDAL();
 
         public Response InsertEntrada(EntradaProduto entrada)
         {
@@ -22,23 +23,30 @@ namespace BusinessLogicalLayer
             {
                 entrada.DataEntrada = DateTime.Now;
                 entrada.Valor = entrada.Itens.Sum(w => w.Valor * w.Quantidade);
+                SingleResponse<EntradaProduto> responseEntrada = entradaProdutoDAL.InsertEntrada(entrada);
                 using (TransactionScope scope = new TransactionScope())
                 {
-                    SingleResponse<EntradaProduto> responseEntrada = entradaProdutoDAL.InsertEntrada(entrada);
                     if (responseEntrada.Success)
                     {
                         foreach (ItensEntrada item in entrada.Itens)
                         {
-                            ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
                             SingleResponse<EntradaProduto> responseEntradaID = entradaProdutoDAL.GetEntradaID(entrada);
                             item.EntradaID = responseEntradaID.Data.ID;
-                            itensEntradaBLL.InsertItem(item);
-                            entradaProdutoDAL.AtualizaPreco(item.ProdutoID, item.Valor, item.Quantidade);
-                            entradaProdutoDAL.AtualizaEstoque(item.ProdutoID, item.Quantidade);
+
+                            ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
+                            Response responseItensEntrada = itensEntradaBLL.InsertItem(item);
+
+                            if (responseItensEntrada.Success)
+                            {
+                                produtoDAL.AtualizaPreco(item.ProdutoID, item.Valor, item.Quantidade);
+                                produtoDAL.AtualizaEstoqueEntrada(item.ProdutoID, item.Quantidade);
+                            }
                         }
+                        entrada.Itens.Clear();
                     }
                     scope.Complete();
                 }
+                return responseEntrada;
             }
             return response;
         }
@@ -52,8 +60,6 @@ namespace BusinessLogicalLayer
         public override Response Validate(EntradaProduto entrada)
         {
             AddError(entrada.Itens.ListaEstaVazia());
-
-            //verifica valor unitario
 
             return base.Validate(entrada);
         }

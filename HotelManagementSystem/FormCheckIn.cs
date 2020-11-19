@@ -25,7 +25,7 @@ namespace HotelManagementSystem
         CheckInBLL checkInBLL = new CheckInBLL();
         CheckOutBLL checkOutBLL = new CheckOutBLL();
 
-        string QUARTOID;
+        //string QUARTOID = "";
 
         private void FormCheckIn_Load(object sender, EventArgs e)
         {
