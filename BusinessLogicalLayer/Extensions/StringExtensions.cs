@@ -95,7 +95,7 @@ namespace BusinessLogicalLayer.Extensions
 
         public static string ValidaNome(this string nome)
         {
-            Regex rg = new Regex(@"^[a-zA-Z]+$");
+            Regex rg = new Regex(@"[\p{L} ]+$");
             if (rg.IsMatch(nome))
             {
                 if (string.IsNullOrEmpty(nome))
@@ -133,19 +133,6 @@ namespace BusinessLogicalLayer.Extensions
             else if (razaoSocial.Length < 3 || razaoSocial.Length > 100)
             {
                 return "A razão social deve ter entre 3 e 100 caractéres!";
-            }
-            return "";
-        }
-
-        public static string VerificaValorUnitario(this double valorUnitario)
-        {
-            if (string.IsNullOrEmpty(valorUnitario.ToString()))
-            {
-                return "Insira um valor!";
-            }
-            else if (valorUnitario <= 0)
-            {
-                return "Valor deve ser maior que zero!";
             }
             return "";
         }

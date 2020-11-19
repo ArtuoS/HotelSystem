@@ -32,6 +32,7 @@
             this.txtRazaoSocial = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@
             this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
@@ -107,6 +107,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1168, 26);
             this.panel2.TabIndex = 90;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(4, 1);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(180, 21);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Registro de Fornecedores";
             // 
             // btnFechar
             // 
@@ -259,7 +271,7 @@
             // txtCNPJ
             // 
             this.txtCNPJ.Location = new System.Drawing.Point(12, 159);
-            this.txtCNPJ.Mask = "00,000,000/0000-99";
+            this.txtCNPJ.Mask = "00.000.000/0000-99";
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(207, 26);
             this.txtCNPJ.TabIndex = 8;
@@ -281,18 +293,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(207, 26);
             this.txtNome.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(4, 1);
-            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(180, 21);
-            this.label9.TabIndex = 108;
-            this.label9.Text = "Registro de Fornecedores";
             // 
             // FormFornecedor
             // 

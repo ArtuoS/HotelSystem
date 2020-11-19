@@ -259,7 +259,7 @@
             this.lblCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lblCargo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
-            this.lblCargo.Location = new System.Drawing.Point(0, 119);
+            this.lblCargo.Location = new System.Drawing.Point(0, 133);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(200, 23);
             this.lblCargo.TabIndex = 2;
@@ -273,7 +273,7 @@
             this.lblNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(104)))), ((int)(((byte)(130)))));
             this.lblNome.Location = new System.Drawing.Point(0, 91);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(200, 28);
+            this.lblNome.Size = new System.Drawing.Size(200, 42);
             this.lblNome.TabIndex = 1;
             this.lblNome.Text = "User Name";
             this.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

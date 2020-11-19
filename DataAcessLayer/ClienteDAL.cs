@@ -68,9 +68,11 @@ namespace DataAcessLayer
 
             // responsável por executar uma query no banco
             SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE CLIENTES SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO WHERE ID = @ID";
+            command.CommandText = "UPDATE CLIENTES SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO, CPF = @CPF, RG = @RG WHERE ID = @ID";
             command.Parameters.AddWithValue("@ID", cliente.ID);
             command.Parameters.AddWithValue("@NOME", cliente.Nome);
+            command.Parameters.AddWithValue("@CPF", cliente.CPF);
+            command.Parameters.AddWithValue("@RG", cliente.RG);
             command.Parameters.AddWithValue("@TELEFONEFIXO", cliente.TelefoneFixo);
             command.Parameters.AddWithValue("@TELEFONECELULAR", cliente.TelefoneCelular);
             command.Parameters.AddWithValue("@EMAIL", cliente.Email);
