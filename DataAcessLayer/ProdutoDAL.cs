@@ -526,141 +526,47 @@ namespace DataAcessLayer
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO PRODUTOS (NOME, DESCRICAO, VALORUNITARIO, QTDESTOQUE) VALUES (@NOME, @DESCRICAO, @VALORUNITARIO, @QTDESTOQUE)");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO PRODUTOS (NOME, DESCRICAO, VALORUNITARIO, QTDESTOQUE) VALUES (@NOME, @DESCRICAO, @VALORUNITARIO, @QTDESTOQUE)";
-            command.Parameters.AddWithValue("@ID", produto.ID);
-            command.Parameters.AddWithValue("@NOME", produto.Nome);
-            command.Parameters.AddWithValue("@DESCRICAO", produto.Descricao);
-            command.Parameters.AddWithValue("@VALORUNITARIO", produto.ValorUnitario);
-            command.Parameters.AddWithValue("@QTDESTOQUE", 0);
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
+            conexao.ParametroSql("@ID", produto.ID);
+            conexao.ParametroSql("@NOME", produto.Nome);
+            conexao.ParametroSql("@DESCRICAO", produto.Descricao);
+            conexao.ParametroSql("@VALORUNITARIO", produto.ValorUnitario);
+            conexao.ParametroSql("@QTDESTOQUE", 0);
 
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Produto cadastrado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Produto cadastrado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response Update(Produto produto)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET NOME = @NOME, DESCRICAO = @DESCRICAO, VALORUNITARIO = @VALORUNITARIO WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE PRODUTOS SET NOME = @NOME, DESCRICAO = @DESCRICAO, VALORUNITARIO = @VALORUNITARIO WHERE ID = @ID";
-            command.Parameters.AddWithValue("@NOME", produto.Nome);
-            command.Parameters.AddWithValue("@DESCRICAO", produto.Descricao);
-            command.Parameters.AddWithValue("@VALORUNITARIO", produto.ValorUnitario);
-            command.Parameters.AddWithValue("@ID", produto.ID);
+            conexao.ParametroSql("@NOME", produto.Nome);
+            conexao.ParametroSql("@DESCRICAO", produto.Descricao);
+            conexao.ParametroSql("@VALORUNITARIO", produto.ValorUnitario);
+            conexao.ParametroSql("@ID", produto.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Produto atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Produto atualizado com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response Delete(Produto produto)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"DELETE FROM PRODUTOS WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "DELETE FROM PRODUTOS WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", produto.ID);
+            conexao.ParametroSql("@ID", produto.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Produto excluído com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
 
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Produto excluído com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
         }
 
         public QueryResponse<Produto> GetAll()
@@ -771,11 +677,6 @@ namespace DataAcessLayer
             SqlCommand command = new SqlCommand();
             command.CommandText = "SELECT * FROM PRODUTOS WHERE NOME = @NOME";
             command.Parameters.AddWithValue("@NOME", produto.Nome);
-            //command.Parameters.AddWithValue("@ID", produto.ID);
-            //command.Parameters.AddWithValue("@DESCRICAO", produto.Descricao);
-            //command.Parameters.AddWithValue("@QTDESTOQUE", produto.QtdEstoque);
-            //command.Parameters.AddWithValue("@VALORUNITARIO", produto.ValorUnitario);
-
 
             command.Connection = connection;
 
@@ -861,174 +762,47 @@ namespace DataAcessLayer
             }
         }
 
-        public Response IsProdutoAvaible(Produto produto)
-        {
-            QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM PRODUTOS WHERE ID = @ID";
-            command.Parameters.AddWithValue("@CPF", produto.ID);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "CPF já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
         public Response AtualizaEstoqueEntrada(int produtoID, int quantidade)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE + @QUANTIDADE WHERE ID = @PRODUTOID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE + @QUANTIDADE WHERE ID = @PRODUTOID";
-            command.Parameters.AddWithValue("@QUANTIDADE", quantidade);
-            command.Parameters.AddWithValue("@PRODUTOID", produtoID);
+            conexao.ParametroSql("@QUANTIDADE", quantidade);
+            conexao.ParametroSql("@PRODUTOID", produtoID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Estoque atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Estoque atualizado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response AtualizaPreco(int produtoID, double valor, int quantidade)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET VALORUNITARIO = ((VALORUNITARIO * QTDESTOQUE) + (@VALOR * @QUANTIDADE)) / (QTDESTOQUE + @QUANTIDADE) WHERE ID = @PRODUTOID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE PRODUTOS SET VALORUNITARIO = ((VALORUNITARIO * QTDESTOQUE) + (@VALOR * @QUANTIDADE)) / (QTDESTOQUE + @QUANTIDADE) WHERE ID = @PRODUTOID";
-            command.Parameters.AddWithValue("@PRODUTOID", produtoID);
-            command.Parameters.AddWithValue("@QUANTIDADE", quantidade);
-            command.Parameters.AddWithValue("@VALOR", valor);
+            conexao.ParametroSql("@PRODUTOID", produtoID);
+            conexao.ParametroSql("@QUANTIDADE", quantidade);
+            conexao.ParametroSql("@VALOR", valor);
 
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Estoque atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Preço atualizado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
         public Response AtualizaEstoqueVenda(int produtoID, int quantidade)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE - @QUANTIDADE WHERE ID = @PRODUTOID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE PRODUTOS SET QTDESTOQUE = QTDESTOQUE - @QUANTIDADE WHERE ID = @PRODUTOID";
-            command.Parameters.AddWithValue("@QUANTIDADE", quantidade);
-            command.Parameters.AddWithValue("@PRODUTOID", produtoID);
+            conexao.ParametroSql("@PRODUTOID", produtoID);
+            conexao.ParametroSql("@QUANTIDADE", quantidade);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Estoque atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Estoque atualizado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
     }
 }

@@ -19,10 +19,10 @@ namespace DataAcessLayer
             ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO QUARTOS (TIPOQUARTO, VALORNOITE, PESSOASMAXIMAS, OCUPADO) VALUES (@TIPOQUARTO, @VALORNOITE, @PESSOASMAXIMAS, @OCUPADO)");
             conexao.CriaConexao();
 
-            conexao.ComandoSql("@TIPOQUARTO", quarto.TipoQuarto);
-            conexao.ComandoSql("@VALORNOITE", quarto.ValorNoite);
-            conexao.ComandoSql("@PESSOASMAXIMAS", quarto.PessoasMaximas);
-            conexao.ComandoSql("@OCUPADO", quarto.Ocupado);
+            conexao.ParametroSql("@TIPOQUARTO", quarto.TipoQuarto);
+            conexao.ParametroSql("@VALORNOITE", quarto.ValorNoite);
+            conexao.ParametroSql("@PESSOASMAXIMAS", quarto.PessoasMaximas);
+            conexao.ParametroSql("@OCUPADO", quarto.Ocupado);
 
             conexao.IniciaConexao();
             return conexao.ProcessaInformacoesResponse(response, "Quarto cadastrado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
@@ -35,11 +35,11 @@ namespace DataAcessLayer
             ConexaoBanco conexao = new ConexaoBanco(@"UPDATE QUARTOS SET TIPOQUARTO = @TIPOQUARTO, VALORNOITE = @VALORNOITE, PESSOASMAXIMAS = @PESSOASMAXIMAS, OCUPADO = @OCUPADO WHERE ID = @ID");
             conexao.CriaConexao();
 
-            conexao.ComandoSql("@ID", quarto.ID);
-            conexao.ComandoSql("@TIPOQUARTO", quarto.TipoQuarto);
-            conexao.ComandoSql("@VALORNOITE", quarto.ValorNoite);
-            conexao.ComandoSql("@PESSOASMAXIMAS", quarto.PessoasMaximas);
-            conexao.ComandoSql("@OCUPADO", quarto.Ocupado);
+            conexao.ParametroSql("@ID", quarto.ID);
+            conexao.ParametroSql("@TIPOQUARTO", quarto.TipoQuarto);
+            conexao.ParametroSql("@VALORNOITE", quarto.ValorNoite);
+            conexao.ParametroSql("@PESSOASMAXIMAS", quarto.PessoasMaximas);
+            conexao.ParametroSql("@OCUPADO", quarto.Ocupado);
 
             conexao.IniciaConexao();
             return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Quarto atualizado com sucesso!", "Quarto não encontrado!", "Erro no Banco de Dados, contate um ADM!");
@@ -52,7 +52,7 @@ namespace DataAcessLayer
             ConexaoBanco conexao = new ConexaoBanco(@"DELETE FROM QUARTOS WHERE ID = @ID");
             conexao.CriaConexao();
 
-            conexao.ComandoSql("@ID", quarto.ID);
+            conexao.ParametroSql("@ID", quarto.ID);
 
             conexao.IniciaConexao();
             return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Quarto deletado com sucesso!", "Quarto não encontrado!", "Erro no Banco de Dados, contate um ADM!");

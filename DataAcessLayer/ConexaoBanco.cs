@@ -31,7 +31,7 @@ namespace DataAcessLayer
             sqlComando.CommandText = ComandoTexto;
         }
 
-        public SqlParameter ComandoSql(string parameter, object value)
+        public SqlParameter ParametroSql(string parameter, object value)
         {
             return sqlComando.Parameters.AddWithValue(parameter, EntitiesExtensions.ConvertToType(value));
         }
@@ -68,7 +68,6 @@ namespace DataAcessLayer
         {
             try
             {
-                conexao.Open();
                 int nLinhasAfetadas = sqlComando.ExecuteNonQuery();
                 if (nLinhasAfetadas != 1)
                 {
@@ -92,5 +91,63 @@ namespace DataAcessLayer
             }
             return response;
         }
+
+        public Response ProcessaInformacoesReader(Response response, string mensagemErro, string mensagemErroBd)
+        {
+            try
+            {
+                conexao.Open();
+                SqlDataReader reader = sqlComando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    response.Success = false;
+                    response.Message = mensagemErro;
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = mensagemErroBd;
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+                return response;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+/*
+        public void ProcessaInformacoesSingleQuery(this object classe, string mensagemSucesso, string mensagemErro)
+        {
+            try
+            {
+                conexao.Open();
+                sqlComando.ExecuteNonQuery();
+                classe.Success = true;
+                response.Message = mensagemSucesso;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = mensagemErro;
+                response.StackTrace = ex.StackTrace;
+                response.ExceptionError = ex.Message;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+*/
     }
 }

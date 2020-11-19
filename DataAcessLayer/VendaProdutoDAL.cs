@@ -247,12 +247,12 @@ namespace DataAcessLayer
             ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO ITENSVENDA (VENDAID, PRODUTOID, VALOR, QUANTIDADE, CLIENTEID, FOIPAGO) VALUES (@VENDAID, @PRODUTOID, @VALOR, @QUANTIDADE, @CLIENTEID, @FOIPAGO)");
             conexao.CriaConexao();
 
-            conexao.ComandoSql("@VENDAID", itens.VendaID);
-            conexao.ComandoSql("@PRODUTOID", itens.ProdutoID);
-            conexao.ComandoSql("@VALOR", itens.Valor);
-            conexao.ComandoSql("@QUANTIDADE", itens.Quantidade);
-            conexao.ComandoSql("@CLIENTEID", itens.ClienteID);
-            conexao.ComandoSql("@FOIPAGO", false);
+            conexao.ParametroSql("@VENDAID", itens.VendaID);
+            conexao.ParametroSql("@PRODUTOID", itens.ProdutoID);
+            conexao.ParametroSql("@VALOR", itens.Valor);
+            conexao.ParametroSql("@QUANTIDADE", itens.Quantidade);
+            conexao.ParametroSql("@CLIENTEID", itens.ClienteID);
+            conexao.ParametroSql("@FOIPAGO", false);
 
             conexao.IniciaConexao();
             return conexao.ProcessaInformacoesResponse(response, "Item(ns) vendido(s) com sucesso!", "Erro no Banco de Dados, contate um ADM!");
@@ -309,12 +309,12 @@ namespace DataAcessLayer
         {
             SingleResponse<VendaProduto> response = new SingleResponse<VendaProduto>();
 
-            // responsável por realizar conexão física com o banco
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConnectionString.GetConnectionString();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM VENDAPRODUTOS";
+            command.CommandText = "SELECT * FROM VENDAPRODUTOS WHERE ID = @ID";
+            command.Parameters.AddWithValue("@ID", id);
 
             command.Connection = connection;
 
@@ -328,13 +328,17 @@ namespace DataAcessLayer
                 {
                     response.Success = true;
                     VendaProduto vendaProduto = new VendaProduto();
-                    vendaProduto.ID = Convert.ToInt32(reader["CURRENT_ID"]);
+                    vendaProduto.ID = Convert.ToInt32(reader["ID"]);
+                    vendaProduto.DataVenda = Convert.ToDateTime(reader["DATAVENDA"]);
+                    vendaProduto.Valor = Convert.ToInt32(reader["VALOR"]);
+                    vendaProduto.FornecedorID = Convert.ToInt32(reader["FUNCIONARIOID"]);
+                    vendaProduto.FuncionarioID = Convert.ToInt32(reader["FORNECEDORID"]);
                     response.Data = vendaProduto;
                 }
                 else
                 {
                     response.Success = false;
-                    response.Message = "Funcionário(a) não encontrado(a)!";
+                    response.Message = "Venda não encontrada!";
                 }
                 return response;
             }
@@ -356,16 +360,18 @@ namespace DataAcessLayer
         {
             Response response = new Response();
 
-            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE ITENSVENDA SET FOIPAGO = 1 WHERE CLIENTEID = @CLIENTEID, VENDAID = @VENDAID, PRODUTOID = @PRODUTOID, VALOR = @VALOR");
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE ITENSVENDA SET FOIPAGO = 1 WHERE CLIENTEID = @CLIENTEID AND VENDAID = @VENDAID AND PRODUTOID = @PRODUTOID AND VALOR = @VALOR");
             conexao.CriaConexao();
 
-            conexao.ComandoSql("@CLIENTEID", clienteID);
-            conexao.ComandoSql("@VENDAID", vendaID);
-            conexao.ComandoSql("@PRODUTOID", produtoID);
-            conexao.ComandoSql("@VALOR", valor);
+            conexao.ParametroSql("@CLIENTEID", clienteID);
+            conexao.ParametroSql("@VENDAID", vendaID);
+            conexao.ParametroSql("@PRODUTOID", produtoID);
+            conexao.ParametroSql("@VALOR", valor);
 
             conexao.IniciaConexao();
-            return conexao.ProcessaInformacoesResponse(response, "Item(ns) pago(s) com sucesso!", "Erro no Banco de Dados, contate um ADM!");
+            return conexao.ProcessaInformacoesResponse(response, "Item(ns) vendido(s) com sucesso!", "Erro no Banco de Dados, contate um ADM!");
+
+
         }
     }
 }

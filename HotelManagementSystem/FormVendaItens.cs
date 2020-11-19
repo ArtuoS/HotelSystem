@@ -128,6 +128,8 @@ namespace HotelManagementSystem
                     txtQuantidadeItens.Text = "";
                     vendaProduto.Valor = 0;
                     txtValor.Text = "";
+                    cbCliente.Enabled = true;
+                    Message = "";
                     itens_Produtos.Clear();
                     UpdateGridViewCarrinho();
                     UpdateGridView();
@@ -195,11 +197,6 @@ namespace HotelManagementSystem
                 btnRemoverDoCarrinho.Enabled = true;
                 dgvCarrinho.Enabled = true;
                 dgvProdutos.Enabled = true;
-            }
-            else
-            {
-                Message = "Cliente já selecionado!";
-                MessageBox.Show(Message);
             }
         }
 

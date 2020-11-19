@@ -31,6 +31,7 @@
             this.dgvCheckOut = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -59,7 +60,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOut)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -110,6 +110,18 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1184, 24);
             this.panel8.TabIndex = 90;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(2, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 21);
+            this.label10.TabIndex = 108;
+            this.label10.Text = "Check-out";
             // 
             // btnFechar
             // 
@@ -335,7 +347,7 @@
             // txtRG
             // 
             this.txtRG.Location = new System.Drawing.Point(16, 198);
-            this.txtRG.Mask = "00,000,000-9";
+            this.txtRG.Mask = "00.000.000-9";
             this.txtRG.Name = "txtRG";
             this.txtRG.ReadOnly = true;
             this.txtRG.Size = new System.Drawing.Size(322, 26);
@@ -356,7 +368,7 @@
             // txtCPF
             // 
             this.txtCPF.Location = new System.Drawing.Point(16, 138);
-            this.txtCPF.Mask = "000,000,000-99";
+            this.txtCPF.Mask = "000.000.000-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
             this.txtCPF.Size = new System.Drawing.Size(322, 26);
@@ -429,18 +441,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Check-in\'s";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(2, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 21);
-            this.label10.TabIndex = 108;
-            this.label10.Text = "Check-out";
             // 
             // FormCheckOut
             // 

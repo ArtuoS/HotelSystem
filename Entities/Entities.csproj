@@ -50,9 +50,10 @@
     <Compile Include="CheckOut.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ConnectionString.cs" />
-    <Compile Include="EntitiesExtensions.cs" />
+    <Compile Include="EntitiesExtensions\EntitiesExtensions.cs" />
     <Compile Include="EntradaProduto.cs" />
     <Compile Include="Enumeradores\CargosFuncionarios.cs" />
+    <Compile Include="Enumeradores\TipoClasse.cs" />
     <Compile Include="Enumeradores\TipoQuartos.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />

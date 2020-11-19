@@ -91,7 +91,6 @@ namespace HotelManagementSystem
             try
             {
                 CheckOut checkOut = new CheckOut();
-                //checkOut.ID = int.Parse(txtID.Text);
                 checkOut.QuartoID = int.Parse(QUARTOID);
                 checkOut.ClienteID = int.Parse(txtIDCliente.Text);
                 checkOut.DataSaida = DateTime.Now;
@@ -99,10 +98,12 @@ namespace HotelManagementSystem
 
                 Response response = checkOutBLL.Insert(checkOut);
                 MessageBox.Show(response.Message);
+
                 if (response.Success)
                 {
-                    FerramentasTextBox.LimpaTextBoxes(this);
                     UpdateGridView();
+                    UpdateGridViewItensConsumidos();
+                    FerramentasTextBox.LimpaTextBoxes(this);
                 }
             }
             catch (FormatException)
