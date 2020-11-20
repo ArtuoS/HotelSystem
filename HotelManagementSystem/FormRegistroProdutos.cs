@@ -23,7 +23,10 @@ namespace HotelManagementSystem
         // Método chamado ao carregar
         private void FormRegistroProdutos_Load(object sender, EventArgs e)
         {
-
+            btnAdicionarProduto.Enabled = false;
+            btnDeletar.Enabled = false;
+            btnAdicionarProduto.Enabled = false;
+            btnEntrada.Enabled = false;
             QueryResponse<Fornecedor> responseFornecedor = fornecedorBLL.GetAll();
             cbFornecedor.DataSource = responseFornecedor.Data;
             cbFornecedor.ValueMember = "RAZAOSOCIAL";
@@ -32,7 +35,6 @@ namespace HotelManagementSystem
         }
 
         EntradaProdutoBLL entradaProdutoBLL = new EntradaProdutoBLL();
-        ItensEntradaBLL itensEntradaBLL = new ItensEntradaBLL();
         FornecedorBLL fornecedorBLL = new FornecedorBLL();
         ProdutoBLL produtoBLL = new ProdutoBLL();
 
@@ -61,6 +63,11 @@ namespace HotelManagementSystem
                     txtQuantidade.Text = "";
                     txtValor.Text = "";
                     entradaProduto.Valor = 0;
+                    cbFornecedor.Enabled = true;
+                    btnDeletar.Enabled = false;
+                    btnAdicionarProduto.Enabled = false;
+                    btnEntrada.Enabled = false;
+                    Message = "";
                     itens_Produtos.Clear();
                     UpdateGridView();
                 }
@@ -177,6 +184,9 @@ namespace HotelManagementSystem
                 cbProduto.DataSource = responseProduto.Data;
                 cbProduto.ValueMember = "NOME";
                 Message = "Fornecedor selecionado!";
+                btnDeletar.Enabled = true;
+                btnAdicionarProduto.Enabled = true;
+                btnEntrada.Enabled = true;
                 MessageBox.Show(Message);
                 cbFornecedor.Enabled = false;
             }

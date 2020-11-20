@@ -81,8 +81,6 @@ namespace BusinessLogicalLayer
 
             AddError(funcionario.Email.ValidadorEmail());
 
-            AddError(funcionarioDAL.IsEmailUnique(funcionario).Message);
-
             AddError(StringExtensions.VerificaEndereco(funcionario.Rua, funcionario.Bairro, funcionario.NumeroCasa));
 
             if (!string.IsNullOrEmpty(funcionario.CPF))
@@ -93,10 +91,6 @@ namespace BusinessLogicalLayer
             {
                 funcionario.RG = funcionario.RG.Replace(".", "").Replace("-", "");
             }
-
-            AddError(funcionarioDAL.IsCPFUnique(funcionario).Message);
-
-            AddError(funcionarioDAL.IsRGUnique(funcionario).Message);
 
             return base.Validate(funcionario);
         }

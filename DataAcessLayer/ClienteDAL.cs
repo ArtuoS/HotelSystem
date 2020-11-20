@@ -11,6 +11,7 @@ namespace DataAcessLayer
 {
     public class ClienteDAL
     {
+        // Insere um cliente
         public Response Insert(Cliente cliente)
         {
             Response response = new Response();
@@ -27,14 +28,15 @@ namespace DataAcessLayer
             conexao.ParametroSql("@ATIVO", true);
 
             conexao.IniciaConexao();
-            return conexao.ProcessaInformacoesResponse(response, "Cliente cadastrado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
+            return conexao.ProcessaInformacoesResponse(response, "Cliente cadastrado com sucesso!", "Verifique o Email, RG ou CPF!");
         }
 
+        // Atualiza um cliente
         public Response Update(Cliente cliente)
         {
             Response response = new Response();
 
-            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE PRODUTOS SET NOME = @NOME, DESCRICAO = @DESCRICAO, VALORUNITARIO = @VALORUNITARIO WHERE ID = @ID");
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE CLIENTES SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO, CPF = @CPF, RG = @RG WHERE ID = @ID");
             conexao.CriaConexao();
 
             conexao.ParametroSql("@ID", cliente.ID);
@@ -47,9 +49,10 @@ namespace DataAcessLayer
             conexao.ParametroSql("@ATIVO", cliente.Ativo);
 
             conexao.IniciaConexao();
-            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Cliente atualizado com sucesso!", "Cliente não encontrado!", "Erro no Banco de Dados, contate um ADM!");
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Cliente atualizado com sucesso!", "Cliente não encontrado!", "Verifique o Email, RG ou CPF!");
         }
 
+        // Deleta um cliente
         public Response Delete(Cliente cliente)
         {
             Response response = new Response();
@@ -63,6 +66,7 @@ namespace DataAcessLayer
             return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Cliente excluído com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        // Pega todos os clientes
         public QueryResponse<Cliente> GetAll()
         {
             QueryResponse<Cliente> response = new QueryResponse<Cliente>();
@@ -116,6 +120,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega o cliente pelo ID
         public SingleResponse<Cliente> GetById(Cliente cliente)
         {
             SingleResponse<Cliente> response = new SingleResponse<Cliente>();
@@ -167,6 +172,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega um cliente pelo CPF
         public SingleResponse<Cliente> GetByCpf(string cpf)
         {
             SingleResponse<Cliente> response = new SingleResponse<Cliente>();
@@ -219,6 +225,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega o cliente pelo Nome
         public SingleResponse<Cliente> GetByNome(Cliente cliente)
         {
             SingleResponse<Cliente> response = new SingleResponse<Cliente>();
@@ -247,149 +254,6 @@ namespace DataAcessLayer
 
                 response.Success = true;
                 response.Message = "Dados selecionados com sucesso!";
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
-        public Response IsCPFUnique(Cliente cliente)
-        {
-
-
-            QueryResponse<Cliente> response = new QueryResponse<Cliente>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM CLIENTES WHERE CPF = @CPF";
-            command.Parameters.AddWithValue("@CPF", cliente.CPF);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "CPF já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
-        public Response IsRGUnique(Cliente cliente)
-        {
-            QueryResponse<Cliente> response = new QueryResponse<Cliente>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM CLIENTES WHERE RG = @RG";
-            command.Parameters.AddWithValue("@RG", cliente.RG);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "RG já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
-        public Response IsEmailUnique(Cliente cliente)
-        {
-            QueryResponse<Cliente> response = new QueryResponse<Cliente>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM CLIENTES WHERE EMAIL = @EMAIL";
-            command.Parameters.AddWithValue("@EMAIL", cliente.Email);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "Email já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
                 return response;
             }
             catch (Exception ex)

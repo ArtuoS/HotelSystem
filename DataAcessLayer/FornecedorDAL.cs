@@ -11,198 +11,59 @@ namespace DataAcessLayer
 {
     public class FornecedorDAL
     {
+        // Insere um fornecedor
         public Response Insert(Fornecedor fornecedor)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO FORNECEDORES (RAZAOSOCIAL, NOME, CNPJ, TELEFONECELULAR, EMAIL, ATIVO) VALUES (@RAZAOSOCIAL, @NOME, @CNPJ, @TELEFONECELULAR, @EMAIL, @ATIVO)");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO FORNECEDORES (RAZAOSOCIAL, NOME, CNPJ, TELEFONECELULAR, EMAIL, ATIVO) VALUES (@RAZAOSOCIAL, @NOME, @CNPJ, @TELEFONECELULAR, @EMAIL, @ATIVO)";
-            command.Parameters.AddWithValue("@RAZAOSOCIAL", fornecedor.RazaoSocial);
-            command.Parameters.AddWithValue("@NOME", fornecedor.Nome);
-            command.Parameters.AddWithValue("@CNPJ", fornecedor.CNPJ);
-            command.Parameters.AddWithValue("@TELEFONECELULAR", fornecedor.TelefoneCelular);
-            command.Parameters.AddWithValue("@EMAIL", fornecedor.Email);
-            command.Parameters.AddWithValue("@ATIVO", true);
+            conexao.ParametroSql("@RAZAOSOCIAL", fornecedor.RazaoSocial);
+            conexao.ParametroSql("@NOME", fornecedor.Nome);
+            conexao.ParametroSql("@CNPJ", fornecedor.CNPJ);
+            conexao.ParametroSql("@TELEFONECELULAR", fornecedor.TelefoneCelular);
+            conexao.ParametroSql("@EMAIL", fornecedor.Email);
+            conexao.ParametroSql("@ATIVO", true);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Fornecedor cadastrado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Fornecedor cadastrado com sucesso!", "Verifique o Email, RG ou CPF!");
         }
 
+        // Atualiza um fornecedor
         public Response Update(Fornecedor fornecedor)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE FORNECEDORES SET RAZAOSOCIAL = @RAZAOSOCIAL, NOME = @NOME, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, CNPJ = @CNPJ WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE FORNECEDORES SET RAZAOSOCIAL = @RAZAOSOCIAL, NOME = @NOME, CNPJ = @CNPJ, EMAIL = @EMAIL,TELEFONECELULAR = @TELEFONECELULAR WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", fornecedor.ID);
-            command.Parameters.AddWithValue("@RAZAOSOCIAL", fornecedor.RazaoSocial);
-            command.Parameters.AddWithValue("@NOME", fornecedor.Nome);
-            command.Parameters.AddWithValue("@CNPJ", fornecedor.CNPJ);
-            command.Parameters.AddWithValue("@EMAIL", fornecedor.Email);
-            command.Parameters.AddWithValue("@TELEFONECELULAR", fornecedor.TelefoneCelular);
+            conexao.ParametroSql("@ID", fornecedor.ID);
+            conexao.ParametroSql("@RAZAOSOCIAL", fornecedor.RazaoSocial);
+            conexao.ParametroSql("@NOME", fornecedor.Nome);
+            conexao.ParametroSql("@CNPJ", fornecedor.CNPJ);
+            conexao.ParametroSql("@EMAIL", fornecedor.Email);
+            conexao.ParametroSql("@TELEFONECELULAR", fornecedor.TelefoneCelular);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Fornecedor atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Fornecedor atualizado com sucesso!", "Registro não encontrado!", "Verifique o Email, RG ou CPF!");
         }
 
+        // Deleta um fornecedor
         public Response Delete(Fornecedor fornecedor)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"DELETE FROM FORNECEDORES WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "DELETE FROM FORNECEDORES WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", fornecedor.ID);
+            conexao.ParametroSql("@ID", fornecedor.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Fornecedor excluído com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Fornecedor excluído com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
-        /*
-        public Response Disable(Fornecedor fornecedor)
-        {
-            Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE FORNECEDORES SET ATIVO = 0 WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", fornecedor.ID);
-
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Fornecedor desativado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
-        }
-        */
+        // Pega todos os fornecedores
         public QueryResponse<Fornecedor> GetAll()
         {
             QueryResponse<Fornecedor> response = new QueryResponse<Fornecedor>();
@@ -252,6 +113,8 @@ namespace DataAcessLayer
                 connection.Close();
             }
         }
+
+        // Pega o fornecedor pela razão social
         public SingleResponse<Fornecedor> GetByRazaoSocial(Fornecedor fornecedor)
         {
             SingleResponse<Fornecedor> response = new SingleResponse<Fornecedor>();

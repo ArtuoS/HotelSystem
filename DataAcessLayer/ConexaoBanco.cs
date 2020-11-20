@@ -11,6 +11,9 @@ namespace DataAcessLayer
 {
     public class ConexaoBanco
     {
+        // Criei esta classe para a prática do clean code. Toda vez que uma class DAL era criada
+        // precisava-mos fazer todos os comandos dos métodos abaixo manualmente
+        // a digitação ficava cansativa e com esta classe alguns passos ficam muito mais fáceis.
         public ConexaoBanco(string comando)
         {
             ComandoTexto = comando;

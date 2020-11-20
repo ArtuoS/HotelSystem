@@ -135,6 +135,13 @@ namespace HotelManagementSystem
                     txtValor.Text = "";
                     cbCliente.Enabled = true;
                     Message = "";
+                    btnAddNoCarrinho.Enabled = false;
+                    btnVender.Enabled = false;
+                    txtQuantidadeItens.Enabled = false;
+                    txtValor.Enabled = false;
+                    btnRemoverDoCarrinho.Enabled = false;
+                    dgvCarrinho.Enabled = false;
+                    dgvProdutos.Enabled = false;
                     itens_Produtos.Clear();
                     UpdateGridViewCarrinho();
                     UpdateGridView();

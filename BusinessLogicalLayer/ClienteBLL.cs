@@ -90,10 +90,6 @@ namespace BusinessLogicalLayer
 
             AddError(cliente.CPF.ValidadorCPF());
 
-            AddError(cliente.Email.ValidadorEmail());
-
-            AddError(clienteDAL.IsEmailUnique(cliente).Message);
-
             if (!string.IsNullOrEmpty(cliente.CPF))
             {
                 cliente.CPF = cliente.CPF.Replace(".", "").Replace("-", "");
@@ -103,10 +99,6 @@ namespace BusinessLogicalLayer
             {
                 cliente.RG = cliente.RG.Replace(".", "").Replace("-", "");
             }
-
-            AddError(clienteDAL.IsCPFUnique(cliente).Message);
-
-            AddError(clienteDAL.IsRGUnique(cliente).Message);
 
             if (!string.IsNullOrEmpty(cliente.TelefoneCelular))
             {

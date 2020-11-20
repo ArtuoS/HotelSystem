@@ -10,7 +10,7 @@ namespace Entities
     {
         public static string GetConnectionString()
         {
-            return @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arthu\Documents\BDClone1.mdf;Integrated Security=True;Connect Timeout=30";
+            return @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arthu\Documents\BDFinal.mdf;Integrated Security=True;Connect Timeout=30";
         }
     }
 }

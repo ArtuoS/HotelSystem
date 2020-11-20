@@ -281,3 +281,4 @@ C:\Users\entra21\source\repos\Hotel\HotelManagementSystem\obj\Debug\Presentation
 C:\Users\entra21\source\repos\Hotel\HotelManagementSystem\obj\Debug\PresentationLayer.csproj.CopyComplete
 C:\Users\entra21\source\repos\Hotel\HotelManagementSystem\obj\Debug\HotelManagementSystem.exe
 C:\Users\entra21\source\repos\Hotel\HotelManagementSystem\obj\Debug\HotelManagementSystem.pdb
+C:\Users\arthu\source\repos\HotelSys\HotelManagementSystem\obj\Debug\HotelManagementSystem.FormLimpeza.resources

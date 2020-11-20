@@ -61,6 +61,7 @@
     <Compile Include="ItensVenda.cs" />
     <Compile Include="Itens_Consumidos.cs" />
     <Compile Include="Itens_Produto.cs" />
+    <Compile Include="LimpezaQuarto.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quarto.cs" />

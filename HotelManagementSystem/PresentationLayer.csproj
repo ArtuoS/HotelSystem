@@ -77,6 +77,12 @@
     <Compile Include="FormFuncionario.Designer.cs">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLimpeza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLimpeza.Designer.cs">
+      <DependentUpon>FormLimpeza.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFuncionario.resx">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLimpeza.resx">
+      <DependentUpon>FormLimpeza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

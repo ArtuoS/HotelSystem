@@ -37,6 +37,9 @@ namespace BusinessLogicalLayer
                             if (responseItensVenda.Success)
                             {
                                 produtoDAL.AtualizaEstoqueVenda(item.ProdutoID, item.Quantidade);
+                            } else
+                            {
+                                return responseItensVenda;
                             }
                         }
                         venda.Itens.Clear();
@@ -59,7 +62,6 @@ namespace BusinessLogicalLayer
             SingleResponse<VendaProduto> response = vendaProdutoDAL.GetVendaById(id);
             return response;
         }
-
 
         public override Response Validate(VendaProduto venda)
         {

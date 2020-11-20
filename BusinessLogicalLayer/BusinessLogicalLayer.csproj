@@ -54,6 +54,7 @@
     <Compile Include="ItensEntradaBLL.cs" />
     <Compile Include="ItensVendaBLL.cs" />
     <Compile Include="Itens_ConsumidosBLL.cs" />
+    <Compile Include="LimpezaQuartoBLL.cs" />
     <Compile Include="ProdutoBLL.cs" />
     <Compile Include="QuartoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

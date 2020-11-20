@@ -11,6 +11,7 @@ namespace DataAcessLayer
 {
     public class Itens_ConsumidosDAL
     {
+        // Pega os itens consumidos pelo cliente
         public QueryResponse<Itens_Consumidos> GetItensConsumidosByCliente(int clienteID)
         {
             QueryResponse<Itens_Consumidos> response = new QueryResponse<Itens_Consumidos>();

@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlNav = new System.Windows.Forms.Panel();
+            this.btmLimpezaQuatos = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnVendaProdutos = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.pnlNav.Controls.Add(this.btmLimpezaQuatos);
             this.pnlNav.Controls.Add(this.btnCheckOut);
             this.pnlNav.Controls.Add(this.btnCheckIn);
             this.pnlNav.Controls.Add(this.btnVendaProdutos);
@@ -107,6 +109,21 @@
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(200, 720);
             this.pnlNav.TabIndex = 0;
+            // 
+            // btmLimpezaQuatos
+            // 
+            this.btmLimpezaQuatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btmLimpezaQuatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btmLimpezaQuatos.FlatAppearance.BorderSize = 0;
+            this.btmLimpezaQuatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btmLimpezaQuatos.ForeColor = System.Drawing.Color.White;
+            this.btmLimpezaQuatos.Location = new System.Drawing.Point(0, 541);
+            this.btmLimpezaQuatos.Name = "btmLimpezaQuatos";
+            this.btmLimpezaQuatos.Size = new System.Drawing.Size(200, 42);
+            this.btmLimpezaQuatos.TabIndex = 9;
+            this.btmLimpezaQuatos.Text = "Limpeza de Quartos";
+            this.btmLimpezaQuatos.UseVisualStyleBackColor = false;
+            this.btmLimpezaQuatos.Click += new System.EventHandler(this.btmLimpezaQuatos_Click);
             // 
             // btnCheckOut
             // 
@@ -331,5 +348,6 @@
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnVendaProdutos;
+        private System.Windows.Forms.Button btmLimpezaQuatos;
     }
 }

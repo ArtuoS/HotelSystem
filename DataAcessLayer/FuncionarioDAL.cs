@@ -11,162 +11,73 @@ using System.Threading.Tasks;
 
 namespace DataAcessLayer
 {
+
     public class FuncionarioDAL
     {
+        //Insere um funcionário
         public Response Insert(Funcionario funcionario)
         {
+
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO FUNCIONARIOS (NOME, CPF, RG, EMAIL, SENHA, CARGO, RUA, BAIRRO, NUMEROCASA, ATIVO, ISADM) VALUES (@NOME, @CPF, @RG, @EMAIL, @SENHA, @CARGO, @RUA, @BAIRRO, @NUMEROCASA, @ATIVO, @ISADM)");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO FUNCIONARIOS (NOME, CPF, RG, EMAIL, SENHA, CARGO, RUA, BAIRRO, NUMEROCASA, ATIVO, ISADM) VALUES (@NOME, @CPF, @RG, @EMAIL, @SENHA, @CARGO, @RUA, @BAIRRO, @NUMEROCASA, @ATIVO, @ISADM)";
-            command.Parameters.AddWithValue("@NOME", funcionario.Nome);
-            command.Parameters.AddWithValue("@CPF", funcionario.CPF);
-            command.Parameters.AddWithValue("@RG", funcionario.RG);
-            command.Parameters.AddWithValue("@EMAIL", funcionario.Email);
-            command.Parameters.AddWithValue("@SENHA", funcionario.Senha);
-            command.Parameters.AddWithValue("@CARGO", funcionario.Cargo);
-            command.Parameters.AddWithValue("@RUA", funcionario.Rua);
-            command.Parameters.AddWithValue("@BAIRRO", funcionario.Bairro);
-            command.Parameters.AddWithValue("@NUMEROCASA", funcionario.NumeroCasa);
-            command.Parameters.AddWithValue("@ATIVO", true);
-            command.Parameters.AddWithValue("@ISADM", funcionario.IsADM);
+            conexao.ParametroSql("@NOME", funcionario.Nome);
+            conexao.ParametroSql("@CPF", funcionario.CPF);
+            conexao.ParametroSql("@RG", funcionario.RG);
+            conexao.ParametroSql("@EMAIL", funcionario.Email);
+            conexao.ParametroSql("@SENHA", funcionario.Senha);
+            conexao.ParametroSql("@CARGO", funcionario.Cargo);
+            conexao.ParametroSql("@RUA", funcionario.Rua);
+            conexao.ParametroSql("@BAIRRO", funcionario.Bairro);
+            conexao.ParametroSql("@NUMEROCASA", funcionario.NumeroCasa);
+            conexao.ParametroSql("@ATIVO", true);
+            conexao.ParametroSql("@ISADM", funcionario.IsADM);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Cadastrado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Funcionário cadastrado com sucesso!", "Verifique o Email, RG ou CPF!");
         }
 
+        //Atualiza um funcionário
         public Response Update(Funcionario funcionario)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE FUNCIONARIOS SET NOME = @NOME, SENHA = @SENHA, CARGO = @CARGO, RUA = @RUA, BAIRRO = @BAIRRO, NUMEROCASA = @NUMEROCASA, ISADM = @ISADM, CPF = @CPF, RG = @RG, EMAIL = @EMAIL WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE FUNCIONARIOS SET NOME = @NOME, SENHA = @SENHA, RUA = @RUA, BAIRRO = @BAIRRO, NUMEROCASA = @NUMEROCASA, ISADM = @ISADM, CPF = @CPF, RG = @RG, EMAIL = @EMAIL WHERE ID = @ID";
-            command.Parameters.AddWithValue("@NOME", funcionario.Nome);
-            command.Parameters.AddWithValue("@SENHA", funcionario.Senha);
-            command.Parameters.AddWithValue("@CPF", funcionario.CPF);
-            command.Parameters.AddWithValue("@RG", funcionario.RG);
-            command.Parameters.AddWithValue("@EMAIL", funcionario.Email);
-            command.Parameters.AddWithValue("@RUA", funcionario.Rua);
-            command.Parameters.AddWithValue("@BAIRRO", funcionario.Bairro);
-            command.Parameters.AddWithValue("@NUMEROCASA", funcionario.NumeroCasa);
-            command.Parameters.AddWithValue("@ISADM", funcionario.IsADM);
-            command.Parameters.AddWithValue("@ID", funcionario.ID);
+            conexao.ParametroSql("@NOME", funcionario.Nome);
+            conexao.ParametroSql("@SENHA", funcionario.Senha);
+            conexao.ParametroSql("@CPF", funcionario.CPF);
+            conexao.ParametroSql("@RG", funcionario.RG);
+            conexao.ParametroSql("@EMAIL", funcionario.Email);
+            conexao.ParametroSql("@RUA", funcionario.Rua);
+            conexao.ParametroSql("@CARGO", funcionario.Cargo);
+            conexao.ParametroSql("@BAIRRO", funcionario.Bairro);
+            conexao.ParametroSql("@NUMEROCASA", funcionario.NumeroCasa);
+            conexao.ParametroSql("@ISADM", funcionario.IsADM);
+            conexao.ParametroSql("@ID", funcionario.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Atualizado com sucesso!", "Registro não encontrado!", "Verifique o Email, RG ou CPF!");
         }
 
+        //Deleta um funcionário
         public Response Delete(Funcionario funcionario)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"DELETE FROM FUNCIONARIOS WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "DELETE FROM FUNCIONARIOS WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", funcionario.ID);
+            conexao.ParametroSql("@ID", funcionario.ID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Excluído com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Deletado com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        //Pega todos os funcionários
         public QueryResponse<Funcionario> GetAll()
         {
             QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
@@ -223,6 +134,7 @@ namespace DataAcessLayer
             }
         }
 
+        //Faz o login
         public SingleResponse<Funcionario> GetByLogin(Funcionario funcionario)
         {
             SingleResponse<Funcionario> response = new SingleResponse<Funcionario>();
@@ -232,7 +144,7 @@ namespace DataAcessLayer
             connection.ConnectionString = ConnectionString.GetConnectionString();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT ID, NOME, EMAIL, ISADM FROM FUNCIONARIOS WHERE EMAIL = @EMAIL AND SENHA = @SENHA";
+            command.CommandText = "SELECT ID, NOME, CARGO,EMAIL, ISADM FROM FUNCIONARIOS WHERE EMAIL = @EMAIL AND SENHA = @SENHA";
             command.Parameters.AddWithValue("@EMAIL", funcionario.Email);
             command.Parameters.AddWithValue("@SENHA", funcionario.Senha);
 
@@ -251,6 +163,7 @@ namespace DataAcessLayer
                     Funcionario funcionario1 = new Funcionario();
                     funcionario1.ID = Convert.ToInt32(reader["ID"]);
                     funcionario1.Nome = Convert.ToString(reader["NOME"]);
+                    funcionario1.Cargo = (CargosFuncionarios)reader["CARGO"];
                     funcionario1.Email = Convert.ToString(reader["EMAIL"]);
                     funcionario1.IsADM = Convert.ToBoolean(reader["ISADM"]);
                     response.Data = funcionario1;
@@ -274,147 +187,6 @@ namespace DataAcessLayer
                 connection.Close();
             }
             return response;
-        }
-
-        public Response IsCPFUnique(Funcionario funcionario)
-        {
-            QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM FUNCIONARIOS WHERE CPF = @CPF";
-            command.Parameters.AddWithValue("@CPF", funcionario.CPF);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "CPF já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
-        public Response IsRGUnique(Funcionario funcionario)
-        {
-            QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM FUNCIONARIOS WHERE RG = @RG";
-            command.Parameters.AddWithValue("@RG", funcionario.RG);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "RG já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-        }
-
-        public Response IsEmailUnique(Funcionario funcionario)
-        {
-            QueryResponse<Funcionario> response = new QueryResponse<Funcionario>();
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM FUNCIONARIOS WHERE EMAIL = @EMAIL";
-            command.Parameters.AddWithValue("@EMAIL", funcionario.Email);
-
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = "Email já cadastrado!";
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
         }
     }
 }

@@ -22,30 +22,24 @@ namespace HotelManagementSystem
             lblCargo.Text = Convert.ToString(Environments.FuncionarioLogado.Cargo);
         }
 
-        FormCheckIn formCheckIn = new FormCheckIn();
-        FormCheckOut formCheckOut = new FormCheckOut();
-        FormCliente formCliente = new FormCliente();
-        FormFornecedor formFornecedor = new FormFornecedor();
-        FormFuncionario formFuncionario = new FormFuncionario();
-        FormProduto formProduto = new FormProduto();
-        FormQuarto formQuarto = new FormQuarto();
-        FormRegistroProdutos formRegistroProdutos = new FormRegistroProdutos();
-        FormVendaItens formVendaItens = new FormVendaItens();
-
         public FormPrincipal()
         {
             InitializeComponent();
+            btmLimpezaQuatos.Hide();
             if (!Environments.FuncionarioLogado.IsADM)
             {
-                btnFornecedores.Hide();
                 btnFuncionarios.Hide();
-                btnQuartos.Hide();
-                btnEntradaProdutos.Hide();
+                btnFornecedores.Hide();
+            }
+            if (Environments.FuncionarioLogado.Cargo == CargosFuncionarios.Governanta)
+            {
+                btmLimpezaQuatos.Show();
             }
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
+            FormCliente formCliente = new FormCliente();
             pnlNav.Height = btnClientes.Height;
             pnlNav.Top = btnClientes.Top;
             this.Hide();
@@ -55,6 +49,7 @@ namespace HotelManagementSystem
 
         private void btnFuncionarios_Click(object sender, EventArgs e)
         {
+            FormFuncionario formFuncionario = new FormFuncionario();
             pnlNav.Height = btnFuncionarios.Height;
             pnlNav.Top = btnFuncionarios.Top;
             this.Hide();
@@ -64,6 +59,7 @@ namespace HotelManagementSystem
 
         private void btnFornecedores_Click(object sender, EventArgs e)
         {
+            FormFornecedor formFornecedor = new FormFornecedor();
             pnlNav.Height = btnFornecedores.Height;
             pnlNav.Top = btnFornecedores.Top;
             this.Hide();
@@ -73,6 +69,7 @@ namespace HotelManagementSystem
 
         private void btnQuartos_Click(object sender, EventArgs e)
         {
+            FormQuarto formQuarto = new FormQuarto();
             pnlNav.Height = btnQuartos.Height;
             pnlNav.Top = btnQuartos.Top;
             this.Hide();
@@ -82,6 +79,7 @@ namespace HotelManagementSystem
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
+            FormProduto formProduto = new FormProduto();
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
             this.Hide();
@@ -91,6 +89,7 @@ namespace HotelManagementSystem
 
         private void btnEntradaProdutos_Click(object sender, EventArgs e)
         {
+            FormRegistroProdutos formRegistroProdutos = new FormRegistroProdutos();
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
             this.Hide();
@@ -105,6 +104,7 @@ namespace HotelManagementSystem
 
         private void btnVendaProdutos_Click(object sender, EventArgs e)
         {
+            FormVendaItens formVendaItens = new FormVendaItens();
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
             this.Hide();
@@ -114,6 +114,7 @@ namespace HotelManagementSystem
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            FormCheckIn formCheckIn = new FormCheckIn();
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
             this.Hide();
@@ -123,10 +124,21 @@ namespace HotelManagementSystem
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
+            FormCheckOut formCheckOut = new FormCheckOut();
             pnlNav.Height = btnProdutos.Height;
             pnlNav.Top = btnProdutos.Top;
             this.Hide();
             formCheckOut.ShowDialog();
+            this.Show();
+        }
+
+        private void btmLimpezaQuatos_Click(object sender, EventArgs e)
+        {
+            FormLimpeza formLimpeza = new FormLimpeza();
+            pnlNav.Height = btmLimpezaQuatos.Height;
+            pnlNav.Top = btmLimpezaQuatos.Top;
+            this.Hide();
+            formLimpeza.ShowDialog();
             this.Show();
         }
     }

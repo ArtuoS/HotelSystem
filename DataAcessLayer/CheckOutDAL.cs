@@ -12,6 +12,7 @@ namespace DataAcessLayer
 {
     public class CheckOutDAL
     {
+        // Insere um check-out
         public Response Insert(CheckOut checkOut)
         {
             using (TransactionScope scope = new TransactionScope())
@@ -74,6 +75,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega todos os check-outs
         public QueryResponse<CheckOut> GetAll()
         {
             QueryResponse<CheckOut> response = new QueryResponse<CheckOut>();

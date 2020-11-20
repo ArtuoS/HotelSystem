@@ -11,6 +11,7 @@ namespace DataAcessLayer
 {
     public class CheckIn_ClienteDAL
     {
+        // Pega informações do check-in de determinado cliente
         public QueryResponse<CheckIn_Cliente> GetData()
         {
             QueryResponse<CheckIn_Cliente> response = new QueryResponse<CheckIn_Cliente>();

@@ -12,6 +12,7 @@ namespace DataAcessLayer
 {
     public class QuartoDAL
     {
+        // Insere um quarto
         public Response Insert(Quarto quarto)
         {
             Response response = new Response();
@@ -28,6 +29,7 @@ namespace DataAcessLayer
             return conexao.ProcessaInformacoesResponse(response, "Quarto cadastrado com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        // Atualiza um quarto
         public Response Update(Quarto quarto)
         {
             Response response = new Response();
@@ -45,6 +47,7 @@ namespace DataAcessLayer
             return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Quarto atualizado com sucesso!", "Quarto não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        // Deleta um quarto
         public Response Delete(Quarto quarto)
         {
             Response response = new Response();
@@ -59,6 +62,7 @@ namespace DataAcessLayer
 
         }
 
+        // Pega todos os quartos
         public QueryResponse<Quarto> GetAll()
         {
             QueryResponse<Quarto> response = new QueryResponse<Quarto>();
@@ -108,6 +112,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega todos os quartos desocupados
         public QueryResponse<Quarto> GetNotOccupied()
         {
             QueryResponse<Quarto> response = new QueryResponse<Quarto>();
@@ -157,6 +162,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega um item pelo ID
         public SingleResponse<Quarto> GetById(int id)
         {
             SingleResponse<Quarto> response = new SingleResponse<Quarto>();

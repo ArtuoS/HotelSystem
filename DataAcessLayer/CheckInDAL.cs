@@ -11,6 +11,7 @@ namespace DataAcessLayer
 {
     public class CheckInDAL
     {
+        // Insere um check-in
         public Response Insert(CheckIn checkIn)
         {
             Response response = new Response();
@@ -66,58 +67,26 @@ namespace DataAcessLayer
             return response;
         }
 
+        // Atualiza um check-in
         public Response Update(Cliente cliente)
         {
             Response response = new Response();
 
-            // responsável por realizar conexão física com o banco
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"UPDATE CHECKIN SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO WHERE ID = @ID");
+            conexao.CriaConexao();
 
-            // responsável por executar uma query no banco
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "UPDATE CHECKIN SET NOME = @NOME, TELEFONEFIXO = @TELEFONEFIXO, TELEFONECELULAR = @TELEFONECELULAR, EMAIL = @EMAIL, ATIVO = @ATIVO WHERE ID = @ID";
-            command.Parameters.AddWithValue("@ID", cliente.ID);
-            command.Parameters.AddWithValue("@NOME", cliente.Nome);
-            command.Parameters.AddWithValue("@TELEFONEFIXO", cliente.TelefoneFixo);
-            command.Parameters.AddWithValue("@TELEFONECELULAR", cliente.TelefoneCelular);
-            command.Parameters.AddWithValue("@EMAIL", cliente.Email);
-            command.Parameters.AddWithValue("@ATIVO", cliente.Ativo);
+            conexao.ParametroSql("@ID", cliente.ID);
+            conexao.ParametroSql("@NOME", cliente.Nome);
+            conexao.ParametroSql("@TELEFONEFIXO", cliente.TelefoneFixo);
+            conexao.ParametroSql("@TELEFONECELULAR", cliente.TelefoneCelular);
+            conexao.ParametroSql("@EMAIL", cliente.Email);
+            conexao.ParametroSql("@ATIVO", cliente.Ativo);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
-            command.Connection = connection;
-
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
-            try
-            {
-                connection.Open();
-                int nLinhasAfetadas = command.ExecuteNonQuery();
-                if (nLinhasAfetadas != 1)
-                {
-                    response.Success = false;
-                    response.Message = "Registro não encontrado!";
-                    return response;
-                }
-                response.Success = true;
-                response.Message = "Atualizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                // finally sempre é executado, independente de exceções ou returns!
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponseUpdateDelete(response, "Check-in atualizado com sucesso!", "Registro não encontrado!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        // Deleta um check-in
         public Response Delete(CheckIn checkIn)
         {
             Response response = new Response();
@@ -175,6 +144,7 @@ namespace DataAcessLayer
             return response;
         }
 
+        // Pega todos os check-ins
         public QueryResponse<CheckIn> GetAll()
         {
             QueryResponse<CheckIn> response = new QueryResponse<CheckIn>();
@@ -223,6 +193,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega um check-in pelo ID
         public SingleResponse<CheckIn> GetById(int id)
         {
             SingleResponse<CheckIn> response = new SingleResponse<CheckIn>();

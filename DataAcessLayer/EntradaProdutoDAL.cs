@@ -11,15 +11,14 @@ namespace DataAcessLayer
 {
     public class EntradaProdutoDAL
     {
+        // Insere uma entrada
         public SingleResponse<EntradaProduto> InsertEntrada(EntradaProduto entradaProduto)
         {
             SingleResponse<EntradaProduto> response = new SingleResponse<EntradaProduto>();
 
-            // responsável por realizar conexão física com o banco
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConnectionString.GetConnectionString();
 
-            // responsável por executar uma query no banco
             SqlCommand command = new SqlCommand();
             command.CommandText = "INSERT INTO ENTRADAPRODUTOS (DATAENTRADA, VALOR, FUNCIONARIOID, FORNECEDORID) VALUES (@DATAENTRADA, @VALOR, @FUNCIONARIOID, @FORNECEDORID)";
             command.Parameters.AddWithValue("@DATAENTRADA", entradaProduto.DataEntrada);
@@ -27,12 +26,8 @@ namespace DataAcessLayer
             command.Parameters.AddWithValue("@FUNCIONARIOID", entradaProduto.FuncionarioID);
             command.Parameters.AddWithValue("@FORNECEDORID", entradaProduto.FornecedorID);
 
-            // SqlCommando -> O QUE
-            // SqlConnection -> ONDE
             command.Connection = connection;
 
-            // Realiza, de fato, a conexão física com o banco.
-            // Lança erros caso a base na exista ou esteja ocupada.
             try
             {
                 connection.Open();
@@ -49,48 +44,29 @@ namespace DataAcessLayer
             }
             finally
             {
-                // finally sempre é executado, independente de exceções ou returns!
                 connection.Close();
             }
             return response;
         }
 
+        // Insere um item
         public Response InsertItem(ItensEntrada itens)
         {
             Response response = new Response();
 
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConnectionString.GetConnectionString();
+            ConexaoBanco conexao = new ConexaoBanco(@"INSERT INTO ITENSENTRADA (ENTRADAID, PRODUTOID, VALOR, QUANTIDADE) VALUES (@ENTRADAID, @PRODUTOID, @VALOR, @QUANTIDADE)");
+            conexao.CriaConexao();
 
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "INSERT INTO ITENSENTRADA (ENTRADAID, PRODUTOID, VALOR, QUANTIDADE) VALUES (@ENTRADAID, @PRODUTOID, @VALOR, @QUANTIDADE)";
-            command.Parameters.AddWithValue("@ENTRADAID", itens.EntradaID);
-            command.Parameters.AddWithValue("@PRODUTOID", itens.ProdutoID);
-            command.Parameters.AddWithValue("@VALOR", itens.Valor);
-            command.Parameters.AddWithValue("@QUANTIDADE", itens.Quantidade);
+            conexao.ParametroSql("@ENTRADAID", itens.EntradaID);
+            conexao.ParametroSql("@PRODUTOID", itens.ProdutoID);
+            conexao.ParametroSql("@VALOR", itens.Valor);
+            conexao.ParametroSql("@QUANTIDADE", itens.Quantidade);
 
-            command.Connection = connection;
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                response.Success = true;
-                response.Message = "Item inserido com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Erro no Banco de Dados, contate um ADM!";
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return response;
+            conexao.IniciaConexao();
+            return conexao.ProcessaInformacoesResponse(response, "Item inserido com sucesso!", "Erro no Banco de Dados, contate um ADM!");
         }
 
+        // Pega informações do produto
         public QueryResponse<Itens_Produto> GetProdutoInfo()
         {
             QueryResponse<Itens_Produto> response = new QueryResponse<Itens_Produto>();
@@ -137,6 +113,7 @@ namespace DataAcessLayer
             }
         }
 
+        // Pega o ID da entrada
         public SingleResponse<EntradaProduto> GetEntradaID(EntradaProduto entradaProduto)
         {
             SingleResponse<EntradaProduto> response = new SingleResponse<EntradaProduto>();
