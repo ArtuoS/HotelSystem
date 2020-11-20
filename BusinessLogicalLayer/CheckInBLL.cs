@@ -13,7 +13,8 @@ namespace BusinessLogicalLayer
     public class CheckInBLL : BaseValidator<CheckIn>
     {
         CheckInDAL checkInDAL = new CheckInDAL();
-        CheckIn_Cliente checkInCliete = new CheckIn_Cliente();
+
+        // Insere um check-in
         public Response Insert(CheckIn checkIn)
         {
             Response response = Validate(checkIn);
@@ -24,23 +25,21 @@ namespace BusinessLogicalLayer
             return response;
         }
 
-        public Response Delete(CheckIn checkIn)
-        {
-            return checkInDAL.Delete(checkIn);
-        }
-
+        // Pega todos os check-ins
         public QueryResponse<CheckIn> GetAll()
         {
             QueryResponse<CheckIn> response = checkInDAL.GetAll();
             return response;
         }
 
+        // Pega um check-in pelo ID
         public SingleResponse<CheckIn> GetById(int id)
         {
             SingleResponse<CheckIn> response = checkInDAL.GetById(id);
             return response;
         }
 
+        // Recebe e valida um check-in
         public override Response Validate(CheckIn checkIn)
         {
             AddError(checkIn.DataSaidaPrevista.VerificaDatas());

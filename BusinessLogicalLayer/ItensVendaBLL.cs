@@ -13,6 +13,8 @@ namespace BusinessLogicalLayer
     public class ItensVendaBLL : BaseValidator<ItensVenda>
     {
         VendaProdutoDAL vendaProdutoDAL = new VendaProdutoDAL();
+
+        // Insere um item na venda
         public Response InsertItem(ItensVenda item)
         {
             Response response = Validate(item);
@@ -23,6 +25,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Recebe e valida um item
         public override Response Validate(ItensVenda item)
         {
             AddError(item.ProdutoID.VerificaEstoque(item.Quantidade));

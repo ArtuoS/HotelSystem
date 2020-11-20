@@ -14,6 +14,7 @@ namespace BusinessLogicalLayer
     {
         FornecedorDAL fornecedorDAL = new FornecedorDAL();
 
+        // Valida e insere um fornecedor
         public Response Insert(Fornecedor fornecedor)
         {
             Response response = Validate(fornecedor);
@@ -24,6 +25,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Valida e atualiza um fornecedor
         public Response Update(Fornecedor fornecedor)
         {
             Response response = Validate(fornecedor);
@@ -35,11 +37,13 @@ namespace BusinessLogicalLayer
 
         }
 
+        // Deleta um fornecedor
         public Response Delete(Fornecedor fornecedor)
         {
             return fornecedorDAL.Delete(fornecedor);
         }
 
+        // Pega todos os fornecedores e adiciona máscaras
         public QueryResponse<Fornecedor> GetAll()
         {
             QueryResponse<Fornecedor> response = fornecedorDAL.GetAll();
@@ -48,9 +52,16 @@ namespace BusinessLogicalLayer
             {
                 item.CNPJ = item.CNPJ.Insert(2, ".").Insert(6, ".").Insert(10, "/").Insert(15, "-");
             }
+
+            foreach (Fornecedor item in temp)
+            {
+                item.TelefoneCelular = item.TelefoneCelular.Insert(0, "(").Insert(3, ")").Insert(4, " ").Insert(10, "-");
+            }
+
             return response;
         }
 
+        // Pega um fornecedor pela razão social
         public SingleResponse<Fornecedor> GetByRazaoSocial(Fornecedor fornecedor)
         {
             SingleResponse<Fornecedor> response = fornecedorDAL.GetByRazaoSocial(fornecedor);
@@ -61,6 +72,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Recebe e valida um fornecedor
         public override Response Validate(Fornecedor fornecedor)
         {
             AddError(fornecedor.Nome.ValidaNome());

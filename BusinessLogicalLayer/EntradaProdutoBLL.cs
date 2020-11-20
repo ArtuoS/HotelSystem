@@ -16,6 +16,7 @@ namespace BusinessLogicalLayer
         EntradaProdutoDAL entradaProdutoDAL = new EntradaProdutoDAL();
         ProdutoDAL produtoDAL = new ProdutoDAL();
 
+        // Insere uma entrada + itens
         public Response InsertEntrada(EntradaProduto entrada)
         {
             Response response = Validate(entrada);
@@ -51,12 +52,14 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Pega o ID da entrada
         public SingleResponse<EntradaProduto> GetEntradaID(EntradaProduto entrada)
         {
             SingleResponse<EntradaProduto> response = entradaProdutoDAL.GetEntradaID(entrada);
             return response;
         }
 
+        // Recebe e valida uma entrada
         public override Response Validate(EntradaProduto entrada)
         {
             AddError(entrada.Itens.ListaEstaVazia());

@@ -12,6 +12,8 @@ namespace BusinessLogicalLayer
     public class LimpezaQuartoBLL : BaseValidator<LimpezaQuarto>
     {
         LimpezaQuartoDAL limpezaQuartoDAL = new LimpezaQuartoDAL();
+
+        // Insere uma limpeza de quarto
         public Response Insert(LimpezaQuarto limpeza)
         {
             Response response = Validate(limpeza);
@@ -22,6 +24,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Valida uma limpeza
         public override Response Validate(LimpezaQuarto item)
         {
             return base.Validate(item);

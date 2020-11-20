@@ -15,6 +15,8 @@ namespace BusinessLogicalLayer
     public class QuartoBLL : BaseValidator<Quarto>
     {
         private QuartoDAL quartoDAL = new QuartoDAL();
+
+        // Valida e insere um quarto
         public Response Insert(Quarto quarto)
         {
             Response response = Validate(quarto);
@@ -25,6 +27,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Valida e atualiza um quarto
         public Response Update(Quarto quarto)
         {
             Response response = Validate(quarto);
@@ -35,29 +38,35 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Deleta um quarto
         public Response Delete(Quarto quarto)
         {
             return quartoDAL.Delete(quarto);
         }
 
+        // Pega todos os quartos
         public QueryResponse<Quarto> GetAll()
         {
             QueryResponse<Quarto> response = quartoDAL.GetAll();
             return response;
         }
 
+        // Pega todos os quartos não ocupados
         public QueryResponse<Quarto> GetNotOccupied()
         {
             QueryResponse<Quarto> response = quartoDAL.GetNotOccupied();
             return response;
         }
 
+    
+        // Pega um quarto pelo ID
         public SingleResponse<Quarto> GetById(int id)
         {
             SingleResponse<Quarto> response = quartoDAL.GetById(id);
             return response;
         }
-
+        
+        // Recebe um quarto e o valida
         public override Response Validate(Quarto quarto)
         {
             AddError(quarto.PessoasMaximas.ValidaPessoasMaximas());

@@ -13,6 +13,8 @@ namespace BusinessLogicalLayer
     public class FuncionarioBLL : BaseValidator<Funcionario>
     {
         private FuncionarioDAL funcionarioDAL = new FuncionarioDAL();
+
+        // Insere um funcionário
         public Response Insert(Funcionario funcionario)
         {
             Response response = Validate(funcionario);
@@ -23,6 +25,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Atualiza um funcionário
         public Response Update(Funcionario funcionario)
         {
             Response response = Validate(funcionario);
@@ -33,11 +36,13 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Deleta um funcionário
         public Response Delete(Funcionario funcionario)
         {
             return funcionarioDAL.Delete(funcionario);
         }
 
+        // Pega todos os funcionários e adiciona máscaras
         public QueryResponse<Funcionario> GetAll()
         {
             QueryResponse<Funcionario> responseF = funcionarioDAL.GetAll();
@@ -63,6 +68,7 @@ namespace BusinessLogicalLayer
             return responseF;
         }
 
+        // Loga um funcionário
         public SingleResponse<Funcionario> GetByLogin(Funcionario funcionario)
         {
             SingleResponse<Funcionario> response = funcionarioDAL.GetByLogin(funcionario);
@@ -73,6 +79,7 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Recebe e valida um funcionário
         public override Response Validate(Funcionario funcionario)
         {
             AddError(funcionario.Nome.ValidaNome());

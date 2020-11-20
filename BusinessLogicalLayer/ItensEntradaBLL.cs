@@ -13,6 +13,8 @@ namespace BusinessLogicalLayer
     public class ItensEntradaBLL : BaseValidator<ItensEntrada>
     {
         EntradaProdutoDAL entradaProdutoDAL = new EntradaProdutoDAL();
+
+        // Insere um item na entrada
         public Response InsertItem(ItensEntrada item)
         {
             Response response = Validate(item);
@@ -23,12 +25,14 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Pega informações do produto
         public QueryResponse<Itens_Produto> GetProdutoInfo()
         {
             QueryResponse<Itens_Produto> response = entradaProdutoDAL.GetProdutoInfo();
             return response;
         }
 
+        // Recebe e valida um item
         public override Response Validate(ItensEntrada item)
         {
             AddError(item.Quantidade.VerificaQuantidadeItens());

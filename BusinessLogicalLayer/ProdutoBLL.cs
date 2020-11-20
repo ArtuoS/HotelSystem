@@ -13,6 +13,8 @@ namespace BusinessLogicalLayer
     public class ProdutoBLL : BaseValidator<Produto>
     {
         private ProdutoDAL produtoDAL = new ProdutoDAL();
+
+        // Insere um produto 
         public Response Insert(Produto produto)
         {
             Response response = Validate(produto);
@@ -22,6 +24,8 @@ namespace BusinessLogicalLayer
             }
             return response;
         }
+
+        // Atualiza um produto
         public Response Update(Produto produto)
         {
             Response response = Validate(produto);
@@ -31,38 +35,42 @@ namespace BusinessLogicalLayer
             }
             return response;
         }
+
+        // Deleta um produto
         public Response Delete(Produto produto)
         {
             return produtoDAL.Delete(produto);
         }
 
+        // Pega todos os produtos
         public QueryResponse<Produto> GetAll()
         {
             QueryResponse<Produto> response = produtoDAL.GetAll();
             return response;
         }
 
+        // Pega todos os produtos com estoque
         public QueryResponse<Produto> GetAllComEstoque()
         {
             QueryResponse<Produto> response = produtoDAL.GetAllComEstoque();
-            //ACEITAR SOMENTE .2 DPS DA VIRGULA
             return response;
         }
 
+        // Pega um produto pelo nome
         public SingleResponse<Produto> GetByNome(Produto produto)
         {
             SingleResponse<Produto> response = produtoDAL.GetByNome(produto);
             return response;
         }
 
-
+        // Pega um produto pelo ID
         public SingleResponse<Produto> GetById(int id)
         {
             SingleResponse<Produto> response = produtoDAL.GetById(id);
             return response;
         }
 
-
+        // Recebe e valida um produto
         public override Response Validate(Produto produto)
         {
             AddError(produto.Nome.ValidaNomeProduto());

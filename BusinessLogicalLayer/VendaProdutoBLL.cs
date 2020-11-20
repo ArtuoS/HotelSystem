@@ -15,6 +15,8 @@ namespace BusinessLogicalLayer
     {
         VendaProdutoDAL vendaProdutoDAL = new VendaProdutoDAL();
         ProdutoDAL produtoDAL = new ProdutoDAL();
+
+        // Valida e insere a venda + itens
         public Response InsertVenda(VendaProduto venda)
         {
             Response response = Validate(venda);
@@ -37,7 +39,8 @@ namespace BusinessLogicalLayer
                             if (responseItensVenda.Success)
                             {
                                 produtoDAL.AtualizaEstoqueVenda(item.ProdutoID, item.Quantidade);
-                            } else
+                            }
+                            else
                             {
                                 return responseItensVenda;
                             }
@@ -51,18 +54,21 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Pega o ID da venda
         public SingleResponse<VendaProduto> GetVendaID(int id)
         {
             SingleResponse<VendaProduto> response = vendaProdutoDAL.GetVendaID(id);
             return response;
         }
 
+        // Pega a venda pelo ID
         public SingleResponse<VendaProduto> GetVendaById(int id)
         {
             SingleResponse<VendaProduto> response = vendaProdutoDAL.GetVendaById(id);
             return response;
         }
 
+        // Recebe uma venda e a valida
         public override Response Validate(VendaProduto venda)
         {
             AddError(venda.Itens.ListaEstaVazia());

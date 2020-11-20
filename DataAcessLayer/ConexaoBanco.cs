@@ -25,6 +25,7 @@ namespace DataAcessLayer
 
         VendaProduto venda = new VendaProduto();
 
+        // Cria conexao com o banco
         public void CriaConexao()
         {
             conexao = new SqlConnection();
@@ -34,16 +35,19 @@ namespace DataAcessLayer
             sqlComando.CommandText = ComandoTexto;
         }
 
+        // Parâmetros para passar ao banco
         public SqlParameter ParametroSql(string parameter, object value)
         {
             return sqlComando.Parameters.AddWithValue(parameter, EntitiesExtensions.ConvertToType(value));
         }
 
+        // Inicia conexão com o banco
         public SqlConnection IniciaConexao()
         {
             return sqlComando.Connection = conexao;
         }
 
+        // Processa e verifica informações: Insert
         public Response ProcessaInformacoesResponse(Response response, string mensagemSucesso, string mensagemErro)
         {
             try
@@ -67,6 +71,7 @@ namespace DataAcessLayer
             return response;
         }
 
+        // Processa e verifica informações: Delete, Update
         public Response ProcessaInformacoesResponseUpdateDelete(Response response, string mensagemSucesso, string mensagemErro, string mensagemErroBd)
         {
             try
@@ -95,63 +100,5 @@ namespace DataAcessLayer
             }
             return response;
         }
-
-        public Response ProcessaInformacoesReader(Response response, string mensagemErro, string mensagemErroBd)
-        {
-            try
-            {
-                conexao.Open();
-                SqlDataReader reader = sqlComando.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    response.Success = false;
-                    response.Message = mensagemErro;
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "";
-                }
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = mensagemErroBd;
-                response.StackTrace = ex.StackTrace;
-                response.ExceptionError = ex.Message;
-                return response;
-            }
-            finally
-            {
-                conexao.Close();
-            }
-        }
-
-        /*
-                public void ProcessaInformacoesSingleQuery(this object classe, string mensagemSucesso, string mensagemErro)
-                {
-                    try
-                    {
-                        conexao.Open();
-                        sqlComando.ExecuteNonQuery();
-                        classe.Success = true;
-                        response.Message = mensagemSucesso;
-                    }
-                    catch (Exception ex)
-                    {
-                        response.Success = false;
-                        response.Message = mensagemErro;
-                        response.StackTrace = ex.StackTrace;
-                        response.ExceptionError = ex.Message;
-                    }
-                    finally
-                    {
-                        conexao.Close();
-                    }
-                }
-        */
     }
 }

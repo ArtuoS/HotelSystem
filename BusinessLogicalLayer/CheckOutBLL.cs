@@ -15,6 +15,8 @@ namespace BusinessLogicalLayer
     {
         CheckOutDAL checkOutDAL = new CheckOutDAL();
         VendaProdutoDAL vendaProdutoDAL = new VendaProdutoDAL();
+
+        // Insere um checkout + calcula preço creckout -> preço dos itens consumidos + diaria do quarto pelos dias
         public Response Insert(CheckOut checkOut)
         {
             Response response = Validate(checkOut);
@@ -50,12 +52,14 @@ namespace BusinessLogicalLayer
             return response;
         }
 
+        // Pega todos os quartos
         public QueryResponse<CheckOut> GetAll()
         {
             QueryResponse<CheckOut> response = checkOutDAL.GetAll();
             return response;
         }
 
+        // Recebe e valida um checkout
         public override Response Validate(CheckOut checkOut)
         {
             return base.Validate(checkOut);

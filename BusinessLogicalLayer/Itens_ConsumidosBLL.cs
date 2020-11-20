@@ -12,6 +12,8 @@ namespace BusinessLogicalLayer
     public class Itens_ConsumidosBLL : BaseValidator<Itens_Consumidos>
     {
         Itens_ConsumidosDAL itens_ConsumidosDAL = new Itens_ConsumidosDAL();
+
+        // Pega todos os itens consumidos pelo cliente pelo ID
         public QueryResponse<Itens_Consumidos> GetItensConsumidosByCliente(int id)
         {
             QueryResponse<Itens_Consumidos> response = itens_ConsumidosDAL.GetItensConsumidosByCliente(id);
