@@ -57,14 +57,6 @@ namespace BusinessLogicalLayer
                 item.RG = item.RG.Insert(3, ".").Insert(7, ".").Insert(10, "-");
             }
 
-            foreach (Funcionario item in temp)
-            {
-                foreach (char ch in item.Senha)
-                {
-                    item.Senha = item.Senha.Replace(ch, '*');
-                }
-            }
-
             return responseF;
         }
 

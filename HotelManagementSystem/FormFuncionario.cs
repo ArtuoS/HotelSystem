@@ -41,6 +41,7 @@ namespace HotelManagementSystem
                 funcionario.CPF = txtCPF.Text;
                 funcionario.RG = txtRG.Text;
                 funcionario.Email = txtEmail.Text;
+                funcionario.Cargo = (CargosFuncionarios)cbCargo.SelectedIndex;
                 funcionario.Senha = txtSenha.Text;
                 funcionario.Rua = txtRua.Text;
                 funcionario.Bairro = txtBairro.Text;

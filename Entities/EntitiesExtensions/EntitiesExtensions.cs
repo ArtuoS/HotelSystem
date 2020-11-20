@@ -8,11 +8,10 @@ namespace Entities
 {
     public static class EntitiesExtensions
     {
+        // Converte para o tipo correto de variavel
         public static dynamic ConvertToType(this object obj)
         {
             return Convert.ChangeType(obj, obj.GetType());
         }
-
-        //public static ConvertToClass()
     }
 }
