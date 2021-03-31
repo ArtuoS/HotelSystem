@@ -1,0 +1,5 @@
+C:\Users\arthu\source\repos\ShopMe\DataAcessLayer\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\arthu\source\repos\ShopMe\DataAcessLayer\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\arthu\source\repos\ShopMe\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csprojAssemblyReference.cache
+C:\Users\arthu\source\repos\ShopMe\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfoInputs.cache
+C:\Users\arthu\source\repos\ShopMe\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfo.cs
