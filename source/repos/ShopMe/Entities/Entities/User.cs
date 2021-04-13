@@ -16,6 +16,7 @@ namespace Entities.Entities
         public string Password { get; set; }
         public int AdressId { get; set; }
         public Adress Adress { get; set; }
+        public ICollection<Store> Stores { get; set; }
     }
 }
 
